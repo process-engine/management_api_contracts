@@ -1,5 +1,5 @@
 // tslint:disable:no-namespace
-
+export * from './data_models/index';
 export * from './management_context';
 export * from './management_request';
 export * from './imanagement_api_service';

@@ -6,6 +6,7 @@ const params = {
 
 const paths = {
   startProcessInstance: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/start`,
+  processModelEvents: `/process_models/${params.processModelKey}/events`,
 };
 
 export const restSettings = {
