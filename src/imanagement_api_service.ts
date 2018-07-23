@@ -1,4 +1,6 @@
 import {
+  ProcessModel,
+  ProcessModelList,
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
   StartCallbackType,
@@ -8,6 +10,8 @@ import {EventList, UserTaskList, UserTaskResult} from './data_models/index';
 import {ManagementContext} from './management_context';
 
 export interface IManagementApiService {
+  getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
+  getProcessModelById(context: ManagementContext, processModelKey: string): Promise<ProcessModel>;
   startProcessInstance(context: ManagementContext,
                        processModelKey: string,
                        startEventKey: string,
