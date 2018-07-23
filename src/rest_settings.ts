@@ -7,6 +7,8 @@ const params = {
 };
 
 const paths = {
+  processModels: `/process_models`,
+  processModelById: `/process_models/${params.processModelKey}`,
   startProcessInstance: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/start`,
   processModelEvents: `/process_models/${params.processModelKey}/events`,
   // UserTasks
