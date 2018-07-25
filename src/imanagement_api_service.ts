@@ -1,15 +1,21 @@
 import {
+  Correlation,
+  EventList,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
   StartCallbackType,
-} from './process_model_execution/index';
+  UserTaskList,
+  UserTaskResult,
+} from './data_models/index';
 
-import {EventList, UserTaskList, UserTaskResult} from './data_models/index';
 import {ManagementContext} from './management_context';
 
 export interface IManagementApiService {
+  // Correlations
+  getAllActiveCorrelations(context: ManagementContext): Promise<Array<Correlation>>;
+  // Process Models
   getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
   getProcessModelById(context: ManagementContext, processModelKey: string): Promise<ProcessModel>;
   startProcessInstance(context: ManagementContext,

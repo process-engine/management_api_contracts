@@ -7,6 +7,9 @@ const params = {
 };
 
 const paths = {
+  // Correlations
+  activeCorrelations: `/correlations/active`,
+  // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelKey}`,
   startProcessInstance: `/process_models/${params.processModelKey}/start_events/${params.startEventKey}/start`,
