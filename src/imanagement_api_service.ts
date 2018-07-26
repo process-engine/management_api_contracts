@@ -6,6 +6,7 @@ import {
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
   StartCallbackType,
+  UpdateProcessModelRequestPayload,
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
@@ -18,7 +19,7 @@ export interface IManagementApiService {
   // Process Models
   getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
   getProcessModelById(context: ManagementContext, processModelKey: string): Promise<ProcessModel>;
-  updateProcessModel(context: ManagementContext, processModelKey: string, xml: string): Promise<void>;
+  updateProcessModel(context: ManagementContext, processModelKey: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
   startProcessInstance(context: ManagementContext,
                        processModelKey: string,
                        startEventKey: string,
