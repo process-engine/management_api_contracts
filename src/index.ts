@@ -18,4 +18,5 @@ export namespace ProcessModelExecution {
   export import ProcessStartRequestPayload = execution.ProcessStartRequestPayload;
   export import ProcessStartResponsePayload = execution.ProcessStartResponsePayload;
   export import StartCallbackType = execution.StartCallbackType;
+  export import UpdateProcessModelRequestPayload = execution.UpdateProcessModelRequestPayload;
 }
