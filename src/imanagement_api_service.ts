@@ -18,21 +18,21 @@ export interface IManagementApiService {
   getAllActiveCorrelations(context: ManagementContext): Promise<Array<Correlation>>;
   // Process Models
   getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
-  getProcessModelById(context: ManagementContext, processModelKey: string): Promise<ProcessModel>;
-  updateProcessModel(context: ManagementContext, processModelKey: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
+  getProcessModelById(context: ManagementContext, processModelId: string): Promise<ProcessModel>;
+  updateProcessModel(context: ManagementContext, processModelId: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
   startProcessInstance(context: ManagementContext,
-                       processModelKey: string,
-                       startEventKey: string,
+                       processModelId: string,
+                       startEventId: string,
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
-                       endEventKey?: string): Promise<ProcessStartResponsePayload>;
-  getEventsForProcessModel(context: ManagementContext, processModelKey: string): Promise<EventList>;
+                       endEventId?: string): Promise<ProcessStartResponsePayload>;
+  getEventsForProcessModel(context: ManagementContext, processModelId: string): Promise<EventList>;
   // UserTasks
-  getUserTasksForProcessModel(context: ManagementContext, processModelKey: string): Promise<UserTaskList>;
+  getUserTasksForProcessModel(context: ManagementContext, processModelId: string): Promise<UserTaskList>;
   getUserTasksForCorrelation(context: ManagementContext, correlationId: string): Promise<UserTaskList>;
-  getUserTasksForProcessModelInCorrelation(context: ManagementContext, processModelKey: string, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModelInCorrelation(context: ManagementContext, processModelId: string, correlationId: string): Promise<UserTaskList>;
   finishUserTask(context: ManagementContext,
-                 processModelKey: string,
+                 processModelId: string,
                  correlationId: string,
                  userTaskId: string,
                  userTaskResult: UserTaskResult): Promise<void>;
