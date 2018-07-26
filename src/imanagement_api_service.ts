@@ -19,7 +19,7 @@ export interface IManagementApiService {
   // Process Models
   getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
   getProcessModelById(context: ManagementContext, processModelId: string): Promise<ProcessModel>;
-  updateProcessModel(context: ManagementContext, processModelId: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
+  updateProcessModelById(context: ManagementContext, processModelId: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
   startProcessInstance(context: ManagementContext,
                        processModelId: string,
                        startEventId: string,
