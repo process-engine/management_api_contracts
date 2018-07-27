@@ -1,9 +1,7 @@
+import {UserTask as ConsumerApiUserTask} from '@process-engine/consumer_api_contracts';
+
 import {UserTaskConfig} from './user_task_config';
 
-export class UserTask {
-  public key: string;
-  public id: string;
-  public processInstanceId: string;
+export class UserTask extends ConsumerApiUserTask {
   public data: UserTaskConfig;
-  public tokenPayload: any; // token payload the UserTask got suspended with
 }

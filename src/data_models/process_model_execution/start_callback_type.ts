@@ -1,5 +1,3 @@
-export enum StartCallbackType {
-    CallbackOnProcessInstanceCreated = 1,
-    CallbackOnProcessInstanceFinished = 2,
-    CallbackOnEndEventReached = 3,
-}
+import {StartCallbackType as ConsumerApiStartCallbackType} from '@process-engine/consumer_api_contracts';
+
+export type StartCallbackType = ConsumerApiStartCallbackType;

@@ -1,5 +1,7 @@
-import {Event} from './event';
+import {EventList as ConsumerApiEventList} from '@process-engine/consumer_api_contracts';
 
-export interface EventList {
+import {Event} from '../index';
+
+export interface EventList extends ConsumerApiEventList {
   events: Array<Event>;
 }
