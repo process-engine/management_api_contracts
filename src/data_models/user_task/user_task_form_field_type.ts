@@ -1,8 +1,3 @@
-export enum UserTaskFormFieldType {
-  boolean = 'boolean',
-  date = 'date',
-  enumeration = 'enum',
-  long = 'long',
-  number = 'number',
-  string = 'string',
-}
+import {UserTaskFormFieldType as ConsumerApiUserTaskFormFieldType} from '@process-engine/consumer_api_contracts';
+
+export import UserTaskFormFieldType = ConsumerApiUserTaskFormFieldType;

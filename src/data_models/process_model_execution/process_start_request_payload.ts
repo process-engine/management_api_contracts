@@ -1,6 +1,4 @@
-export class ProcessStartRequestPayload {
-  public correlationId?: string;
-   // Note: The CallerId contains a process instance ID and must only ever be set, when a subprocess is to be started.
-  public callerId?: string;
-  public inputValues: any;
+import {ProcessStartRequestPayload as ConsumerApiProcessStartRequestPayload} from '@process-engine/consumer_api_contracts';
+
+export class ProcessStartRequestPayload extends ConsumerApiProcessStartRequestPayload {
 }
