@@ -1,6 +1,5 @@
-export class Event {
-  public key: string;
-  public id?: string;
-  public processInstanceId?: string;
-  public data?: any; // TODO: Define event-payload
+import {Event as ConsumerApiEvent} from '@process-engine/consumer_api_contracts';
+
+export class Event extends ConsumerApiEvent {
+
 }

@@ -1,5 +1,4 @@
-export class ProcessStartResponsePayload {
-  public correlationId: string;
-  public endEventId?: string;
-  public tokenPayload?: string;
+import {ProcessStartResponsePayload as ConsumerApiProcessStartResponsePayload} from '@process-engine/consumer_api_contracts';
+
+export class ProcessStartResponsePayload extends ConsumerApiProcessStartResponsePayload {
 }
