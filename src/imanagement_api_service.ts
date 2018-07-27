@@ -22,6 +22,7 @@ export interface IManagementApiService {
    * @returns       A Promise, which resolves with the correlation list, or rejects an error, in case the request failed.
    */
   getAllActiveCorrelations(context: ManagementContext): Promise<Array<Correlation>>;
+
   /**
    * Retrieves a list of all process models that the requesting user is authorized to see.
    *
@@ -30,6 +31,7 @@ export interface IManagementApiService {
    * @returns       A Promise, which resolves with the process model list, or rejects an error, in case the request failed.
    */
   getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
+
   /**
    * Retrieves a process model by its id.
    *
@@ -40,6 +42,7 @@ export interface IManagementApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to see it.
    */
   getProcessModelById(context: ManagementContext, processModelId: string): Promise<ProcessModel>;
+
   /**
    * Updates a process model by its id.
    *
@@ -51,6 +54,7 @@ export interface IManagementApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to update it.
    */
   updateProcessModelById(context: ManagementContext, processModelId: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
+
   /**
    * Starts a new instance of a process model with a specific id.
    * Depending on the type of callback used, this function will resolve either immediately after the process instance was started,
@@ -76,6 +80,7 @@ export interface IManagementApiService {
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
                        endEventId?: string): Promise<ProcessStartResponsePayload>;
+
   /**
    * Retrieves a list of all events belonging to a specific process model.
    *
@@ -86,6 +91,7 @@ export interface IManagementApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
   getEventsForProcessModel(context: ManagementContext, processModelId: string): Promise<EventList>;
+
   /**
    * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model.
    *
@@ -96,6 +102,7 @@ export interface IManagementApiService {
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
   getUserTasksForProcessModel(context: ManagementContext, processModelId: string): Promise<UserTaskList>;
+
   /**
    * Retrieves a list of all suspended user tasks belonging to a specific correlation.
    *
@@ -106,6 +113,7 @@ export interface IManagementApiService {
    *                       This can happen, if the correlation was not found, or the user is not authorized to see the it.
    */
   getUserTasksForCorrelation(context: ManagementContext, correlationId: string): Promise<UserTaskList>;
+
   /**
    * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model within a correlation.
    *
@@ -117,6 +125,7 @@ export interface IManagementApiService {
    *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see either.
    */
   getUserTasksForProcessModelInCorrelation(context: ManagementContext, processModelId: string, correlationId: string): Promise<UserTaskList>;
+
   /**
    * Finishes a user task belonging to an instance of a specific process model within a correlation.
    *
