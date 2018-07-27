@@ -22,7 +22,16 @@ const paths = {
   finishUserTask: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks/${params.userTaskId}/finish`,
 };
 
+/**
+ * Contains the endpoints and various rest parameters used by the management api.
+ */
 export const restSettings = {
+  /**
+   * A collection of all url parameters employed by the management api.
+   */
   params: params,
+  /**
+   * A collection of all urls employed by the management api.
+   */
   paths: paths,
 };
