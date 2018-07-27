@@ -4,7 +4,7 @@ import {UserTaskEnumValue} from './user_task_enum_value';
 import {UserTaskFormFieldType} from './user_task_form_field_type';
 
 /**
- * Contains information about a user tasks form field.
+ * Contains information about a UserTasks form field.
  */
 export class UserTaskFormField extends ConsumerApiUserTaskFormField {
   /**

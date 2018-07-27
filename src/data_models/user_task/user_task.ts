@@ -3,11 +3,11 @@ import {UserTask as ConsumerApiUserTask} from '@process-engine/consumer_api_cont
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a user task that belongs to an active correlation.
+ * Describes a UserTask that belongs to an active correlation.
  */
 export class UserTask extends ConsumerApiUserTask {
   /**
-   * Contains information about the user tasks configuration, such as the form fields that can be addressed.
+   * Contains information about the UserTasks configuration, such as the form fields that can be addressed.
    */
   public data: UserTaskConfig;
 }

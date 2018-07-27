@@ -93,50 +93,50 @@ export interface IManagementApiService {
   getEventsForProcessModel(context: ManagementContext, processModelId: string): Promise<EventList>;
 
   /**
-   * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model.
+   * Retrieves a list of all suspended UserTasks belonging to an instance of a specific process model.
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model for which to retrieve the user tasks.
-   * @returns              A Promise, which resolves with the retrieved user tasks or rejects an error, in case the request failed.
+   * @param processModelId The id of the process model for which to retrieve the UserTasks.
+   * @returns              A Promise, which resolves with the retrieved UserTasks or rejects an error, in case the request failed.
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
   getUserTasksForProcessModel(context: ManagementContext, processModelId: string): Promise<UserTaskList>;
 
   /**
-   * Retrieves a list of all suspended user tasks belonging to a specific correlation.
+   * Retrieves a list of all suspended UserTasks belonging to a specific correlation.
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param correlationId  The id of the correlation for which to retrieve the user tasks.
-   * @returns              A Promise, which resolves with the retrieved user tasks, or rejects an error, in case the request failed.
+   * @param correlationId  The id of the correlation for which to retrieve the UserTasks.
+   * @returns              A Promise, which resolves with the retrieved UserTasks, or rejects an error, in case the request failed.
    *                       This can happen, if the correlation was not found, or the user is not authorized to see the it.
    */
   getUserTasksForCorrelation(context: ManagementContext, correlationId: string): Promise<UserTaskList>;
 
   /**
-   * Retrieves a list of all suspended user tasks belonging to an instance of a specific process model within a correlation.
+   * Retrieves a list of all suspended UserTasks belonging to an instance of a specific process model within a correlation.
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param correlationId  The id of the correlation for which to retrieve the user tasks.
-   * @param processModelId The id of the process model for which to retrieve the user tasks.
-   * @returns              A Promise, which resolves with the retrieved user tasks, or rejects an error, in case the request failed.
+   * @param correlationId  The id of the correlation for which to retrieve the UserTasks.
+   * @param processModelId The id of the process model for which to retrieve the UserTasks.
+   * @returns              A Promise, which resolves with the retrieved UserTasks, or rejects an error, in case the request failed.
    *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see either.
    */
   getUserTasksForProcessModelInCorrelation(context: ManagementContext, processModelId: string, correlationId: string): Promise<UserTaskList>;
 
   /**
-   * Finishes a user task belonging to an instance of a specific process model within a correlation.
+   * Finishes a UserTask belonging to an instance of a specific process model within a correlation.
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model for which to finish a user task.
-   * @param correlationId  The id of the correlation for which to finish a user task.
-   * @param userTaskId     The id of user task to finish.
-   * @param userTaskResult Contains a set of results with which to finish the user task.
+   * @param processModelId The id of the process model for which to finish a UserTask.
+   * @param correlationId  The id of the correlation for which to finish a UserTask.
+   * @param userTaskId     The id of UserTask to finish.
+   * @param userTaskResult Contains a set of results with which to finish the UserTask.
    * @returns              A Promise, which resolves without content, or rejects an error, in case the request failed.
-   *                       This can happen, if the user task, process model or correlation were not found,
+   *                       This can happen, if the UserTask, process model or correlation were not found,
    *                       or the user is not authorized to see either.
    */
   finishUserTask(context: ManagementContext,
