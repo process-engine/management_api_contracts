@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/process-engine/management_api_contracts#readme",
   "dependencies": {
-    "@process-engine/consumer_api_contracts": "^0.14.0"
+    "@process-engine/consumer_api_contracts": "^0.15.0"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "1.0.0",
