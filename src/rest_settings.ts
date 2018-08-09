@@ -36,6 +36,10 @@ export const restSettings = {
    */
   params: params,
   /**
+   * A collection of all query parameters employed by the management api.
+   */
+  queryParams: queryParams,
+  /**
    * A collection of all urls employed by the management api.
    */
   paths: paths,
