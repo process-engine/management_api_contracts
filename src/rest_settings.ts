@@ -4,6 +4,11 @@ const params = {
   processModelId: ':process_model_id',
   startEventId: ':start_event_id',
   userTaskId: ':user_task_id',
+  processDefinitionsName: ':process_definitions_name',
+};
+
+const queryParams = {
+  endEventId: 'end_event_id',
 };
 
 const paths = {
@@ -12,7 +17,7 @@ const paths = {
   // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
-  updateProcessModelById: `/process_models/${params.processModelId}/update`,
+  updateProcessDefinitionsById: `/process_models/${params.processDefinitionsName}/update`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
   processModelEvents: `/process_models/${params.processModelId}/events`,
   // UserTasks
