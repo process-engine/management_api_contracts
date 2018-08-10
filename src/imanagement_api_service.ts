@@ -6,7 +6,7 @@ import {
   ProcessStartRequestPayload,
   ProcessStartResponsePayload,
   StartCallbackType,
-  UpdateProcessModelRequestPayload,
+  UpdateProcessDefinitionsRequestPayload,
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
@@ -48,12 +48,12 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model to update.
-   * @param payload        The payload with which to update the process model.
+   * @param name           The name of the process definitions to update.
+   * @param payload        The payload with which to update the process definitions.
    * @returns              A Promise, which resolves without content, or rejects an error, in case the update failed.
-   *                       This can happen, if the process model was not found, or the user is not authorized to update it.
+   *                       This can happen, if the process definitions were not found, or the user is not authorized to update it.
    */
-  updateProcessModelById(context: ManagementContext, processModelId: string, payload: UpdateProcessModelRequestPayload): Promise<void>;
+  updateProcessDefinitionsByName(context: ManagementContext, name: string, payload: UpdateProcessDefinitionsRequestPayload): Promise<void>;
 
   /**
    * Starts a new instance of a process model with a specific id.

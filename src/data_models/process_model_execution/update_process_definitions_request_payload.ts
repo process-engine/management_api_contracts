@@ -1,7 +1,7 @@
 /**
  * Contains the payload that has to be provided with an updateProcessModel request.
  */
-export class UpdateProcessModelRequestPayload {
+export class UpdateProcessDefinitionsRequestPayload {
   /**
    * The xml code with which to update the process model.
    */
