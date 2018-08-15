@@ -21,9 +21,9 @@
   "dependencies": {
     "@essential-projects/iam_contracts": "^3.1.0",
     "@process-engine/consumer_api_contracts": "^0.15.0",
-    "@process-engine/kpi_api_contracts": "git://github.com/process-engine/kpi_api_contracts.git#feature/initial_implementation",
-    "@process-engine/logging_api_contracts": "git://github.com/process-engine/logging_api_contracts.git#feature/initial_implementation",
-    "@process-engine/token_history_api_contracts": "git://github.com/process-engine/token_history_api_contracts.git#feature/initial_implementation"
+    "@process-engine/kpi_api_contracts": "feature~initial_implementation",
+    "@process-engine/logging_api_contracts": "feature~initial_implementation",
+    "@process-engine/token_history_api_contracts": "feature~initial_implementation"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "1.0.0",
