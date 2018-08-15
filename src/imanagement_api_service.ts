@@ -1,3 +1,8 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+import {ActiveToken, AverageFlowNodeRuntime} from '@process-engine/kpi_api_contracts';
+import {LogEntry, LogLevel} from '@process-engine/logging_api_contracts';
+import {TokenHistoryEntry} from '@process-engine/token_history_api_contracts';
+
 import {
   Correlation,
   EventList,
@@ -10,7 +15,6 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
-
 import {ManagementContext} from './management_context';
 
 export interface IManagementApiService {
@@ -144,4 +148,52 @@ export interface IManagementApiService {
                  correlationId: string,
                  userTaskId: string,
                  userTaskResult: UserTaskResult): Promise<void>;
+
+  /**
+   * Gets all AverageFlowNodeRuntimes for a ProcessModel.
+   * @param identity The identity to check claims for.
+   * @param processModelId The id of the ProcessModel.
+   */
+  getAverageRuntimesForProcessModel(identity: IIdentity, processModelId: string): Array<AverageFlowNodeRuntime>;
+
+  /**
+   * Gets the AverageFlowNodeRuntime for a specific FlowNode inside a ProvessModel.
+   * @param identiy The identity to check claims for.
+   * @param processModelId The id of the ProcessModel.
+   * @param flowNodeId The id of the FlowNode inside the ProcessModel.
+   */
+  getAverageRuntimeForFlowNode(identiy: IIdentity, processModelId: string, flowNodeId: string): AverageFlowNodeRuntime;
+
+  /**
+   * Gets all ActiveTokens for a ProcessModel.
+   * @param identity The identity to check claims for.
+   * @param processModelId The id of the ProcessModel.
+   */
+  getActiveTolenForProcessModel(identity: IIdentity, processModelId: string): Array<ActiveToken>;
+
+  /**
+   * Gets all ActiveTokens for a specific FlowNode inside a ProcessModel.
+   * @param identity The identity to check claims for.
+   * @param processModelId The id of the ProcessModel.
+   * @param flowNodeId The id of the FlowNode inside the ProcessModel.
+   */
+  getActiveTokensForFlowNode(identity: IIdentity, processModelId: string, flowNodeId: string): Array<ActiveToken>;
+
+  /**
+   * Gets all logs for specific ProcessInstance.
+   * @param identity The identity to check claims for.
+   * @param processModelId The id of the ProcessModel.
+   * @param correlationId The id of the Correlation.
+   * @param loglevel Optional: The loglevel to check for.
+   */
+  getLogForProcessInstance(identity: IIdentity, processModelId: string, correlationId: string, loglevel?: LogLevel): Array<LogEntry>;
+
+  /**
+   * Gets the history of a token on a specific FlowNode inside a ProcessInstance.
+   * @param identity The identity to check claims for.
+   * @param processModelId The id of the ProcessModel.
+   * @param correlationId The id of the Correlation.
+   * @param flowNodeId The id of the specific FlowNode.
+   */
+  getTokensForFlowNodeInstance(identity: IIdentity, processModelId: string, correlationId: string, flowNodeId: string): Array<TokenHistoryEntry>;
 }
