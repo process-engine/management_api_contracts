@@ -1,6 +1,5 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-import {ActiveToken, AverageFlowNodeRuntime} from '@process-engine/kpi_api_contracts';
-import {LogEntry, LogLevel} from '@process-engine/logging_api_contracts';
+import {ActiveToken, FlowNodeRuntimeInformation} from '@process-engine/kpi_api_contracts';
+import {LogEntry} from '@process-engine/logging_api_contracts';
 import {TokenHistoryEntry} from '@process-engine/token_history_api_contracts';
 
 import {
@@ -41,7 +40,7 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model to retrieve.
+   * @param processModelId The ID of the process model to retrieve.
    * @returns              A Promise, which resolves with the process model, or rejects an error, in case the request failed.
    *                       This can happen, if the process model was not found, or the user is not authorized to see it.
    */
@@ -67,12 +66,12 @@ export interface IManagementApiService {
    *
    * @async
    * @param context           The management-api specific execution context of the requesting user.
-   * @param processModelId    The id of the process model to retrieve.
-   * @param startEventId      The id of the start event through which to start the process instance.
-   * @param payload           Contains parameters to pass to the process instance. Can optionally define a correlation id to use.
+   * @param processModelId    The ID of the process model to retrieve.
+   * @param startEventId      The ID of the start event through which to start the process instance.
+   * @param payload           Contains parameters to pass to the process instance. Can optionally define a correlation ID to use.
    * @param startCallbackType The type of start callback use. Depending on the value used, the function will either resolve right
    *                          after starting the process instance, or after reaching an end event.
-   * @param endEventId        Contains the id of the end event that the process engine should wait for, before resolving.
+   * @param endEventId        Contains the ID of the end event that the process engine should wait for, before resolving.
    *                          Works only in conjunction with the startCallbackType "CallbackOnEndEventReached".
    * @returns                 A Promise, which resolves with the execution result, or rejects an error, in case the request failed.
    *                          This can happen, if the process model was not found, or the user is not authorized to see it, or if
@@ -90,7 +89,7 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model for which to retrieve the events.
+   * @param processModelId The ID of the process model for which to retrieve the events.
    * @returns              A Promise, which resolves with the retrieved events or rejects an error, in case the request failed.
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
@@ -101,7 +100,7 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model for which to retrieve the UserTasks.
+   * @param processModelId The ID of the process model for which to retrieve the UserTasks.
    * @returns              A Promise, which resolves with the retrieved UserTasks or rejects an error, in case the request failed.
    *                       This can happen, if the process model was not found, or the user is not authorized to see the it.
    */
@@ -112,7 +111,7 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param correlationId  The id of the correlation for which to retrieve the UserTasks.
+   * @param correlationId  The ID of the correlation for which to retrieve the UserTasks.
    * @returns              A Promise, which resolves with the retrieved UserTasks, or rejects an error, in case the request failed.
    *                       This can happen, if the correlation was not found, or the user is not authorized to see the it.
    */
@@ -123,8 +122,8 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param correlationId  The id of the correlation for which to retrieve the UserTasks.
-   * @param processModelId The id of the process model for which to retrieve the UserTasks.
+   * @param correlationId  The ID of the correlation for which to retrieve the UserTasks.
+   * @param processModelId The ID of the process model for which to retrieve the UserTasks.
    * @returns              A Promise, which resolves with the retrieved UserTasks, or rejects an error, in case the request failed.
    *                       This can happen, if the process model or correlation were not found, or the user is not authorized to see either.
    */
@@ -135,9 +134,9 @@ export interface IManagementApiService {
    *
    * @async
    * @param context        The management-api specific execution context of the requesting user.
-   * @param processModelId The id of the process model for which to finish a UserTask.
-   * @param correlationId  The id of the correlation for which to finish a UserTask.
-   * @param userTaskId     The id of UserTask to finish.
+   * @param processModelId The ID of the process model for which to finish a UserTask.
+   * @param correlationId  The ID of the correlation for which to finish a UserTask.
+   * @param userTaskId     The ID of UserTask to finish.
    * @param userTaskResult Contains a set of results with which to finish the UserTask.
    * @returns              A Promise, which resolves without content, or rejects an error, in case the request failed.
    *                       This can happen, if the UserTask, process model or correlation were not found,
@@ -150,50 +149,70 @@ export interface IManagementApiService {
                  userTaskResult: UserTaskResult): Promise<void>;
 
   /**
-   * Gets all AverageFlowNodeRuntimes for a ProcessModel.
-   * @param identity The identity of the requesting user.
-   * @param processModelId The id of the ProcessModel.
+   * Gets the FlowNodeRuntimeInformation for every FlowNode in a give ProcessModel.
+   *
+   * @async
+   * @param context        The management-api specific execution context of the requesting user.
+   * @param processModelId The ID of the PorcessModel.
+   * @returns              The Runtime Informations pertaining to the given Process Model.
    */
-  getAverageRuntimesForProcessModel(identity: IIdentity, processModelId: string): Array<AverageFlowNodeRuntime>;
+  getRuntimeInformationForProcessModel(context: ManagementContext, processModelId: string): Promise<Array<FlowNodeRuntimeInformation>>;
+
+ /**
+   * Gets the FlowNodeRuntimeInformation for a specific FlowNode inside a ProcessModel.
+   *
+   * @async
+   * @param context        The management-api specific execution context of the requesting user.
+   * @param processModelId The ID of the ProcessModel.
+   * @param flowNodeId     The ID of the specific FlowNode from whcih to get the average runtime.
+   * @returns              The Runtime Information pertaining to the given Flow Node.
+   */
+  getRuntimeInformationForFlowNode(context: ManagementContext, processModelId: string, flowNodeId: string): Promise<FlowNodeRuntimeInformation>;
 
   /**
-   * Gets the AverageFlowNodeRuntime for a specific FlowNode of a ProcessModel.
-   * @param identiy The identity of the requesting user.
-   * @param processModelId The id of the ProcessModel.
-   * @param flowNodeId The id of the FlowNode of the ProcessModel.
+   * Gets all active Tokens for a given ProcessModelId.
+   *
+   * @async
+   * @param context        The management-api specific execution context of the requesting user.
+   * @param processModelId The ID of the ProcessModel.
+   * @returns              A list of discovered active tokens for the given Process Model.
    */
-  getAverageRuntimeForFlowNode(identity: IIdentity, processModelId: string, flowNodeId: string): AverageFlowNodeRuntime;
+  getActiveTokensForProcessModel(context: ManagementContext, processModelId: string): Promise<Array<ActiveToken>>;
 
   /**
-   * Gets all ActiveTokens for a ProcessModel.
-   * @param identity The identity of the requesting user.
-   * @param processModelId The id of the ProcessModel.
+   * Gets all active Tokens for a specific FlowNode inside a ProcessModel.
+   *
+   * @async
+   * @param context        The management-api specific execution context of the requesting user.
+   * @param flowNodeId     The ID of the sepcific FlowNode from whcih to get the active Tokens.
+   * @returns              A list of discovered active tokens for the given Flow Node.
    */
-  getActiveTokenForProcessModel(identity: IIdentity, processModelId: string): Array<ActiveToken>;
+  getActiveTokensForFlowNode(context: ManagementContext, flowNodeId: string): Promise<Array<ActiveToken>>;
 
   /**
-   * Gets all ActiveTokens for a specific FlowNode of a ProcessModel.
-   * @param identity The identity of the requesting user.
-   * @param processModelId The id of the ProcessModel.
-   * @param flowNodeId The id of the FlowNode of the ProcessModel.
+   * Retrieves the logs for a specific Process Model of a given Correlation.
+   *
+   * @async
+   * @param context        The management-api specific execution context of the requesting user.
+   * @param correlationId  The ID of the Correlation for which to retrieve the logs.
+   * @param processModelId The ID of Process Model for which to retrieve the logs.
+   *                       If not set, all logs will be returned.
+   * @returns              A list of log entries.
    */
-  getActiveTokensForFlowNode(identity: IIdentity, processModelId: string, flowNodeId: string): Array<ActiveToken>;
+  getLogsForProcessModel(context: ManagementContext, correlationId: string, processModelId: string): Promise<Array<LogEntry>>;
 
   /**
-   * Gets all logs for a specific ProcessInstance.
-   * @param identity The identity of the requesting user.
-   * @param processModelId The id of the ProcessModel.
-   * @param correlationId The id of the Correlation.
-   * @param loglevel Optional: The loglevel to check for.
+   * Gets the token history for a specific FlowNodeInstance of a ProcessInstance.
+   *
+   * @async
+   * @param context        The management-api specific execution context of the requesting user.
+   * @param processModelId The ID of the ProcessModel.
+   * @param correlationId  The ID of the Correlation.
+   * @param flowNodeId     The ID of the specific FlowNode.
+   * @returns              A list of tokens that belong to the given Flow Node.
    */
-  getLogsForProcessInstance(identity: IIdentity, processModelId: string, correlationId: string, loglevel?: LogLevel): Array<LogEntry>;
-
-  /**
-   * Gets the token history for a specific FlowNodeInstance of a ProcessInstance
-   * @param identity The identity of the requesting user.
-   * @param processModelId The id of the ProcessModel.
-   * @param correlationId The id of the Correlation.
-   * @param flowNodeId The id of the specific FlowNode.
-   */
-  getTokensForFlowNodeInstance(identity: IIdentity, processModelId: string, correlationId: string, flowNodeId: string): Array<TokenHistoryEntry>;
+  getTokensForFlowNodeInstance(context: ManagementContext,
+                               processModelId: string,
+                               correlationId: string,
+                               flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
 }
