@@ -28,19 +28,19 @@ const paths = {
 };
 
 /**
- * Contains the endpoints and various rest parameters used by the management api.
+ * Contains the endpoints and various rest parameters used by the ManagementAPI.
  */
 export const restSettings = {
   /**
-   * A collection of all url parameters employed by the management api.
+   * A collection of all URL parameters employed by the ManagementAPI.
    */
   params: params,
   /**
-   * A collection of all query parameters employed by the management api.
+   * A collection of all query parameters employed by the ManagementAPI.
    */
   queryParams: queryParams,
   /**
-   * A collection of all urls employed by the management api.
+   * A collection of all URLs employed by the ManagementAPI.
    */
   paths: paths,
 };
