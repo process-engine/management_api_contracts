@@ -36,7 +36,8 @@ const paths = {
 };
 
 /**
- * Contains the endpoints and various rest parameters used by the ManagementAPI.
+ * Contains the endpoints and various rest parameters used by the
+ * ManagementAPI.
  */
 export const restSettings = {
   /**
