@@ -29,6 +29,22 @@ export interface IManagementApiService {
   getAllActiveCorrelations(context: ManagementContext): Promise<Array<Correlation>>;
 
   /**
+   * Retrieves the ProcessModel that was executed with the given CorrelationId.
+   *
+   * @async
+   * @param context       The ManagementAPI specific ExecutionContext of the
+   *                      requesting user.
+   * @param correlationId The ID of the Correlation for which to get the
+   *                      ProcessModel.
+   * @returns             A Promise, which resolves with the ProcessModel,
+   *                      or rejects an error, in case the request failed.
+   * @throws              403, if the requesting User is forbidden to see the
+   *                      ProcessModel.
+   * @throws              404, if the ProcessModel was not found
+   */
+  getProcessModelForCorrelation(context: ManagementContext, correlationId: string): Promise<ProcessModel>;
+
+  /**
    * Retrieves a list of all ProcessModels that the requesting user is
    * authorized to see.
    *
