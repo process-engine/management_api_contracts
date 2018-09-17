@@ -2,6 +2,7 @@
 export * from './imanagement_api';
 export * from './imanagement_api_accessor';
 export * from './rest_settings';
+export * from './socket_settings';
 
 // TODO: Refactor into namespaces aswell. Should be done after the upcoming release to avoid unnecessary breaking changes.
 export * from './data_models/correlation/index';
