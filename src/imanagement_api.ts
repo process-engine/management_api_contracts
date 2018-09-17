@@ -3,6 +3,11 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 import {ActiveToken, FlowNodeRuntimeInformation, LogEntry, TokenHistoryEntry} from './data_models';
 
 import {
+  ProcessEndedMessage,
+  UserTaskFinishedMessage,
+  UserTaskWaitingMessage,
+} from '@process-engine/process_engine_contracts';
+import {
   Correlation,
   EventList,
   ProcessModel,
@@ -312,4 +317,11 @@ export interface IManagementApi {
                                processModelId: string,
                                correlationId: string,
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
+
+
+
+  onUserTaskWaiting(callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
+  onUserTaskFinished(callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
+  onProcessTerminated(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  onProcessEnded(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
 }
