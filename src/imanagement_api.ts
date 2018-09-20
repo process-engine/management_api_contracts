@@ -29,19 +29,35 @@ export interface IManagementApi {
   getAllActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
 
   /**
-   * Retrieves the ProcessModel that was executed with the given CorrelationId.
+   * Retrieves the ProcessModels that were executed with the given Correlation.
    *
    * @async
    * @param identity      The users identtiy.
    * @param correlationId The ID of the Correlation for which to get the
-   *                      ProcessModel.
-   * @returns             A Promise, which resolves with the ProcessModel,
+   *                      ProcessModels.
+   * @returns             A Promise, which resolves with the ProcessModels,
    *                      or rejects an error, in case the request failed.
    * @throws              403, if the requesting User is forbidden to see the
    *                      ProcessModel.
-   * @throws              404, if the ProcessModel was not found
+   * @throws              404, if the ProcessModel was not found.
    */
-  getProcessModelForCorrelation(identity: IIdentity, correlationId: string): Promise<ProcessModel>;
+  getProcessModelsForCorrelation(context: ManagementContext, correlationId: string): Promise<Array<ProcessModel>>;
+
+  /**
+   * Retrieves all Correlations in which the given ProcessModel was executed.
+   *
+   * @async
+   * @param context        The ManagementAPI specific ExecutionContext of the
+   *                       requesting user.
+   * @param processModelId The ID of the ProcessModel for which to get the
+   *                       Correlations.
+   * @returns              A Promise, which resolves with the Correlations,
+   *                       or rejects an error, in case the request failed.
+   * @throws               403, if the requesting User is forbidden to see the
+   *                       ProcessModel.
+   * @throws               404, if the ProcessModel was not found.
+   */
+  getCorrelationsForProcessModel(context: ManagementContext, processModelId: string): Promise<ProcessModel>;
 
   /**
    * Retrieves a list of all ProcessModels that the requesting user is
