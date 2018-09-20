@@ -33,7 +33,7 @@ const paths = {
   getActiveTokensForProcessModel: `/process_model/${params.processModelId}/active_tokens`,
   getRuntimeInformationForFlowNode: `/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/runtime_information`,
   getActiveTokensForFlowNode: `/token/flow_node/${params.flowNodeId}/active_tokens`,
-  getLogsForProcessModel: `/correlation/${params.correlationId}/process_model/${params.processModelId}/logs`,
+  getProcessModelLog: `/process_model/${params.processModelId}/logs`,
   getTokensForFlowNode: `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/token_history`,
 };
 

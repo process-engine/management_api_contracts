@@ -264,17 +264,15 @@ export interface IManagementApi {
   getActiveTokensForFlowNode(identity: IIdentity, flowNodeId: string): Promise<Array<ActiveToken>>;
 
   /**
-   * Retrieves the logs for a specific ProcessModel of a given Correlation.
+   * Retrieves the logs for a specific ProcessModel.
    *
    * @async
    * @param identity       The requesting Users identity.
-   * @param correlationId  The ID of the Correlation for which to retrieve the
-   *                       logs.
    * @param processModelId The ID of ProcessModel for which to retrieve the
    *                       logs.
    * @returns              A list of log entries.
    */
-  getLogsForProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<LogEntry>>;
+  getProcessModelLog(identity: IIdentity, processModelId: string): Promise<Array<LogEntry>>;
 
   /**
    * Gets the token history for a specific FlowNodeInstance of a
