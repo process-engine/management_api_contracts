@@ -54,7 +54,7 @@ export interface IManagementApi {
    *                       ProcessModel.
    * @throws               404, if the ProcessModel was not found.
    */
-  getCorrelationsForProcessModel(identity: IIdentity, processModelId: string): Promise<ProcessModel>;
+  getCorrelationsForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<Correlation>>;
 
   /**
    * Retrieves a list of all ProcessModels that the requesting user is
