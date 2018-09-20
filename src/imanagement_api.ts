@@ -1,8 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {ActiveToken, FlowNodeRuntimeInformation} from '@process-engine/kpi_api_contracts';
-import {LogEntry} from '@process-engine/logging_api_contracts';
-import {TokenHistoryEntry} from '@process-engine/token_history_api_contracts';
+import {ActiveToken, FlowNodeRuntimeInformation, LogEntry, TokenHistoryEntry} from './data_models';
 
 import {
   Correlation,
