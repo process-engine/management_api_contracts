@@ -22,6 +22,7 @@ const paths = {
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
   processModelEvents: `/process_models/${params.processModelId}/events`,
+  getCorrelationsForProcessModel: `/process_model/${params.processModelId}/correlations/all`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
