@@ -17,7 +17,7 @@ import {
   UserTaskResult,
 } from './data_models/index';
 
-export interface IManagementApiService {
+export interface IManagementApi {
   /**
    * Retrieves a list of all active Correlations.
    *
