@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {ActiveToken, FlowNodeRuntimeInformation} from '@process-engine/kpi_api_contracts';
 import {LogEntry} from '@process-engine/logging_api_contracts';
 import {TokenHistoryEntry} from '@process-engine/token_history_api_contracts';
@@ -14,7 +16,6 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
-import {ManagementContext} from './management_context';
 
 export interface IManagementApiService {
   /**
@@ -26,7 +27,7 @@ export interface IManagementApiService {
    * @returns       A Promise, which resolves with the correlation list,
    *                or rejects an error, in case the request failed.
    */
-  getAllActiveCorrelations(context: ManagementContext): Promise<Array<Correlation>>;
+  getAllActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
 
   /**
    * Retrieves the ProcessModel that was executed with the given CorrelationId.
@@ -42,7 +43,7 @@ export interface IManagementApiService {
    *                      ProcessModel.
    * @throws              404, if the ProcessModel was not found
    */
-  getProcessModelForCorrelation(context: ManagementContext, correlationId: string): Promise<ProcessModel>;
+  getProcessModelForCorrelation(identity: IIdentity, correlationId: string): Promise<ProcessModel>;
 
   /**
    * Retrieves a list of all ProcessModels that the requesting user is
@@ -54,7 +55,7 @@ export interface IManagementApiService {
    * @returns       A Promise, which resolves with the ProcessModel list,
    *                or rejects an error, in case the request failed.
    */
-  getProcessModels(context: ManagementContext): Promise<ProcessModelList>;
+  getProcessModels(identity: IIdentity): Promise<ProcessModelList>;
 
   /**
    * Retrieves a ProcessModel by its ID.
@@ -66,7 +67,7 @@ export interface IManagementApiService {
    * @returns              A Promise, which resolves with the ProcessModel, or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found, or the user is not authorized to see it.
    */
-  getProcessModelById(context: ManagementContext, processModelId: string): Promise<ProcessModel>;
+  getProcessModelById(identity: IIdentity, processModelId: string): Promise<ProcessModel>;
 
   /**
    * Updates a ProcessModel by its ID.
@@ -81,7 +82,7 @@ export interface IManagementApiService {
    *                This can happen, if the Process Definitions were not found,
    *                or the user is not authorized to update it.
    */
-  updateProcessDefinitionsByName(context: ManagementContext, name: string, payload: UpdateProcessDefinitionsRequestPayload): Promise<void>;
+  updateProcessDefinitionsByName(identity: IIdentity, name: string, payload: UpdateProcessDefinitionsRequestPayload): Promise<void>;
 
   /**
    * Starts a new instance of a ProcessModel with a specific ID.
@@ -114,7 +115,7 @@ export interface IManagementApiService {
    *                          or the user is not authorized to see it, or if
    *                          the ProcessInstance was interrupted prematurely.
    */
-  startProcessInstance(context: ManagementContext,
+  startProcessInstance(identity: IIdentity,
                        processModelId: string,
                        startEventId: string,
                        payload: ProcessStartRequestPayload,
@@ -134,7 +135,7 @@ export interface IManagementApiService {
    *                       This can happen, if the ProcessModel was not found,
   *                        or the user is not authorized to see the it.
    */
-  getEventsForProcessModel(context: ManagementContext, processModelId: string): Promise<EventList>;
+  getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a
@@ -150,7 +151,7 @@ export interface IManagementApiService {
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see the it.
    */
-  getUserTasksForProcessModel(context: ManagementContext, processModelId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to a specific
@@ -166,7 +167,7 @@ export interface IManagementApiService {
    *                       This can happen, if the correlation was not found,
    *                       or the user is not authorized to see the it.
    */
-  getUserTasksForCorrelation(context: ManagementContext, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a specific ProcessModel within a correlation.
@@ -183,7 +184,7 @@ export interface IManagementApiService {
    *                       This can happen, if the ProcessModel or correlation
    *                       were not found, or the user is not authorized to see either.
    */
-  getUserTasksForProcessModelInCorrelation(context: ManagementContext, processModelId: string, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<UserTaskList>;
 
   /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
@@ -205,7 +206,7 @@ export interface IManagementApiService {
    *                       correlation were not found,
    *                       or the user is not authorized to see either.
    */
-  finishUserTask(context: ManagementContext,
+  finishUserTask(identity: IIdentity,
                  processModelId: string,
                  correlationId: string,
                  userTaskId: string,
@@ -222,7 +223,7 @@ export interface IManagementApiService {
    * @returns              The Runtime Informations pertaining to the given
    *                       ProcessModel.
    */
-  getRuntimeInformationForProcessModel(context: ManagementContext, processModelId: string): Promise<Array<FlowNodeRuntimeInformation>>;
+  getRuntimeInformationForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<FlowNodeRuntimeInformation>>;
 
  /**
    * Gets the FlowNodeRuntimeInformation for a specific FlowNode inside a
@@ -237,7 +238,7 @@ export interface IManagementApiService {
    * @returns              The Runtime Information pertaining to the given
    *                       FlowNode.
    */
-  getRuntimeInformationForFlowNode(context: ManagementContext, processModelId: string, flowNodeId: string): Promise<FlowNodeRuntimeInformation>;
+  getRuntimeInformationForFlowNode(identity: IIdentity, processModelId: string, flowNodeId: string): Promise<FlowNodeRuntimeInformation>;
 
   /**
    * Gets all active Tokens for a given ProcessModelId.
@@ -249,7 +250,7 @@ export interface IManagementApiService {
    * @returns              A list of discovered active tokens for the given
    *                       ProcessModel.
    */
-  getActiveTokensForProcessModel(context: ManagementContext, processModelId: string): Promise<Array<ActiveToken>>;
+  getActiveTokensForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<ActiveToken>>;
 
   /**
    * Gets all active Tokens for a specific FlowNode inside a ProcessModel.
@@ -262,7 +263,7 @@ export interface IManagementApiService {
    * @returns          A list of discovered active tokens for the given
    *                   FlowNode.
    */
-  getActiveTokensForFlowNode(context: ManagementContext, flowNodeId: string): Promise<Array<ActiveToken>>;
+  getActiveTokensForFlowNode(identity: IIdentity, flowNodeId: string): Promise<Array<ActiveToken>>;
 
   /**
    * Retrieves the logs for a specific ProcessModel of a given Correlation.
@@ -276,7 +277,7 @@ export interface IManagementApiService {
    *                       logs.
    * @returns              A list of log entries.
    */
-  getLogsForProcessModel(context: ManagementContext, correlationId: string, processModelId: string): Promise<Array<LogEntry>>;
+  getLogsForProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<LogEntry>>;
 
   /**
    * Gets the token history for a specific FlowNodeInstance of a
@@ -290,7 +291,7 @@ export interface IManagementApiService {
    * @param flowNodeId     The ID of the specific FlowNode.
    * @returns              A list of tokens that belong to the given Flow Node.
    */
-  getTokensForFlowNodeInstance(context: ManagementContext,
+  getTokensForFlowNodeInstance(identity: IIdentity,
                                processModelId: string,
                                correlationId: string,
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
