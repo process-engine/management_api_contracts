@@ -15,7 +15,7 @@ const queryParams = {
 const paths = {
   // Correlations
   activeCorrelations: `/correlations/active`,
-  getProcessModelForCorrelation: `/correlations/${params.correlationId}/process_model`,
+  getProcessModelsForCorrelation: `/correlations/${params.correlationId}/process_model`,
   // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
