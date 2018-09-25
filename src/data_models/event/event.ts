@@ -1,8 +1,10 @@
-import {Event as ConsumerApiEvent} from '@process-engine/consumer_api_contracts';
+import {EventTriggerPayload} from './event_trigger_payload';
 
 /**
  * Describes an event.
  */
-export class Event extends ConsumerApiEvent {
-
+export class Event {
+  public id: string;
+  public processInstanceId?: string;
+  public data?: EventTriggerPayload;
 }

@@ -1,8 +1,11 @@
-import {UserTaskResult as ConsumerApiUserTaskResult} from '@process-engine/consumer_api_contracts';
-
 /**
- * Describes the payload that can be given to a UserTask upon finishing it.
+ * Describes the payload that can be provided when finishing a UserTask.
  */
-export class UserTaskResult extends ConsumerApiUserTaskResult {
-
+export class UserTaskResult {
+  /**
+   * Contains a result set for the UserTasks FormFields.
+   */
+  public formFields: {
+    [fieldId: string]: any,
+  };
 }

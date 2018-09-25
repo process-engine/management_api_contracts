@@ -1,6 +1,11 @@
-import {UserTaskFormFieldType as ConsumerApiUserTaskFormFieldType} from '@process-engine/consumer_api_contracts';
-
 /**
- * Determines the type of a UserTasks form field.
+ * Determines the type of a UserTasks FormField.
  */
-export import UserTaskFormFieldType = ConsumerApiUserTaskFormFieldType;
+export enum UserTaskFormFieldType {
+  boolean = 'boolean',
+  date = 'date',
+  enum = 'enum',
+  long = 'long',
+  number = 'number',
+  string = 'string',
+}

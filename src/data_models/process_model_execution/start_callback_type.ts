@@ -1,6 +1,17 @@
-import {StartCallbackType as ConsumerApiStartCallbackType} from '@process-engine/consumer_api_contracts';
-
 /**
- * Determines when the process engine will resolve after a new process instance/correlation was started.
+ * Determines when the ProcessEngine will resolve after a new ProcessInstance was started.
  */
-export import StartCallbackType = ConsumerApiStartCallbackType;
+export enum StartCallbackType {
+    /**
+     * The ProcessEngine will resolve immediately after the ProcessInstance was started.
+     */
+    CallbackOnProcessInstanceCreated = 1,
+    /**
+     * The ProcessEngine will resolve after the first EndEvent was reached.
+     */
+    CallbackOnProcessInstanceFinished = 2,
+    /**
+     * The ProcessEngine will resolve after a specific EndEvent was reached.
+     */
+    CallbackOnEndEventReached = 3,
+}
