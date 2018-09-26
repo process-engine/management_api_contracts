@@ -16,6 +16,17 @@ import {
 } from './data_models/index';
 
 export interface IManagementApi {
+
+  /**
+   * Retrieves a list of all Correlations.
+   *
+   * @async
+   * @param identity The requesting Users identity.
+   * @returns        A Promise, which resolves with the correlation list,
+   *                 or rejects an error, in case the request failed.
+   */
+  getAllCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
+
   /**
    * Retrieves a list of all active Correlations.
    *
@@ -42,7 +53,8 @@ export interface IManagementApi {
   getCorrelationById(identity: IIdentity, correlationId: string): Promise<Correlation>;
 
   /**
-   * Retrieves all Correlations in which the given ProcessModel was executed.
+   * Retrieves all Correlations in which the ProcessModel with the given ID was
+   * executed.
    *
    * @async
    * @param identity       The requesting Users identity.
@@ -50,11 +62,22 @@ export interface IManagementApi {
    *                       Correlations.
    * @returns              A Promise, which resolves with the Correlations,
    *                       or rejects an error, in case the request failed.
-   * @throws               403, if the requesting User is forbidden to see the
-   *                       ProcessModel.
-   * @throws               404, if the ProcessModel was not found.
+   * @throws               404, if no Correlation was found.
    */
-  getCorrelationsForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<Correlation>>;
+  getCorrelationsByProcessModelId(identity: IIdentity, processModelId: string): Promise<Array<Correlation>>;
+
+  /**
+   * Retrieves the Correlation in which the given ProcessInstance was executed.
+   *
+   * @async
+   * @param identity          The requesting Users identity.
+   * @param processInstanceId The ID of the ProcessModel for which to get the
+   *                          Correlations.
+   * @returns                 A Promise, which resolves with the Correlations,
+   *                          or rejects an error, in case the request failed.
+   * @throws                  404, if no Correlation was found.
+   */
+  getCorrelationByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Correlation>;
 
   /**
    * Retrieves a list of all ProcessModels that the requesting user is

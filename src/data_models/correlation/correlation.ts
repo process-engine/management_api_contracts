@@ -1,12 +1,12 @@
-import {ProcessModel} from '../process_model_execution';
+import {CorrelationProcessModel} from './correlation_process_model';
 import {CorrelationState} from './correlation_state';
 
 /**
- * Describes a correlation.
+ * Describes a Correlation.
  */
-export class Correlation {
+export declare class Correlation {
   public id: string;
-  public processModels: Array<ProcessModel>;
+  public processModels: Array<CorrelationProcessModel>;
   public state: CorrelationState;
   public createdAt?: Date;
 }

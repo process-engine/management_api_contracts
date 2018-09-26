@@ -3,8 +3,5 @@
  */
 export enum CorrelationState {
   running = 'running',
-  suspended = 'suspended',
   finished = 'finished',
-  terminated = 'terminated',
-  error = 'error',
 }
