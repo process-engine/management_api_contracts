@@ -35,7 +35,7 @@ export interface IManagementApi {
    * @returns        A Promise, which resolves with the correlation list,
    *                 or rejects an error, in case the request failed.
    */
-  getAllActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
+  getActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
 
   /**
    * Retrieves the ProcessModels that were executed with the given Correlation.
