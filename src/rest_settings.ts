@@ -17,9 +17,9 @@ const paths = {
   // Correlations
   getActiveCorrelations: `/correlations/active`,
   getAllCorrelations: `/correlations/all`,
-  getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}/`,
-  getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}/`,
-  getCorrelationsById: `/correlations/${params.correlationId}`,
+  getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
+  getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}`,
+  getCorrelationById: `/correlations/${params.correlationId}`,
   // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
