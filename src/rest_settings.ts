@@ -4,6 +4,7 @@ const params = {
   flowNodeId: ':flow_node_id',
   processDefinitionsName: ':process_definitions_name',
   processModelId: ':process_model_id',
+  processInstanceId: ':process_instance_id',
   startEventId: ':start_event_id',
   userTaskId: ':user_task_id',
 };
@@ -15,14 +16,15 @@ const queryParams = {
 const paths = {
   // Correlations
   activeCorrelations: `/correlations/active`,
-  getCorrelationById: `/correlations/${params.correlationId}`,
+  getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}/`,
+  getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}/`,
+  getCorrelationsById: `/correlations/${params.correlationId}`,
   // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
   processModelEvents: `/process_models/${params.processModelId}/events`,
-  getCorrelationsForProcessModel: `/process_model/${params.processModelId}/correlations/all`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
