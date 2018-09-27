@@ -3,13 +3,9 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 import {ActiveToken, FlowNodeRuntimeInformation, LogEntry, TokenHistoryEntry} from './data_models';
 
 import {
-  ProcessEndedMessage,
-  UserTaskFinishedMessage,
-  UserTaskWaitingMessage,
-} from '@process-engine/process_engine_contracts';
-import {
   Correlation,
   EventList,
+  Messages,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
@@ -318,10 +314,44 @@ export interface IManagementApi {
                                correlationId: string,
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
 
+  /**
+   * Executes a callback when a user task is reached.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the user task.
+   */
+  onUserTaskWaiting(callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
 
+  /**
+   * Executes a callback when a user task is finished.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the user task.
+   */
+  onUserTaskFinished(callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
-  onUserTaskWaiting(callback: (userTaskWaiting: UserTaskWaitingMessage) => void|Promise<void>): void;
-  onUserTaskFinished(callback: (userTaskFinished: UserTaskFinishedMessage) => void|Promise<void>): void;
-  onProcessTerminated(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
-  onProcessEnded(callback: (processEnded: ProcessEndedMessage) => void|Promise<void>): void;
+  /**
+   * Executes a callback when a process is terminated.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the process
+   *                       terminated.
+   */
+  onProcessTerminated(callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
+
+  /**
+   * Executes a callback when a process ends.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ended process.
+   */
+  onProcessEnded(callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
