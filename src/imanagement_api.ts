@@ -5,6 +5,7 @@ import {ActiveToken, FlowNodeRuntimeInformation, LogEntry, TokenHistoryEntry} fr
 import {
   Correlation,
   EventList,
+  Messages,
   ProcessModel,
   ProcessModelList,
   ProcessStartRequestPayload,
@@ -312,4 +313,45 @@ export interface IManagementApi {
                                processModelId: string,
                                correlationId: string,
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
+
+  /**
+   * Executes a callback when a user task is reached.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the user task.
+   */
+  onUserTaskWaiting(callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a user task is finished.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the user task.
+   */
+  onUserTaskFinished(callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
+
+  /**
+   * Executes a callback when a process is terminated.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the process
+   *                       terminated.
+   */
+  onProcessTerminated(callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
+
+  /**
+   * Executes a callback when a process ends.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a user task
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ended process.
+   */
+  onProcessEnded(callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
