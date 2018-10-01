@@ -1,13 +1,8 @@
-import {ProcessModelList as ConsumerApiProcessModelList} from '@process-engine/consumer_api_contracts';
-
 import {ProcessModel} from '../index';
 
 /**
- * Contains a list of process models.
+ * Contains a list of ProcessModels.
  */
-export class ProcessModelList extends ConsumerApiProcessModelList {
-  /**
-   * The process model list.
-   */
+export class ProcessModelList {
   public processModels: Array<ProcessModel> = [];
 }

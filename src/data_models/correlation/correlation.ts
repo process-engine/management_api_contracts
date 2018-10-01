@@ -1,13 +1,15 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
+import {CorrelationProcessModel} from './correlation_process_model';
+import {CorrelationState} from './correlation_state';
+
 /**
- * Describes a correlation with an active process instance.
+ * Describes a Correlation.
  */
 export class Correlation {
-  /**
-   * The id of the correlation.
-   */
   public id: string;
-  /**
-   * The id of the process model beloging to the correlation.
-   */
-  public processModelId: string;
+  public processModels: Array<CorrelationProcessModel>;
+  public state: CorrelationState;
+  public identity: IIdentity;
+  public createdAt?: Date;
 }

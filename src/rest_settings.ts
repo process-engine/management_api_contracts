@@ -4,6 +4,7 @@ const params = {
   flowNodeId: ':flow_node_id',
   processDefinitionsName: ':process_definitions_name',
   processModelId: ':process_model_id',
+  processInstanceId: ':process_instance_id',
   startEventId: ':start_event_id',
   userTaskId: ':user_task_id',
 };
@@ -14,8 +15,11 @@ const queryParams = {
 
 const paths = {
   // Correlations
-  activeCorrelations: `/correlations/active`,
-  getProcessModelForCorrelation: `/correlations/${params.correlationId}/process_model`,
+  getActiveCorrelations: `/correlations/active`,
+  getAllCorrelations: `/correlations/all`,
+  getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
+  getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}`,
+  getCorrelationById: `/correlations/${params.correlationId}`,
   // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
@@ -32,7 +36,7 @@ const paths = {
   getActiveTokensForProcessModel: `/process_model/${params.processModelId}/active_tokens`,
   getRuntimeInformationForFlowNode: `/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/runtime_information`,
   getActiveTokensForFlowNode: `/token/flow_node/${params.flowNodeId}/active_tokens`,
-  getLogsForProcessModel: `/correlation/${params.correlationId}/process_model/${params.processModelId}/logs`,
+  getProcessModelLog: `/process_model/${params.processModelId}/logs`,
   getTokensForFlowNode: `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/token_history`,
 };
 

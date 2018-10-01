@@ -1,8 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {ActiveToken, FlowNodeRuntimeInformation} from '@process-engine/kpi_api_contracts';
-import {LogEntry} from '@process-engine/logging_api_contracts';
-import {TokenHistoryEntry} from '@process-engine/token_history_api_contracts';
+import {ActiveToken, FlowNodeRuntimeInformation, LogEntry, TokenHistoryEntry} from './data_models';
 
 import {
   Correlation,
@@ -18,37 +16,75 @@ import {
 } from './data_models/index';
 
 export interface IManagementApi {
+
+  /**
+   * Retrieves a list of all Correlations.
+   *
+   * @async
+   * @param identity The requesting Users identity.
+   * @returns        A Promise, which resolves with the correlation list,
+   *                 or rejects an error, in case the request failed.
+   */
+  getAllCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
+
   /**
    * Retrieves a list of all active Correlations.
    *
    * @async
-   * @param identity The users identtiy.
+   * @param identity The requesting Users identity.
    * @returns        A Promise, which resolves with the correlation list,
    *                 or rejects an error, in case the request failed.
    */
-  getAllActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
+  getActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
 
   /**
-   * Retrieves the ProcessModel that was executed with the given CorrelationId.
+   * Retrieves the ProcessModels that were executed with the given Correlation.
    *
    * @async
-   * @param identity      The users identtiy.
+   * @param identity      The requesting Users identity.
    * @param correlationId The ID of the Correlation for which to get the
-   *                      ProcessModel.
-   * @returns             A Promise, which resolves with the ProcessModel,
+   *                      ProcessModels.
+   * @returns             A Promise, which resolves with the ProcessModels,
    *                      or rejects an error, in case the request failed.
    * @throws              403, if the requesting User is forbidden to see the
    *                      ProcessModel.
-   * @throws              404, if the ProcessModel was not found
+   * @throws              404, if the ProcessModel was not found.
    */
-  getProcessModelForCorrelation(identity: IIdentity, correlationId: string): Promise<ProcessModel>;
+  getCorrelationById(identity: IIdentity, correlationId: string): Promise<Correlation>;
+
+  /**
+   * Retrieves all Correlations in which the ProcessModel with the given ID was
+   * executed.
+   *
+   * @async
+   * @param identity       The requesting Users identity.
+   * @param processModelId The ID of the ProcessModel for which to get the
+   *                       Correlations.
+   * @returns              A Promise, which resolves with the Correlations,
+   *                       or rejects an error, in case the request failed.
+   * @throws               404, if no Correlation was found.
+   */
+  getCorrelationsByProcessModelId(identity: IIdentity, processModelId: string): Promise<Array<Correlation>>;
+
+  /**
+   * Retrieves the Correlation in which the given ProcessInstance was executed.
+   *
+   * @async
+   * @param identity          The requesting Users identity.
+   * @param processInstanceId The ID of the ProcessModel for which to get the
+   *                          Correlations.
+   * @returns                 A Promise, which resolves with the Correlations,
+   *                          or rejects an error, in case the request failed.
+   * @throws                  404, if no Correlation was found.
+   */
+  getCorrelationByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Correlation>;
 
   /**
    * Retrieves a list of all ProcessModels that the requesting user is
    * authorized to see.
    *
    * @async
-   * @param identity The users identtiy.
+   * @param identity The requesting Users identity.
    * @returns        A Promise, which resolves with the ProcessModel list,
    *                 or rejects an error, in case the request failed.
    */
@@ -58,7 +94,7 @@ export interface IManagementApi {
    * Retrieves a ProcessModel by its ID.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel to retrieve.
    * @returns              A Promise, which resolves with the ProcessModel, or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found, or the user is not authorized to see it.
@@ -69,7 +105,7 @@ export interface IManagementApi {
    * Updates a ProcessModel by its ID.
    *
    * @async
-   * @param identity The users identtiy.
+   * @param identity The requesting Users identity.
    * @param name     The name of the Process Definitions to update.
    * @param payload  The payload with which to update the Process Definitions.
    * @returns        A Promise, which resolves without content,
@@ -89,7 +125,7 @@ export interface IManagementApi {
    * or the first EndEvent encountered during execution.
    *
    * @async
-   * @param identity          The users identtiy.
+   * @param identity          The requesting Users identity.
    * @param processModelId    The ID of the ProcessModel to retrieve.
    * @param startEventId      The ID of the start event through which to start
    *                          the Process Instance.
@@ -120,7 +156,7 @@ export interface IManagementApi {
    * Retrieves a list of all events belonging to a specific ProcessModel.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve
    *                       the events.
    * @returns              A Promise, which resolves with the retrieved events,
@@ -135,7 +171,7 @@ export interface IManagementApi {
    * specific ProcessModel.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
    *                       UserTasks.
    * @returns              A Promise, which resolves the retrieved UserTasks,
@@ -150,7 +186,7 @@ export interface IManagementApi {
    * correlation.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param correlationId  The ID of the correlation for which to retrieve
    *                       the UserTasks.
    * @returns              A Promise, which resolves the retrieved UserTasks,
@@ -164,7 +200,7 @@ export interface IManagementApi {
    * Retrieves a list of all suspended UserTasks belonging to an instance of a specific ProcessModel within a correlation.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param correlationId  The ID of the correlation for which to retrieve the
    *                       UserTasks.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
@@ -181,7 +217,7 @@ export interface IManagementApi {
    * within a correlation.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel for which to finish a
    *                       UserTask.
    * @param correlationId  The ID of the correlation for which to finish a
@@ -206,7 +242,7 @@ export interface IManagementApi {
    * ProcessModel ID.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the PorcessModel.
    * @returns              The Runtime Informations pertaining to the given
    *                       ProcessModel.
@@ -218,7 +254,7 @@ export interface IManagementApi {
    * ProcessModel.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel.
    * @param flowNodeId     The ID of the specific FlowNode from whcih to get
    *                       the average runtime.
@@ -231,7 +267,7 @@ export interface IManagementApi {
    * Gets all active Tokens for a given ProcessModelId.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel.
    * @returns              A list of discovered active tokens for the given
    *                       ProcessModel.
@@ -242,7 +278,7 @@ export interface IManagementApi {
    * Gets all active Tokens for a specific FlowNode inside a ProcessModel.
    *
    * @async
-   * @param identity   The users identtiy.
+   * @param identity   The requesting Users identity.
    * @param flowNodeId The ID of the sepcific FlowNode from whcih to get the
    *                   active Tokens.
    * @returns          A list of discovered active tokens for the given
@@ -251,24 +287,22 @@ export interface IManagementApi {
   getActiveTokensForFlowNode(identity: IIdentity, flowNodeId: string): Promise<Array<ActiveToken>>;
 
   /**
-   * Retrieves the logs for a specific ProcessModel of a given Correlation.
+   * Retrieves the logs for a specific ProcessModel.
    *
    * @async
-   * @param identity       The users identtiy.
-   * @param correlationId  The ID of the Correlation for which to retrieve the
-   *                       logs.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of ProcessModel for which to retrieve the
    *                       logs.
    * @returns              A list of log entries.
    */
-  getLogsForProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<LogEntry>>;
+  getProcessModelLog(identity: IIdentity, processModelId: string): Promise<Array<LogEntry>>;
 
   /**
    * Gets the token history for a specific FlowNodeInstance of a
    * ProcessModel.
    *
    * @async
-   * @param identity       The users identtiy.
+   * @param identity       The requesting Users identity.
    * @param processModelId The ID of the ProcessModel.
    * @param correlationId  The ID of the Correlation.
    * @param flowNodeId     The ID of the specific FlowNode.

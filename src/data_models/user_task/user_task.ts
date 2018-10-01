@@ -1,13 +1,20 @@
-import {UserTask as ConsumerApiUserTask} from '@process-engine/consumer_api_contracts';
-
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a UserTask that belongs to an active correlation.
+ * Describes a user task that belongs to an active ProcessInstance.
  */
-export class UserTask extends ConsumerApiUserTask {
+export class UserTask {
+  public id: string;
+  public correlationId: string;
+  public processModelId: string;
+  public processInstanceId?: string;
   /**
-   * Contains information about the UserTasks configuration, such as the form fields that can be addressed.
+   * Contains information about the user tasks configuration,
+   * such as the form fields that can be addressed.
    */
   public data: UserTaskConfig;
+  /**
+   * The token payload the UserTask got suspended with.
+   */
+  public tokenPayload: any;
 }
