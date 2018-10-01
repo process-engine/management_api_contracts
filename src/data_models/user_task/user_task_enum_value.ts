@@ -1,8 +1,7 @@
-import {UserTaskEnumValue as ConsumerApiUserTaskEnumValue} from '@process-engine/consumer_api_contracts';
-
 /**
- * If a UserTasks form field is an enumeration, this will contain information
- * about the values contained within that enumeration.
+ * Describes a value for a FormFields enumeration.
  */
-export class UserTaskEnumValue extends ConsumerApiUserTaskEnumValue {
+export class UserTaskEnumValue {
+  public id: string;
+  public name: string;
 }
