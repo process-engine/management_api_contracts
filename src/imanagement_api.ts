@@ -294,9 +294,11 @@ export interface IManagementApi {
    * @param identity       The requesting Users identity.
    * @param processModelId The ID of ProcessModel for which to retrieve the
    *                       logs.
+   * @param correlationId  Optional: If provided, only the logs for the given
+   *                       Correlation are returned.
    * @returns              A list of log entries.
    */
-  getProcessModelLog(identity: IIdentity, processModelId: string): Promise<Array<LogEntry>>;
+  getProcessModelLog(identity: IIdentity, processModelId: string, correlationId?: string): Promise<Array<LogEntry>>;
 
   /**
    * Gets the token history for a specific FlowNodeInstance of a
