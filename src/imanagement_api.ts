@@ -306,14 +306,14 @@ export interface IManagementApi {
    *
    * @async
    * @param identity       The requesting Users identity.
-   * @param processModelId The ID of the ProcessModel.
    * @param correlationId  The ID of the Correlation.
+   * @param processModelId The ID of the ProcessModel.
    * @param flowNodeId     The ID of the specific FlowNode.
    * @returns              A list of tokens that belong to the given Flow Node.
    */
   getTokensForFlowNodeInstance(identity: IIdentity,
-                               processModelId: string,
                                correlationId: string,
+                               processModelId: string,
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
 
   /**
