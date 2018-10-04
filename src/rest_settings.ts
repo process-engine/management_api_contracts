@@ -10,6 +10,7 @@ const params = {
 };
 
 const queryParams = {
+  correlationId: 'correlation_id',
   endEventId: 'end_event_id',
 };
 
