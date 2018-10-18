@@ -7,6 +7,7 @@ import {Event} from '../index';
  */
 export class ProcessModel {
   public id: string;
+  public name: string;
   public xml: string;
   public startEvents: Array<Event> = [];
   public endEvents: Array<Event> = [];
