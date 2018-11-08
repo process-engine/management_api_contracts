@@ -6,7 +6,7 @@ const params = {
   processModelId: ':process_model_id',
   processInstanceId: ':process_instance_id',
   startEventId: ':start_event_id',
-  userTaskId: ':user_task_id',
+  userTaskInstanceId: ':user_task_instance_id',
 };
 
 const queryParams = {
@@ -31,7 +31,7 @@ const paths = {
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
-  finishUserTask: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks/${params.userTaskId}/finish`,
+  finishUserTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/usertasks/${params.userTaskInstanceId}/finish`,
   // Heatmap
   getRuntimeInformationForProcessModel: `/process_model/${params.processModelId}/runtime_information`,
   getActiveTokensForProcessModel: `/process_model/${params.processModelId}/active_tokens`,
