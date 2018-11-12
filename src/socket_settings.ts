@@ -2,6 +2,8 @@
 const paths = {
   userTaskWaiting: `user_task_waiting`,
   userTaskFinished: `user_task_finished`,
+  manualTaskWaiting: `manual_task_waiting`,
+  manualTaskFinished: `manual_task_finished`,
   processEnded: `process_ended`,
   processTerminated: `process_terminated`,
 };
