@@ -25,6 +25,7 @@ const paths = {
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
+  deleteProcessDefinitionsByProcessModelId: `/process_models/${params.processModelId}/delete`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
   processModelEvents: `/process_models/${params.processModelId}/events`,
   // UserTasks

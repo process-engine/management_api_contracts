@@ -117,6 +117,19 @@ export interface IManagementApi {
   updateProcessDefinitionsByName(identity: IIdentity, name: string, payload: UpdateProcessDefinitionsRequestPayload): Promise<void>;
 
   /**
+   * Deletes a ProcessModel by its ID.
+   *
+   * @async
+   * @param identity           The requesting Users identity.
+   * @param processModelId     The name of the Process Definitions to update.
+   * @returns                  A Promise, which resolves without content,
+   *                           or rejects an error, in case the update failed.
+   *                           This can happen, if the Process Definitions were not found,
+   *                           or the user is not authorized to delete it.
+   */
+  deleteProcessDefinitionsByProcessModelId(identity: IIdentity, processModelId: string): Promise<void>;
+
+  /**
    * Starts a new instance of a ProcessModel with a specific ID.
    * Depending on the type of callback used, this function will resolve either
    * immediately after the Process Instance was started,
