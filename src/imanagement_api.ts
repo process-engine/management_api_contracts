@@ -489,12 +489,12 @@ export interface IManagementApi {
   onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
     /**
-   * Executes a callback when a user task is reached.
+   * Executes a callback when a ManualTask is reached.
    *
    * @async
-   * @param callback       The callback that will be executed when a user task
+   * @param callback       The callback that will be executed when a ManualTask
    *                       is reached. The message passed to the callback
-   *                       contains further information about the user task.
+   *                       contains further information about the ManualTask.
    */
   onManualTaskWaiting(callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
 
