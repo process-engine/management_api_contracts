@@ -167,7 +167,7 @@ export interface IManagementApi {
                        endEventId?: string): Promise<ProcessStartResponsePayload>;
 
   /**
-   * Retrieves a list of all events belonging to a specific ProcessModel.
+   * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
    *
    * @async
    * @param identity       The requesting Users identity.
@@ -176,9 +176,9 @@ export interface IManagementApi {
    * @returns              A Promise, which resolves with the retrieved events,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
-  *                        or the user is not authorized to see the it.
+   *                        or the user is not authorized to see the it.
    */
-  getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
+  getStartEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
     /**
    * Retrieves a list of all triggerable events belonging to an instance of a
@@ -193,7 +193,7 @@ export interface IManagementApi {
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see the it.
    */
-  getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
+  getWaitingEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to a correlation.
@@ -207,7 +207,7 @@ export interface IManagementApi {
    *                      This can happen, if the ProcessModel was not found,
    *                      or the user is not authorized to see the it.
    */
-  getEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
+  getWaitingEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a
@@ -225,7 +225,7 @@ export interface IManagementApi {
    *                       was not found, or the user is not authorized to see
    *                       the it.
    */
-  getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
+  getWaitingEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
   /**
    * Triggers a message event.
