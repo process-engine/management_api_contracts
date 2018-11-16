@@ -5,6 +5,7 @@ export const messagePaths = {
   manualTaskReached: 'manual_task_reached',
   manualTaskFinished: 'manual_task_finished',
   processTerminated: 'process_terminated',
+  processStarted: 'process_started',
   processEnded: 'process_ended',
 };
 
@@ -35,4 +36,5 @@ export const routePaths = {
   messageEventReached: `/processengine/process/message/${routeParams.messageReference}`,
   signalEventReached: `/processengine/process/signal/${routeParams.signalReference}`,
   terminateEndEventReached: `/processengine/process/${routeParams.processInstanceId}/terminated`,
+  processInstanceStarted: `/processengine/process_started/${routeParams.processModelId},`
 };
