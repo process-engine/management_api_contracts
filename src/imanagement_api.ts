@@ -521,15 +521,15 @@ export interface IManagementApi {
    */
   onProcessStarted(callback: Messages.CallbackTypes.OnProcessStartedCallback): void;
 
-  /**
+   /**
    * Executes a callback when a process is terminated.
    *
    * @async
    * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a user task
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the process
-   *                       terminated.
+   * @param callback       The callback that will be executed when a
+   *                       ProcessInstance was terminated. The message passed to
+   *                       the callback contains further information about the
+   *                       process which was terminated.
    */
   onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
 
@@ -538,9 +538,9 @@ export interface IManagementApi {
    *
    * @async
    * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a user task
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the ended process.
+   * @param callback       The callback that will be executed when a
+   *                       ProcessInstance ended. The message passed to the
+   *                       callback contains further information about the ended process.
    */
   onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
