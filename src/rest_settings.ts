@@ -28,11 +28,11 @@ const paths = {
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
   deleteProcessDefinitionsByProcessModelId: `/process_models/${params.processModelId}/delete`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
-  processModelStartEvents: `/process_models/${params.processModelId}/events`,
+  processModelStartEvents: `/process_models/${params.processModelId}/start_events`,
   // Events
-  waitingProcessModelEvents: `/process_models/${params.processModelId}/events`,
-  waitingCorrelationEvents: `/correlations/${params.correlationId}/events`,
-  waitingProcessModelCorrelationEvents: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events`,
+  waitingProcessModelEvents: `/process_models/${params.processModelId}/events/waiting`,
+  waitingCorrelationEvents: `/correlations/${params.correlationId}/events/waiting`,
+  waitingProcessModelCorrelationEvents: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events/waiting`,
   triggerMessageEvent: `/message/${params.eventName}/trigger`,
   triggerSignalEvent: `/signal/${params.eventName}/trigger`,
   // UserTasks
