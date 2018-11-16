@@ -1,7 +1,7 @@
 import {BaseSystemEventMessage} from './base_system_event_message';
 
 /**
- * The message sent when a manual task has been finished.
+ * The message sent when a ManualTask has been finished.
  */
 export class ManualTaskFinishedMessage extends BaseSystemEventMessage {
 
