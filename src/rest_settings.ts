@@ -1,6 +1,7 @@
 // tslint:disable:typedef
 const params = {
   correlationId: ':correlation_id',
+  eventName: ':event_name',
   flowNodeId: ':flow_node_id',
   processDefinitionsName: ':process_definitions_name',
   processModelId: ':process_model_id',
@@ -27,7 +28,13 @@ const paths = {
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
   deleteProcessDefinitionsByProcessModelId: `/process_models/${params.processModelId}/delete`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
-  processModelEvents: `/process_models/${params.processModelId}/events`,
+  processModelStartEvents: `/process_models/${params.processModelId}/events`,
+  // Events
+  waitingProcessModelEvents: `/process_models/${params.processModelId}/events`,
+  waitingCorrelationEvents: `/correlations/${params.correlationId}/events`,
+  waitingProcessModelCorrelationEvents: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events`,
+  triggerMessageEvent: `/message/${params.eventName}/trigger`,
+  triggerSignalEvent: `/signal/${params.eventName}/trigger`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   correlationUserTasks: `/correlations/${params.correlationId}/user_tasks`,
