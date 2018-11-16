@@ -180,7 +180,7 @@ export interface IManagementApi {
    */
   getStartEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
-    /**
+  /**
    * Retrieves a list of all triggerable events belonging to an instance of a
    * specific ProcessModel.
    *
