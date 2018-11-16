@@ -176,7 +176,7 @@ export interface IManagementApi {
    * @returns              A Promise, which resolves with the retrieved events,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
-   *                        or the user is not authorized to see the it.
+   *                        or the user is not authorized to see it.
    */
   getStartEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
@@ -191,7 +191,7 @@ export interface IManagementApi {
    * @returns              A Promise, which resolves with the retrieved events,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
-   *                       or the user is not authorized to see the it.
+   *                       or the user is not authorized to see it.
    */
   getWaitingEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
@@ -205,7 +205,7 @@ export interface IManagementApi {
    * @returns             A Promise, which resolves with the retrieved events,
    *                      or rejects an error, in case the request failed.
    *                      This can happen, if the ProcessModel was not found,
-   *                      or the user is not authorized to see the it.
+   *                      or the user is not authorized to see it.
    */
   getWaitingEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
 
@@ -223,7 +223,7 @@ export interface IManagementApi {
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel or Correlation
    *                       was not found, or the user is not authorized to see
-   *                       the it.
+   *                       it.
    */
   getWaitingEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
@@ -258,7 +258,7 @@ export interface IManagementApi {
    * @returns              A Promise, which resolves the retrieved UserTasks,
   *                        or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
-   *                       or the user is not authorized to see the it.
+   *                       or the user is not authorized to see it.
    */
   getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
 
@@ -273,7 +273,7 @@ export interface IManagementApi {
    * @returns              A Promise, which resolves the retrieved UserTasks,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the correlation was not found,
-   *                       or the user is not authorized to see the it.
+   *                       or the user is not authorized to see it.
    */
   getUserTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<UserTaskList>;
 
