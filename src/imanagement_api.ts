@@ -512,6 +512,16 @@ export interface IManagementApi {
   onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
 
   /**
+   * Executes a callback when a process started.
+   *
+   * @async
+   * @param callback       The callback that will be executed when a new ProcessInstance
+   *                       was started. The message passed to the callback
+   *                       contains further information about the started process.
+   */
+  onProcessStarted(callback: Messages.CallbackTypes.OnProcessStartedCallback): void;
+
+  /**
    * Executes a callback when a process is terminated.
    *
    * @async
