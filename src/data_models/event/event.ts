@@ -1,7 +1,7 @@
 import {EventType} from './event_type';
 
 /**
- * Describes an event that can be triggered through the ConsumerAPI.
+ * Describes an event that can be triggered through the ManagementAPI.
  */
 
 export class Event {
