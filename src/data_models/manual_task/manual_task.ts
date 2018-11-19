@@ -3,6 +3,7 @@
  */
 export class ManualTask {
   public id: string;
+  public flowNodeInstanceId?: string;
   public name: string;
   public correlationId: string;
   public processModelId: string;

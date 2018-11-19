@@ -370,11 +370,11 @@ export interface IManagementApi {
    *
    * @async
    * @param identity       The requesting Users identity.
-   * @param processModelId The ID of the ProcessModel for which to finish a
+   * @param processInstanceId The Instance ID of the ProcessModel for which to finish a
    *                       ManualTask.
    * @param correlationId  The ID of the correlation for which to finish a
    *                       ManualTask.
-   * @param manualTaskId     The ID of ManualTask to finish.
+   * @param manualTaskInstanceId  The Instance ID of ManualTask to finish.
    * @param manualTaskResult Contains a set of results with which to finish the
    *                       ManualTask.
    * @returns              A Promise, which resolves without content,
@@ -384,9 +384,9 @@ export interface IManagementApi {
    *                       or the user is not authorized to see either.
    */
   finishManualTask(identity: IIdentity,
-                   processModelId: string,
+                   processInstanceId: string,
                    correlationId: string,
-                   manualTaskId: string): Promise<void>;
+                   manualTaskInstanceId: string): Promise<void>;
 
   /**
    * Gets the FlowNodeRuntimeInformation for every FlowNode in a given
