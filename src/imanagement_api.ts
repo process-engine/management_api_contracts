@@ -400,40 +400,44 @@ export interface IManagementApi {
    * Executes a callback when a user task is reached.
    *
    * @async
+   * @param identity       The requesting Users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is reached. The message passed to the callback
    *                       contains further information about the user task.
    */
-  onUserTaskWaiting(callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
 
   /**
    * Executes a callback when a user task is finished.
    *
    * @async
+   * @param identity       The requesting Users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is finished. The message passed to the callback
    *                       contains further information about the user task.
    */
-  onUserTaskFinished(callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
+  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
   /**
    * Executes a callback when a process is terminated.
    *
    * @async
+   * @param identity       The requesting Users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is reached. The message passed to the callback
    *                       contains further information about the process
    *                       terminated.
    */
-  onProcessTerminated(callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
+  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
 
   /**
    * Executes a callback when a process ends.
    *
    * @async
+   * @param identity       The requesting Users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is reached. The message passed to the callback
    *                       contains further information about the ended process.
    */
-  onProcessEnded(callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
+  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
