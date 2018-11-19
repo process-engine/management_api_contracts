@@ -22,7 +22,7 @@ export interface IManagementApi {
    * Retrieves a list of all Correlations.
    *
    * @async
-   * @param identity The requesting Users identity.
+   * @param identity The requesting users identity.
    * @returns        A Promise, which resolves with the correlation list,
    *                 or rejects an error, in case the request failed.
    */
@@ -32,7 +32,7 @@ export interface IManagementApi {
    * Retrieves a list of all active Correlations.
    *
    * @async
-   * @param identity The requesting Users identity.
+   * @param identity The requesting users identity.
    * @returns        A Promise, which resolves with the correlation list,
    *                 or rejects an error, in case the request failed.
    */
@@ -42,7 +42,7 @@ export interface IManagementApi {
    * Retrieves the ProcessModels that were executed with the given Correlation.
    *
    * @async
-   * @param identity      The requesting Users identity.
+   * @param identity      The requesting users identity.
    * @param correlationId The ID of the Correlation for which to get the
    *                      ProcessModels.
    * @returns             A Promise, which resolves with the ProcessModels,
@@ -58,7 +58,7 @@ export interface IManagementApi {
    * executed.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to get the
    *                       Correlations.
    * @returns              A Promise, which resolves with the Correlations,
@@ -71,7 +71,7 @@ export interface IManagementApi {
    * Retrieves the Correlation in which the given ProcessInstance was executed.
    *
    * @async
-   * @param identity          The requesting Users identity.
+   * @param identity          The requesting users identity.
    * @param processInstanceId The ID of the ProcessModel for which to get the
    *                          Correlations.
    * @returns                 A Promise, which resolves with the Correlations,
@@ -85,7 +85,7 @@ export interface IManagementApi {
    * authorized to see.
    *
    * @async
-   * @param identity The requesting Users identity.
+   * @param identity The requesting users identity.
    * @returns        A Promise, which resolves with the ProcessModel list,
    *                 or rejects an error, in case the request failed.
    */
@@ -95,7 +95,7 @@ export interface IManagementApi {
    * Retrieves a ProcessModel by its ID.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel to retrieve.
    * @returns              A Promise, which resolves with the ProcessModel, or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found, or the user is not authorized to see it.
@@ -106,7 +106,7 @@ export interface IManagementApi {
    * Updates a ProcessModel by its ID.
    *
    * @async
-   * @param identity The requesting Users identity.
+   * @param identity The requesting users identity.
    * @param name     The name of the Process Definitions to update.
    * @param payload  The payload with which to update the Process Definitions.
    * @returns        A Promise, which resolves without content,
@@ -120,7 +120,7 @@ export interface IManagementApi {
    * Deletes a ProcessModel by its ID.
    *
    * @async
-   * @param identity           The requesting Users identity.
+   * @param identity           The requesting users identity.
    * @param processModelId     The name of the Process Definitions to update.
    * @returns                  A Promise, which resolves without content,
    *                           or rejects an error, in case the update failed.
@@ -139,7 +139,7 @@ export interface IManagementApi {
    * or the first EndEvent encountered during execution.
    *
    * @async
-   * @param identity          The requesting Users identity.
+   * @param identity          The requesting users identity.
    * @param processModelId    The ID of the ProcessModel to retrieve.
    * @param startEventId      The ID of the start event through which to start
    *                          the Process Instance.
@@ -170,7 +170,7 @@ export interface IManagementApi {
    * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve
    *                       the events.
    * @returns              A Promise, which resolves with the retrieved events,
@@ -252,7 +252,7 @@ export interface IManagementApi {
    * specific ProcessModel.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
    *                       UserTasks.
    * @returns              A Promise, which resolves the retrieved UserTasks,
@@ -267,7 +267,7 @@ export interface IManagementApi {
    * correlation.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param correlationId  The ID of the correlation for which to retrieve
    *                       the UserTasks.
    * @returns              A Promise, which resolves the retrieved UserTasks,
@@ -281,7 +281,7 @@ export interface IManagementApi {
    * Retrieves a list of all suspended UserTasks belonging to an instance of a specific ProcessModel within a correlation.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param correlationId  The ID of the correlation for which to retrieve the
    *                       UserTasks.
    * @param processModelId The ID of the ProcessModel for which to retrieve the
@@ -298,7 +298,7 @@ export interface IManagementApi {
    * within a correlation.
    *
    * @async
-   * @param identity           The requesting Users identity.
+   * @param identity           The requesting users identity.
    * @param processInstanceId  The ID of the ProcessInstance for which to finish
    *                           a UserTask.
    * @param correlationId      The ID of the correlation for which to finish a
@@ -323,7 +323,7 @@ export interface IManagementApi {
    * ProcessModel ID.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the PorcessModel.
    * @returns              The Runtime Informations pertaining to the given
    *                       ProcessModel.
@@ -335,7 +335,7 @@ export interface IManagementApi {
    * ProcessModel.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel.
    * @param flowNodeId     The ID of the specific FlowNode from whcih to get
    *                       the average runtime.
@@ -348,7 +348,7 @@ export interface IManagementApi {
    * Gets all active Tokens for a given ProcessModelId.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of the ProcessModel.
    * @returns              A list of discovered active tokens for the given
    *                       ProcessModel.
@@ -359,7 +359,7 @@ export interface IManagementApi {
    * Gets all active Tokens for a specific FlowNode inside a ProcessModel.
    *
    * @async
-   * @param identity   The requesting Users identity.
+   * @param identity   The requesting users identity.
    * @param flowNodeId The ID of the sepcific FlowNode from whcih to get the
    *                   active Tokens.
    * @returns          A list of discovered active tokens for the given
@@ -371,7 +371,7 @@ export interface IManagementApi {
    * Retrieves the logs for a specific ProcessModel.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param processModelId The ID of ProcessModel for which to retrieve the
    *                       logs.
    * @param correlationId  Optional: If provided, only the logs for the given
@@ -385,7 +385,7 @@ export interface IManagementApi {
    * ProcessModel.
    *
    * @async
-   * @param identity       The requesting Users identity.
+   * @param identity       The requesting users identity.
    * @param correlationId  The ID of the Correlation.
    * @param processModelId The ID of the ProcessModel.
    * @param flowNodeId     The ID of the specific FlowNode.
@@ -400,40 +400,44 @@ export interface IManagementApi {
    * Executes a callback when a user task is reached.
    *
    * @async
+   * @param identity       The requesting users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is reached. The message passed to the callback
    *                       contains further information about the user task.
    */
-  onUserTaskWaiting(callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
 
   /**
    * Executes a callback when a user task is finished.
    *
    * @async
+   * @param identity       The requesting users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is finished. The message passed to the callback
    *                       contains further information about the user task.
    */
-  onUserTaskFinished(callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
+  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 
   /**
    * Executes a callback when a process is terminated.
    *
    * @async
+   * @param identity       The requesting users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is reached. The message passed to the callback
    *                       contains further information about the process
    *                       terminated.
    */
-  onProcessTerminated(callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
+  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): void;
 
   /**
    * Executes a callback when a process ends.
    *
    * @async
+   * @param identity       The requesting users identity.
    * @param callback       The callback that will be executed when a user task
    *                       is reached. The message passed to the callback
    *                       contains further information about the ended process.
    */
-  onProcessEnded(callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
+  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): void;
 }
