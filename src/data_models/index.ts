@@ -6,3 +6,4 @@ export * from './messages/index';
 export * from './process_model_execution/index';
 export * from './token_history/index';
 export * from './user_task/index';
+export * from './manual_task';

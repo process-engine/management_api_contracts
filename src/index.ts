@@ -11,6 +11,7 @@ export * from './data_models/logging/index';
 export * from './data_models/messages/index';
 export * from './data_models/token_history/index';
 export * from './data_models/user_task/index';
+export * from './data_models/manual_task/index';
 import * as execution from './data_models/process_model_execution/index';
 
 // tslint:disable-next-line:no-namespace
