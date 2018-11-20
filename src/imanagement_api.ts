@@ -1,3 +1,4 @@
+// tslint:disable:max-file-line-count
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {ActiveToken, EventTriggerPayload, FlowNodeRuntimeInformation, LogEntry, ManualTaskList, TokenHistoryEntry} from './data_models';
@@ -492,21 +493,23 @@ export interface IManagementApi {
    * Executes a callback when a ManualTask is reached.
    *
    * @async
+   * @param identity       The requesting users identity.
    * @param callback       The callback that will be executed when a ManualTask
    *                       is reached. The message passed to the callback
    *                       contains further information about the ManualTask.
    */
-  onManualTaskWaiting(callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
+  onManualTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
 
   /**
    * Executes a callback when a manual task is finished.
    *
    * @async
+   * @param identity       The requesting users identity.
    * @param callback       The callback that will be executed when a manual task
    *                       is finished. The message passed to the callback
    *                       contains further information about the manual task.
    */
-  onManualTaskFinished(callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
+  onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
 
   /**
    * Executes a callback when a process is terminated.
