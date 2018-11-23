@@ -17,6 +17,11 @@ export class UserTaskReachedMessage extends BaseSystemEventMessage {
               flowNodeId: string,
               flowNodeInstanceId: string,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
+    super(correlationId,
+      processModelId,
+      processInstanceId,
+      flowNodeId,
+      flowNodeInstanceId,
+      currentToken);
   }
 }
