@@ -522,7 +522,20 @@ export interface IManagementApi {
    */
   onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): void;
 
-   /**
+  /**
+   * Executes a callback when a process with a given ProcessModelId was started.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a new ProcessInstance
+   *                       was started. The message passed to the callback
+   *                       contains further information about the started process.
+   * @param processModelId Id of the ProcessModel for which created instance a
+  *                        notification should be send.
+   */
+  onProcessWithProcessModelIdStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback, processModelId: string): void;
+
+  /**
    * Executes a callback when a process is terminated.
    *
    * @async
