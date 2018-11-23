@@ -36,5 +36,5 @@ export const routePaths = {
   messageEventReached: `/processengine/process/message/${routeParams.messageReference}`,
   signalEventReached: `/processengine/process/signal/${routeParams.signalReference}`,
   terminateEndEventReached: `/processengine/process/${routeParams.processInstanceId}/terminated`,
-  processInstanceStarted: `/processengine/process_started/${routeParams.processModelId},`
+  processInstanceStarted: `/processengine/process_started/${routeParams.processModelId}`,
 };
