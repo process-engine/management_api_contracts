@@ -1,21 +1,20 @@
 import {BaseSystemEventMessage} from './base_system_event_message';
 
 /**
- * The message sent when a process ends.
+ * The message sent when a ProcessInstance was started.
  */
-export class ProcessEndedMessage extends BaseSystemEventMessage {
+export class ProcessStartedMessage extends BaseSystemEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,
               processInstanceId: string,
-              flowNodeId: string,
-              flowNodeInstanceId: string,
+              startEventId: string,
               currentToken: any) {
     super(correlationId,
       processModelId,
       processInstanceId,
-      flowNodeId,
-      flowNodeInstanceId,
+      startEventId,
+      undefined,
       currentToken);
   }
 }
