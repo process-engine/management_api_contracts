@@ -8,14 +8,13 @@ export class ProcessStartedMessage extends BaseSystemEventMessage {
   constructor(correlationId: string,
               processModelId: string,
               processInstanceId: string,
-              flowNodeId: string,
-              flowNodeInstanceId: string,
+              startEventId: string,
               currentToken: any) {
     super(correlationId,
       processModelId,
       processInstanceId,
-      flowNodeId,
-      flowNodeInstanceId,
+      startEventId,
+      undefined,
       currentToken);
   }
 }
