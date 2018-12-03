@@ -480,7 +480,7 @@ export interface IManagementApi {
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
 
   /**
-   * Gets the token histories for a given CorrelationId and ProcessModelId.
+   * Gets the token history for a given CorrelationId and ProcessModelId.
    *
    * @async
    * @param identity       The requesting users identity.
