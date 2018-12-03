@@ -427,7 +427,7 @@ export interface IManagementApi {
   getActiveTokensForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<ActiveToken>>;
 
   /**
-   * Gets all active Tokens for a given CorrelationId and ProcessModelId.
+   * Gets all active ProcessTokens for a given CorrelationId and ProcessModelId.
    *
    * @async
    * @param identity       The requesting users identity.
