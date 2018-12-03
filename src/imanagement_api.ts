@@ -486,7 +486,7 @@ export interface IManagementApi {
    * @param identity       The requesting users identity.
    * @param correlationId  The ID of the Correlation.
    * @param processModelId The ID of the ProcessModel.
-   * @returns              A list of discovered active tokens for the given
+   * @returns              A list of discovered tokens for the given
    *                       ProcessModel.
    */
   getTokensForCorrelationAndProcessModel(identity: IIdentity, correlationId: string, processModelId: string):
