@@ -427,6 +427,18 @@ export interface IManagementApi {
   getActiveTokensForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<ActiveToken>>;
 
   /**
+   * Gets all active ProcessTokens for a given CorrelationId and ProcessModelId.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param correlationId  The ID of the Correlation.
+   * @param processModelId The ID of the ProcessModel.
+   * @returns              A list of discovered active tokens for the given
+   *                       ProcessModel.
+   */
+  getActiveTokensForCorrelationAndProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<ActiveToken>>;
+
+  /**
    * Gets all active Tokens for a specific FlowNode inside a ProcessModel.
    *
    * @async
@@ -466,6 +478,19 @@ export interface IManagementApi {
                                correlationId: string,
                                processModelId: string,
                                flowNodeId: string): Promise<Array<TokenHistoryEntry>>;
+
+  /**
+   * Gets the token history for a given CorrelationId and ProcessModelId.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param correlationId  The ID of the Correlation.
+   * @param processModelId The ID of the ProcessModel.
+   * @returns              A list of discovered tokens for the given
+   *                       ProcessModel.
+   */
+  getTokensForCorrelationAndProcessModel(identity: IIdentity, correlationId: string, processModelId: string):
+    Promise<Array<Array<TokenHistoryEntry>>>;
 
   /**
    * Executes a callback when a user task is reached.

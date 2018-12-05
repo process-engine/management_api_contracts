@@ -50,10 +50,12 @@ const paths = {
   // Heatmap
   getRuntimeInformationForProcessModel: `/process_model/${params.processModelId}/runtime_information`,
   getActiveTokensForProcessModel: `/process_model/${params.processModelId}/active_tokens`,
+  getActiveTokensForCorrelationAndProcessModel: `/correlation/${params.correlationId}/process_model/${params.processModelId}/active_tokens`,
   getRuntimeInformationForFlowNode: `/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/runtime_information`,
   getActiveTokensForFlowNode: `/token/flow_node/${params.flowNodeId}/active_tokens`,
   getProcessModelLog: `/process_model/${params.processModelId}/logs`,
   getTokensForFlowNode: `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/token_history`,
+  getTokensForCorrelationAndProcessModel: `/correlation/${params.correlationId}/process_model/${params.processModelId}/token_history`,
 };
 
 /**
