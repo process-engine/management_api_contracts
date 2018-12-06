@@ -16,7 +16,7 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
-import { TokenHistoryGroup } from './data_models/token_history/token_history_group';
+import {TokenHistoryGroup} from './data_models/token_history/token_history_group';
 
 export interface IManagementApi {
 
