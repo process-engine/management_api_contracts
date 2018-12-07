@@ -16,6 +16,7 @@ import {
   UserTaskList,
   UserTaskResult,
 } from './data_models/index';
+import {TokenHistoryGroup} from './data_models/token_history/token_history_group';
 
 export interface IManagementApi {
 
@@ -489,7 +490,7 @@ export interface IManagementApi {
    * @returns              A list of discovered tokens for the given
    *                       ProcessModel.
    */
-  getTokensForCorrelationAndProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<TokenHistoryEntry>>;
+  getTokensForCorrelationAndProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<TokenHistoryGroup>;
 
   /**
    * Executes a callback when a user task is reached.
