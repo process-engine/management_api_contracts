@@ -8,8 +8,8 @@ import {CorrelationState} from './correlation_state';
  */
 export class Correlation {
   public id: string;
+  public identity: IIdentity;
   public processModels: Array<CorrelationProcessModel>;
   public state: CorrelationState;
-  public identity: IIdentity;
   public createdAt?: Date;
 }
