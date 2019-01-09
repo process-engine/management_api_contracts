@@ -1,7 +1,9 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {BaseSystemEventMessage} from './base_system_event_message';
 
 /**
- * The message sent when a manual task has been finished.
+ * Represents the message which is send, when a ManualTask has been finished.
  */
 export class ManualTaskReachedMessage extends BaseSystemEventMessage {
 
@@ -10,12 +12,8 @@ export class ManualTaskReachedMessage extends BaseSystemEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
+              processInstanceOwner: IIdentity,
               currentToken: any) {
-    super(correlationId,
-      processModelId,
-      processInstanceId,
-      flowNodeId,
-      flowNodeInstanceId,
-      currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, processInstanceOwner, currentToken);
   }
 }

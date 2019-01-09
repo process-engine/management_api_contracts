@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {BaseBpmnEventMessage} from './base_bpmn_event_message';
 
 /**
@@ -13,8 +15,10 @@ export class SignalEventReachedMessage extends BaseBpmnEventMessage {
               processModelId: string,
               processInstanceId: string,
               flowNodeId: string,
+              flowNodeInstanceId: string,
+              processInstanceOwner: IIdentity,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, flowNodeId, currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, processInstanceOwner, currentToken);
 
     this.signalReference = signalReference;
   }

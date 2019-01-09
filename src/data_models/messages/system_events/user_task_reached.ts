@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {UserTaskResult} from '../../user_task/user_task_result';
 import {BaseSystemEventMessage} from './base_system_event_message';
 
@@ -16,12 +18,8 @@ export class UserTaskReachedMessage extends BaseSystemEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
+              processInstanceOwner: IIdentity,
               currentToken: any) {
-    super(correlationId,
-      processModelId,
-      processInstanceId,
-      flowNodeId,
-      flowNodeInstanceId,
-      currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, processInstanceOwner, currentToken);
   }
 }
