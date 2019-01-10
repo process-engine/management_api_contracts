@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {UserTaskConfig} from './user_task_config';
 
 /**
@@ -19,4 +21,5 @@ export class UserTask {
    * The token payload the UserTask got suspended with.
    */
   public tokenPayload: any;
+  public owner: IIdentity;
 }

@@ -1,3 +1,5 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 /**
  * Describes a maual task that belongs to an active correlation.
  */
@@ -9,4 +11,5 @@ export class ManualTask {
   public processModelId: string;
   public processInstanceId?: string;
   public tokenPayload: any;
+  public owner: IIdentity;
 }
