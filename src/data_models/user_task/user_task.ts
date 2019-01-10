@@ -21,5 +21,5 @@ export class UserTask {
    * The token payload the UserTask got suspended with.
    */
   public tokenPayload: any;
-  public owner: IIdentity;
+  public processInstanceOwner: IIdentity;
 }
