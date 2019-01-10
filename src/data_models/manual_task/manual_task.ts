@@ -11,5 +11,4 @@ export class ManualTask {
   public processModelId: string;
   public processInstanceId?: string;
   public tokenPayload: any;
-  public processInstanceOwner: IIdentity;
 }
