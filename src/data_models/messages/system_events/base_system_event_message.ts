@@ -13,7 +13,6 @@ export class BaseSystemEventMessage {
   public readonly processInstanceId: string;
   public readonly flowNodeId: string;
   public readonly flowNodeInstanceId: string;
-  public readonly processInstanceOwner: IIdentity;
   public readonly currentToken: any;
 
   constructor(correlationId: string,
@@ -21,14 +20,12 @@ export class BaseSystemEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
-              processInstanceOwner: IIdentity,
               currentToken: any) {
     this.correlationId = correlationId;
     this.processModelId = processModelId;
     this.processInstanceId = processInstanceId;
     this.flowNodeId = flowNodeId;
     this.flowNodeInstanceId = flowNodeInstanceId;
-    this.processInstanceOwner = processInstanceOwner;
     this.currentToken = currentToken;
   }
 }
