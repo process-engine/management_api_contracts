@@ -1,10 +1,10 @@
-import {BaseBpmnEventMessage} from './base_bpmn_event_message';
+import {BasePublicEventMessage} from '../base_public_event_message';
 
 /**
  * Encapsulates a Message for the EventAggregator, describing a
  * MessageEvent.
  */
-export class SignalEventReachedMessage extends BaseBpmnEventMessage {
+export class SignalEventReachedMessage extends BasePublicEventMessage {
 
   public signalReference: string;
 
@@ -13,8 +13,9 @@ export class SignalEventReachedMessage extends BaseBpmnEventMessage {
               processModelId: string,
               processInstanceId: string,
               flowNodeId: string,
+              flowNodeInstanceId: string,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, flowNodeId, currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
     this.signalReference = signalReference;
   }

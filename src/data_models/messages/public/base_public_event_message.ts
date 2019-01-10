@@ -1,16 +1,13 @@
-export class BaseSystemEventMessage {
-  /**
-   * The id of the correlation the user task being finished belongs to.
-   */
-  public correlationId: string;
-  public processModelId: string;
-  /**
-   * The id of the process instance the user task being finished belongs to.
-   */
-  public processInstanceId: string;
-  public flowNodeId: string;
-  public flowNodeInstanceId: string;
-  public currentToken: any;
+/**
+ * The base class for definining event messages.
+ */
+export class BasePublicEventMessage {
+  public readonly correlationId: string;
+  public readonly processModelId: string;
+  public readonly processInstanceId: string;
+  public readonly flowNodeId: string;
+  public readonly flowNodeInstanceId: string;
+  public readonly currentToken: any;
 
   constructor(correlationId: string,
               processModelId: string,
