@@ -1,11 +1,9 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
-import {BaseSystemEventMessage} from './base_system_event_message';
+import {BasePublicEventMessage} from '../base_public_event_message';
 
 /**
  * The message used to finish a waiting manual task.
  */
-export class FinishManualTaskMessage extends BaseSystemEventMessage {
+export class FinishManualTaskMessage extends BasePublicEventMessage {
 
   /**
    * The flow node id of the manual task being finished.

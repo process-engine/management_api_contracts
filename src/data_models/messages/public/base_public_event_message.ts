@@ -1,11 +1,7 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
 /**
- * The base class for definining BPMN event messages.
- * BPMN events are events which are contained within a ProcessModel, such as
- * EndEvents, etc.
+ * The base class for definining event messages.
  */
-export class BaseBpmnEventMessage {
+export class BasePublicEventMessage {
   public readonly correlationId: string;
   public readonly processModelId: string;
   public readonly processInstanceId: string;

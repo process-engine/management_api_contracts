@@ -1,16 +1,14 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
-import {BaseBpmnEventMessage} from './base_bpmn_event_message';
+import {BasePublicEventMessage} from '../base_public_event_message';
 
 /**
  * Encapsulates a Message for the EventAggregator, describing a
  * MessageEvent.
  */
-export class SignalEventReachedMessage extends BaseBpmnEventMessage {
+export class MessageEventReachedMessage extends BasePublicEventMessage {
 
-  public signalReference: string;
+  public messageReference: string;
 
-  constructor(signalReference: string,
+  constructor(messageReference: string,
               correlationId: string,
               processModelId: string,
               processInstanceId: string,
@@ -19,6 +17,6 @@ export class SignalEventReachedMessage extends BaseBpmnEventMessage {
               currentToken: any) {
     super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
-    this.signalReference = signalReference;
+    this.messageReference = messageReference;
   }
 }

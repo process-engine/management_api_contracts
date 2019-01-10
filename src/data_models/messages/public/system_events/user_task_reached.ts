@@ -1,12 +1,11 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
+import {UserTaskResult} from '../../../user_task/user_task_result';
 
-import {UserTaskResult} from '../../user_task/user_task_result';
-import {BaseSystemEventMessage} from './base_system_event_message';
+import {BasePublicEventMessage} from '../base_public_event_message';
 
 /**
  * The message sent when a user task has been finished.
  */
-export class UserTaskReachedMessage extends BaseSystemEventMessage {
+export class UserTaskReachedMessage extends BasePublicEventMessage {
 
   /**
    * The result the user task was finished with.
