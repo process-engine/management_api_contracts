@@ -1,4 +1,4 @@
-import {Event} from '../index';
+import {Event} from '../event/index';
 
 /**
  * Describes a ProcessModel.
