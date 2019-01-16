@@ -1,4 +1,4 @@
-import {ProcessModel} from '../index';
+import {ProcessModel} from './process_model';
 
 /**
  * Contains a list of ProcessModels.

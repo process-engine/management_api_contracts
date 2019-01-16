@@ -1,4 +1,4 @@
-import {UserTaskResult} from '../../../user_task/user_task_result';
+import {UserTaskResult} from '../../../data_models/user_task/user_task_result';
 
 import {BasePublicEventMessage} from '../base_public_event_message';
 
