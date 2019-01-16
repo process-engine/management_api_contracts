@@ -1,6 +1,7 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {ManualTaskList} from '../data_models/manual_task/index';
+import {Messages} from '../messages/index';
 
 /**
  * The IManualTaskManagementApi is used to retreive and manage ManualTasks.
@@ -76,4 +77,26 @@ export interface IManualTaskManagementApi {
                    processInstanceId: string,
                    correlationId: string,
                    manualTaskInstanceId: string): Promise<void>;
+
+  /**
+   * Executes a callback when a ManualTask is reached.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a ManualTask
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the ManualTask.
+   */
+  onManualTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a manual task is finished.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a manual task
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the manual task.
+   */
+  onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): void;
 }

@@ -1,6 +1,7 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {UserTaskList, UserTaskResult} from '../data_models/user_task/index';
+import {Messages} from '../messages/index';
 
 /**
  * The IUserTaskManagementApi is used to retreive and manage UserTasks.
@@ -76,4 +77,26 @@ export interface IUserTaskManagementApi {
                  correlationId: string,
                  userTaskInstanceId: string,
                  userTaskResult: UserTaskResult): Promise<void>;
+
+  /**
+   * Executes a callback when a UserTask is reached.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a UserTask
+   *                       is reached. The message passed to the callback
+   *                       contains further information about the UserTask.
+   */
+  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+
+  /**
+   * Executes a callback when a UserTask is finished.
+   *
+   * @async
+   * @param identity       The requesting users identity.
+   * @param callback       The callback that will be executed when a UserTask
+   *                       is finished. The message passed to the callback
+   *                       contains further information about the UserTask.
+   */
+  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
 }

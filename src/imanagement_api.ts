@@ -11,7 +11,6 @@ export interface IManagementApi
           APIs.IKpiManagementApi,
           APIs.ILoggingManagementApi,
           APIs.IManualTaskManagementApi,
-          APIs.INotificationManagementApi,
           APIs.IProcessModelManagementApi,
           APIs.ITokenHistoryManagementApi,
           APIs.IUserTaskManagementApi {}
