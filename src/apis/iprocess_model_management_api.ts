@@ -38,7 +38,6 @@ export interface IProcessModelManagementApi {
    */
   getProcessModelById(identity: IIdentity, processModelId: string): Promise<ProcessModel>;
 
-
   /**
    * Retrieves a ProcessModel by its ID.
    *
