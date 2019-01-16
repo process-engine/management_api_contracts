@@ -27,6 +27,7 @@ const paths = {
   // Process Models
   processModels: `/process_models`,
   processModelById: `/process_models/${params.processModelId}`,
+  processModelByProcessInstanceId: `/process_instance/${params.processInstanceId}/process_models/`,
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
   deleteProcessDefinitionsByProcessModelId: `/process_models/${params.processModelId}/delete`,
   startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
