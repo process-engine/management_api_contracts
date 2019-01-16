@@ -19,7 +19,7 @@ export interface IManualTaskManagementApi {
    * @returns              A Promise, which resolves the retrieved ManualTasks,
   *                        or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
-   *                       or the user is not authorized to see the it.
+   *                       or the user is not authorized to see it.
    */
   getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
 
@@ -34,7 +34,7 @@ export interface IManualTaskManagementApi {
    * @returns              A Promise, which resolves the retrieved ManualTasks,
    *                       or rejects an error, in case the request failed.
    *                       This can happen, if the correlation was not found,
-   *                       or the user is not authorized to see the it.
+   *                       or the user is not authorized to see it.
    */
   getManualTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<ManualTaskList>;
 
