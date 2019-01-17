@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/process-engine/management_api_contracts#readme",
   "dependencies": {
-    "@essential-projects/iam_contracts": "feature~refactor_socket_io_handling"
+    "@essential-projects/iam_contracts": "~3.4.0"
   },
   "devDependencies": {
     "@essential-projects/tslint-config": "^1.1.3",
