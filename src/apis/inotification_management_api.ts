@@ -11,5 +11,5 @@ export interface INotificationManagementApi {
    * @async
    * @param subscription The subscription to remove.
    */
-  unsubscribe(subscription: Subscription): Promise<void>;
+  removeSubscription(subscription: Subscription): Promise<void>;
 }
