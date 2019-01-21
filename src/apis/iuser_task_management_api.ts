@@ -1,3 +1,4 @@
+import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {UserTaskList, UserTaskResult} from '../data_models/user_task/index';
@@ -72,31 +73,37 @@ export interface IUserTaskManagementApi {
    *                           correlation were not found,
    *                           or the user is not authorized to see either.
    */
-  finishUserTask(identity: IIdentity,
-                 processInstanceId: string,
-                 correlationId: string,
-                 userTaskInstanceId: string,
-                 userTaskResult: UserTaskResult): Promise<void>;
+  finishUserTask(
+    identity: IIdentity,
+    processInstanceId: string,
+    correlationId: string,
+    userTaskInstanceId: string,
+    userTaskResult: UserTaskResult,
+  ): Promise<void>;
 
   /**
    * Executes a callback when a UserTask is reached.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a UserTask
-   *                       is reached. The message passed to the callback
-   *                       contains further information about the UserTask.
+   * @param   identity The requesting users identity.
+   * @param   callback The callback that will be executed when a UserTask is
+   *                   reached.
+   *                   The message passed to the callback contains further
+   *                   information about the UserTask.
+   * @returns          The Subscription created by the EventAggregator.
    */
-  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): void;
+  onUserTaskWaiting(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskWaitingCallback): Promise<Subscription>;
 
   /**
    * Executes a callback when a UserTask is finished.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param callback       The callback that will be executed when a UserTask
-   *                       is finished. The message passed to the callback
-   *                       contains further information about the UserTask.
+   * @param   identity The requesting users identity.
+   * @param   callback The callback that will be executed when a UserTask is
+   *                   finished.
+   *                   The message passed to the callback contains further
+   *                   information about the UserTask.
+   * @returns          The Subscription created by the EventAggregator.
    */
-  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): void;
+  onUserTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnUserTaskFinishedCallback): Promise<Subscription>;
 }
