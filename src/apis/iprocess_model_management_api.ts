@@ -106,14 +106,21 @@ export interface IProcessModelManagementApi {
    * Executes a callback when a process started.
    *
    * @async
-   * @param   identity The requesting users identity.
-   * @param   callback The callback that will be executed when a new
-   *                   ProcessInstance was started.
-   *                   The message passed to the callback contains further
-   *                   information about the started process.
-   * @returns          The Subscription created by the EventAggregator.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a new
+   *                        ProcessInstance was started.
+   *                        The message passed to the callback contains further
+   *                        information about the started process.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onProcessStarted(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessStartedCallback): Promise<Subscription>;
+  onProcessStarted(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessStartedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a new ProcessInstance for a given ProcessModelId
@@ -127,37 +134,55 @@ export interface IProcessModelManagementApi {
    *                         information about the started ProcessInstance.
    * @param   processModelId The ID of the ProcessModel for which to receive
    *                         notifications.
+   * @param   subscribeOnce  Optional: If set to true, the Subscription will be
+   *                         automatically disposed, after the notification was
+   *                         received once.
    * @returns                The Subscription created by the EventAggregator.
    */
   onProcessWithProcessModelIdStarted(
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnProcessStartedCallback,
     processModelId: string,
+    subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
   /**
    * Executes a callback when a ProcessInstance is terminated.
    *
    * @async
-   * @param   identity The requesting users identity.
-   * @param   callback The callback that will be executed when a
-   *                   ProcessInstance is terminated.
-   *                   The message passed to the callback contains further
-   *                   information about the ProcessInstance terminated.
-   * @returns          The Subscription created by the EventAggregator.
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a
+   *                        ProcessInstance is terminated.
+   *                         The message passed to the callback contains further
+   *                         information about the ProcessInstance terminated.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onProcessTerminated(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessTerminatedCallback): Promise<Subscription>;
+  onProcessTerminated(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessTerminatedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 
   /**
    * Executes a callback when a ProcessInstance ends.
    *
    * @async
-   * @param identity The requesting users identity.
-   * @param callback The callback that will be executed when a
-   *                 ProcessInstance is finished.
-   *                 The message passed to the callback contains further
-   *                 information about the finished ProcessInstance.
-   * @returns        The Subscription created by the EventAggregator.
+   * @param identity        The requesting users identity.
+   * @param callback        The callback that will be executed when a
+   *                        ProcessInstance is finished.
+   *                        The message passed to the callback contains further
+   *                        information about the finished ProcessInstance.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
    */
-  onProcessEnded(identity: IIdentity, callback: Messages.CallbackTypes.OnProcessEndedCallback): Promise<Subscription>;
+  onProcessEnded(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessEndedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 }
