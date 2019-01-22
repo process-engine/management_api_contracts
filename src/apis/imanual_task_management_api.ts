@@ -106,4 +106,44 @@ export interface IManualTaskManagementApi {
    * @returns          The Subscription created by the EventAggregator.
    */
   onManualTaskFinished(identity: IIdentity, callback: Messages.CallbackTypes.OnManualTaskFinishedCallback): Promise<Subscription>;
+
+  /**
+   * Executes a callback when a ManualTask for the given identity is reached.
+   *
+   * @async
+   * @param identity        The requesting users identity.
+   * @param callback        The callback that will be executed when a ManualTask
+   *                        is reached.
+   *                        The message passed to the callback contains further
+   *                        information about the ManualTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
+   */
+  onManualTaskForIdentityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes a callback when a ManualTask for the given identity is finished.
+   *
+   * @async
+   * @param   identity      The requesting users identity.
+   * @param   callback      The callback that will be executed when a ManualTask
+   *                        is finished.
+   *                        The message passed to the callback contains further
+   *                        information about the ManualTask.
+   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   *                        automatically disposed, after the notification was
+   *                        received once.
+   * @returns               The Subscription created by the EventAggregator.
+   */
+  onManualTaskForIdentityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 }
