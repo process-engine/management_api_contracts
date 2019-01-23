@@ -8,7 +8,6 @@ export interface IManagementSocketIoAccessor {
   /**
    * Uses the given Identity to connect this client to the Socket.IO server.
    *
-   *
    * @param identity The identity with which to create the connection.
    */
   initializeSocket(identity: IIdentity): void;
