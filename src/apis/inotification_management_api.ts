@@ -2,7 +2,7 @@ import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 /**
- * The INotificationManagementApi is to manage subscriptions for async notifications.
+ * The INotificationManagementApi is used to manage subscriptions for async notifications.
  */
 export interface INotificationManagementApi {
 
