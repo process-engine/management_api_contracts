@@ -7,4 +7,5 @@ import {IManagementApi} from './imanagement_api';
  * perform the same type of requests as the Service,
  * regardless of which type of ProcessEngine is used.
  */
+// tslint:disable-next-line:no-empty-interface
 export interface IManagementApiAccessor extends IManagementApi {}
