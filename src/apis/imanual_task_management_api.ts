@@ -10,7 +10,7 @@ import {Messages} from '../messages/index';
 export interface IManualTaskManagementApi {
 
   /**
-   * Retrieves a list of all suspended ManualTasks belonging to an instance of a
+   * Retrieves a list of all suspended ManualTasks belonging to a
    * specific ProcessModel.
    *
    * @async

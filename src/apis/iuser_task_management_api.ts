@@ -9,7 +9,7 @@ import {Messages} from '../messages/index';
  */
 export interface IUserTaskManagementApi {
   /**
-   * Retrieves a list of all suspended UserTasks belonging to an instance of a
+   * Retrieves a list of all suspended UserTasks belonging to a
    * specific ProcessModel.
    *
    * @async
