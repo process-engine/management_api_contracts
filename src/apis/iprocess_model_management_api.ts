@@ -39,6 +39,17 @@ export interface IProcessModelManagementApi {
   getProcessModelById(identity: IIdentity, processModelId: string): Promise<ProcessModel>;
 
   /**
+   * Retrieves a ProcessModel by its ID.
+   *
+   * @async
+   * @param identity          The requesting users identity.
+   * @param processInstanceId The ProcessInstanceID of the ProcessModel to retrieve.
+   * @returns                 A Promise, which resolves with the ProcessModel, or rejects an error, in case the request failed.
+   *                          This can happen, if the ProcessModel was not found, or the user is not authorized to see it.
+   */
+  getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<ProcessModel>;
+
+  /**
    * Updates a ProcessModel by its ID.
    *
    * @async
