@@ -29,7 +29,7 @@ export interface IManualTaskManagementApi {
    * specific ProcessModel.
    *
    * @async
-   * @param identity          The requesting Users identity.
+   * @param identity          The requesting users identity.
    * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
    *                          ManualTasks.
    * @returns                 A Promise, which resolves the retrieved ManualTasks,
