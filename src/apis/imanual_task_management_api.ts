@@ -18,13 +18,13 @@ export interface IManualTaskManagementApi {
    * @param processModelId The ID of the ProcessModel for which to retrieve the
    *                       ManualTasks.
    * @returns              A Promise, which resolves the retrieved ManualTasks,
-  *                        or rejects an error, in case the request failed.
+   *                        or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see it.
    */
   getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
 
-    /**
+  /**
    * Retrieves a list of all suspended ManualTasks belonging to an instance of a
    * specific ProcessModel.
    *
@@ -33,7 +33,7 @@ export interface IManualTaskManagementApi {
    * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
    *                          ManualTasks.
    * @returns                 A Promise, which resolves the retrieved ManualTasks,
-  *                           or rejects an error, in case the request failed.
+   *                           or rejects an error, in case the request failed.
    *                          This can happen, if the ProcessModel was not found,
    *                          or the user is not authorized to see it.
    */

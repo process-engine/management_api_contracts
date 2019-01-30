@@ -17,13 +17,13 @@ export interface IUserTaskManagementApi {
    * @param processModelId The ID of the ProcessModel for which to retrieve the
    *                       UserTasks.
    * @returns              A Promise, which resolves the retrieved UserTasks,
-  *                        or rejects an error, in case the request failed.
+   *                        or rejects an error, in case the request failed.
    *                       This can happen, if the ProcessModel was not found,
    *                       or the user is not authorized to see it.
    */
   getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
 
-    /**
+  /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a
    * specific ProcessModel.
    *
@@ -32,7 +32,7 @@ export interface IUserTaskManagementApi {
    * @param processInstanceId The ID of the ProcessInstance for which to retrieve the
    *                          UserTasks.
    * @returns                 A Promise, which resolves the retrieved UserTasks,
-  *                            or rejects an error, in case the request failed.
+   *                            or rejects an error, in case the request failed.
    *                           This can happen, if the ProcessModel was not found,
    *                           or the user is not authorized to see it.
    */
