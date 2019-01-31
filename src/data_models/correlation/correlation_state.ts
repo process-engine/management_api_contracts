@@ -4,4 +4,5 @@
 export enum CorrelationState {
   running = 'running',
   finished = 'finished',
+  error = 'error',
 }
