@@ -8,6 +8,7 @@ import {TokenEventType} from './token_event_type';
 export class TokenHistoryEntry {
   public flowNodeId: string;
   public flowNodeInstanceId: string;
+  public previousFlowNodeInstanceId: string;
   public processInstanceId: string;
   public processModelId: string;
   public correlationId: string;
