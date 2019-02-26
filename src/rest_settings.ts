@@ -14,6 +14,7 @@ const params = {
 
 const queryParams = {
   correlationId: 'correlation_id',
+  startEventId: 'start_event_id',
   endEventId: 'end_event_id',
 };
 
