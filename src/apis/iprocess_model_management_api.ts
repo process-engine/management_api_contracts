@@ -88,14 +88,14 @@ export interface IProcessModelManagementApi {
    * @async
    * @param identity          The requesting users identity.
    * @param processModelId    The ID of the ProcessModel to retrieve.
-   * @param startEventId      The ID of the start event through which to start
-   *                          the Process Instance.
    * @param payload           The parameters to pass to the ProcessInstance.
    *                          Can optionally define a correlation ID to use.
    * @param startCallbackType The type of start callback use.
    *                          Depending on the value used, the function will
    *                          either resolve right after starting the
-  *                           ProcessInstance, or after reaching an EndEvent.
+   *                          ProcessInstance, or after reaching an EndEvent.
+   * @param startEventId      The ID of the start event through which to start
+   *                          the Process Instance.
    * @param endEventId        Contains the ID of the EndEvent that the
    *                          ProcessEngine should wait for, before resolving.
    *                          Works only in conjunction with the startCallback-
@@ -108,9 +108,9 @@ export interface IProcessModelManagementApi {
    */
   startProcessInstance(identity: IIdentity,
                        processModelId: string,
-                       startEventId: string,
                        payload: ProcessStartRequestPayload,
                        startCallbackType: StartCallbackType,
+                       startEventId?: string,
                        endEventId?: string): Promise<ProcessStartResponsePayload>;
 
   /**
