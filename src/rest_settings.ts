@@ -14,6 +14,7 @@ const params = {
 
 const queryParams = {
   correlationId: 'correlation_id',
+  startEventId: 'start_event_id',
   endEventId: 'end_event_id',
 };
 
@@ -30,7 +31,7 @@ const paths = {
   processModelByProcessInstanceId: `/process_instance/${params.processInstanceId}/process_model/`,
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
   deleteProcessDefinitionsByProcessModelId: `/process_models/${params.processModelId}/delete`,
-  startProcessInstance: `/process_models/${params.processModelId}/start_events/${params.startEventId}/start`,
+  startProcessInstance: `/process_models/${params.processModelId}/start`,
   processModelStartEvents: `/process_models/${params.processModelId}/start_events`,
   // Events
   waitingProcessModelEvents: `/process_models/${params.processModelId}/events/waiting`,
