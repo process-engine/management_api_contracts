@@ -1,14 +1,9 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
- * The message used to finish a waiting manual task.
+ * Represents the message which is send, when a ManualTask has been finished.
  */
-export class FinishManualTaskMessage extends BasePublicEventMessage {
-
-  /**
-   * The flow node id of the manual task being finished.
-   */
-  public manualTaskId: string;
+export class ManualTaskFinishedMessage extends BaseEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,

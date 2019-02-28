@@ -1,16 +1,16 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
- * The message used to finish a waiting user task.
+ * The message used to finish a waiting UserTask.
  */
-export class FinishUserTaskMessage extends BasePublicEventMessage {
+export class FinishUserTaskMessage extends BaseEventMessage {
 
   /**
-   * The flow node id of the user task being finished.
+   * The flow node id of the UserTask being finished.
    */
   public userTaskId: string;
   /**
-   * The result the user task should be finished with.
+   * The result the UserTask should be finished with.
    */
   public result: any;
 

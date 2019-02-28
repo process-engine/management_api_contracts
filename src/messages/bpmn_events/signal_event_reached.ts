@@ -1,12 +1,10 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
-import {BaseInternalEventMessage} from '../base_internal_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
  * Encapsulates a Message for the EventAggregator, describing a
  * MessageEvent.
  */
-export class SignalEventReachedMessage extends BaseInternalEventMessage {
+export class SignalEventReachedMessage extends BaseEventMessage {
 
   public signalReference: string;
 
@@ -16,9 +14,8 @@ export class SignalEventReachedMessage extends BaseInternalEventMessage {
               processInstanceId: string,
               flowNodeId: string,
               flowNodeInstanceId: string,
-              processInstanceOwner: IIdentity,
               currentToken: any) {
-    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, processInstanceOwner, currentToken);
+    super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
     this.signalReference = signalReference;
   }
