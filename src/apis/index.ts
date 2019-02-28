@@ -1,4 +1,5 @@
 import * as correlationApi from './icorrelation_management_api';
+import * as emptyActivityApi from './iempty_activity_management_api';
 import * as eventApi from './ievent_management_api';
 import * as kpiApi from './ikpi_management_api';
 import * as loggingApi from './ilogging_management_api';
@@ -11,6 +12,7 @@ import * as userTaskApi from './iuser_task_management_api';
 // tslint:disable-next-line:no-namespace
 export namespace APIs {
   export import ICorrelationManagementApi = correlationApi.ICorrelationManagementApi;
+  export import IEmptyActivityManagementApi = emptyActivityApi.IEmptyActivityManagementApi;
   export import IEventManagementApi = eventApi.IEventManagementApi;
   export import IKpiManagementApi = kpiApi.IKpiManagementApi;
   export import ILoggingManagementApi = loggingApi.ILoggingManagementApi;
