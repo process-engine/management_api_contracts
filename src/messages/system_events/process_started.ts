@@ -1,9 +1,9 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
  * The message which is send, when a new ProcessInstance started.
  */
-export class ProcessStartedMessage extends BasePublicEventMessage {
+export class ProcessStartedMessage extends BaseEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,

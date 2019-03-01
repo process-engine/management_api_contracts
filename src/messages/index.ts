@@ -1,13 +1,15 @@
+import * as bpmnEvents from './bpmn_events/index';
+import * as systemEvents from './system_events/index';
+
+import * as baseEventMessage from './base_event_message';
 import * as callbackTypes from './callback_types';
 import * as eventAggregatorSettings from './event_aggregator_settings';
 
-import * as internalMessages from './internal/index';
-import * as publicMessages from './public/index';
-
 // tslint:disable-next-line:no-namespace
 export namespace Messages {
+  export import BaseEventMessage = baseEventMessage.BaseEventMessage;
+  export import BpmnEvents = bpmnEvents;
   export import CallbackTypes = callbackTypes;
   export import EventAggregatorSettings = eventAggregatorSettings;
-  export import Internal = internalMessages;
-  export import Public = publicMessages;
+  export import SystemEvents = systemEvents;
 }

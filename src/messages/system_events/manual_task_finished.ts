@@ -1,9 +1,9 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
  * Represents the message which is send, when a ManualTask has been finished.
  */
-export class ManualTaskReachedMessage extends BasePublicEventMessage {
+export class ManualTaskFinishedMessage extends BaseEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,

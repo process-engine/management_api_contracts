@@ -1,14 +1,14 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
  * Encapsulates a Message for the EventAggregator, describing a
  * MessageEvent.
  */
-export class SignalEventReachedMessage extends BasePublicEventMessage {
+export class MessageEventReachedMessage extends BaseEventMessage {
 
-  public signalReference: string;
+  public messageReference: string;
 
-  constructor(signalReference: string,
+  constructor(messageReference: string,
               correlationId: string,
               processModelId: string,
               processInstanceId: string,
@@ -17,6 +17,6 @@ export class SignalEventReachedMessage extends BasePublicEventMessage {
               currentToken: any) {
     super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
-    this.signalReference = signalReference;
+    this.messageReference = messageReference;
   }
 }
