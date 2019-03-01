@@ -1,6 +1,6 @@
 // tslint:disable:typedef
 // tslint:disable:max-line-length
-export const routeParams = {
+export const messageParams = {
   correlationId: ':correlation_id',
   endEventId: ':end_event_id',
   flowNodeInstanceId: ':flow_node_instance_id',
@@ -10,10 +10,13 @@ export const routeParams = {
   processInstanceId: ':process_instance_id',
   processModelId: ':process_model_id',
   signalReference: ':signal_ref',
+  emptyActivityId: ':empty_activity_id',
 };
 
 export const messagePaths = {
   // Generic messages
+  emptyActivityReached: 'empty_activity_reached',
+  emptyActivityFinished: 'empty_activity_finished',
   userTaskReached: 'user_task_reached',
   userTaskFinished: 'user_task_finished',
   manualTaskReached: 'manual_task_reached',
@@ -22,18 +25,22 @@ export const messagePaths = {
   processStarted: 'process_started',
   processEnded: 'process_ended',
   // Instance specific messages
+  finishEmptyActivity:
+  `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finish`,
+emptyActivityWithInstanceIdFinished:
+  `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finished`,
   finishUserTask:
-    `/processengine/correlation/${routeParams.correlationId}/processinstance/${routeParams.processInstanceId}/usertask/${routeParams.flowNodeInstanceId}/finish`,
+    `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/usertask/${messageParams.flowNodeInstanceId}/finish`,
   userTaskWithInstanceIdFinished:
-    `/processengine/correlation/${routeParams.correlationId}/processinstance/${routeParams.processInstanceId}/usertask/${routeParams.flowNodeInstanceId}/finished`,
+    `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/usertask/${messageParams.flowNodeInstanceId}/finished`,
   finishManualTask:
-    `/processengine/correlation/${routeParams.correlationId}/processinstance/${routeParams.processInstanceId}/manualtask/${routeParams.flowNodeInstanceId}/finish`,
+    `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/manualtask/${messageParams.flowNodeInstanceId}/finish`,
   manualTaskWithInstanceIdFinished:
-    `/processengine/correlation/${routeParams.correlationId}/processinstance/${routeParams.processInstanceId}/manualtask/${routeParams.flowNodeInstanceId}/finished`,
-  endEventReached: `/processengine/correlation/${routeParams.correlationId}/processmodel/${routeParams.processModelId}/ended`,
-  messageEventReached: `/processengine/process/message/${routeParams.messageReference}`,
-  signalEventReached: `/processengine/process/signal/${routeParams.signalReference}`,
-  terminateEndEventReached: `/processengine/process/${routeParams.processInstanceId}/terminated`,
-  processInstanceStarted: `/processengine/process_started/${routeParams.processModelId}`,
-  processInstanceEnded: `/processengine/process/${routeParams.processInstanceId}/ended`,
+    `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/manualtask/${messageParams.flowNodeInstanceId}/finished`,
+  endEventReached: `/processengine/correlation/${messageParams.correlationId}/processmodel/${messageParams.processModelId}/ended`,
+  messageEventReached: `/processengine/process/message/${messageParams.messageReference}`,
+  signalEventReached: `/processengine/process/signal/${messageParams.signalReference}`,
+  terminateEndEventReached: `/processengine/process/${messageParams.processInstanceId}/terminated`,
+  processInstanceStarted: `/processengine/process_started/${messageParams.processModelId}`,
+  processInstanceEnded: `/processengine/process/${messageParams.processInstanceId}/ended`,
 };

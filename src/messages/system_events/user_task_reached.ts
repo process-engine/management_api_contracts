@@ -1,14 +1,14 @@
-import {UserTaskResult} from '../../../data_models/user_task/user_task_result';
+import {UserTaskResult} from '../../data_models/user_task/user_task_result';
 
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
- * The message sent when a user task has been finished.
+ * The message sent when a UserTask has been finished.
  */
-export class UserTaskReachedMessage extends BasePublicEventMessage {
+export class UserTaskReachedMessage extends BaseEventMessage {
 
   /**
-   * The result the user task was finished with.
+   * The result the UserTask was finished with.
    */
   public userTaskResult: UserTaskResult;
 

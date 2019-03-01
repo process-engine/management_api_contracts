@@ -1,6 +1,7 @@
 // tslint:disable:typedef
 const params = {
   correlationId: ':correlation_id',
+  emptyActivityInstanceId: ':empty_activity_instance_id',
   eventName: ':event_name',
   flowNodeId: ':flow_node_id',
   processDefinitionsName: ':process_definitions_name',
@@ -39,6 +40,14 @@ const paths = {
   waitingProcessModelCorrelationEvents: `/process_models/${params.processModelId}/correlations/${params.correlationId}/events/waiting`,
   triggerMessageEvent: `/message/${params.eventName}/trigger`,
   triggerSignalEvent: `/signal/${params.eventName}/trigger`,
+  // EmptyActivities
+  processModelEmptyActivities: `/process_models/${params.processModelId}/empty_activities`,
+  processInstanceEmptyActivities: `/process_instances/${params.processInstanceId}/empty_activities`,
+  correlationEmptyActivities: `/correlations/${params.correlationId}/empty_activities`,
+  processModelCorrelationEmptyActivities: `/process_models/${params.processModelId}/correlations/${params.correlationId}/empty_activities`,
+  getOwnEmptyActivities: `/empty_activities/own`,
+  finishEmptyActivity:
+    `/processes/${params.processInstanceId}/correlations/${params.correlationId}/empty_activities/${params.emptyActivityInstanceId}/finish`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   processInstanceUserTasks: `/process_instances/${params.processInstanceId}/user_tasks`,

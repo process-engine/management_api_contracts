@@ -1,10 +1,14 @@
-import {BasePublicEventMessage} from '../base_public_event_message';
+import {BaseEventMessage} from '../base_event_message';
 
 /**
- * Encapsulates a Message for the EventAggregator, describing a
- * MessageEvent.
+ * The message used to finish a waiting ManualTask.
  */
-export class TerminateEndEventReachedMessage extends BasePublicEventMessage {
+export class FinishManualTaskMessage extends BaseEventMessage {
+
+  /**
+   * The flow node id of the ManualTask being finished.
+   */
+  public manualTaskId: string;
 
   constructor(correlationId: string,
               processModelId: string,

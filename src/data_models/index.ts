@@ -1,4 +1,5 @@
 import * as correlations from './correlation/index';
+import * as emptyActivities from './empty_activity/index';
 import * as events from './event/index';
 import * as kpi from './kpi/index';
 import * as logging from './logging/index';
@@ -10,6 +11,7 @@ import * as userTasks from './user_task/index';
 // tslint:disable-next-line:no-namespace
 export namespace DataModels {
   export import Correlations = correlations;
+  export import EmptyActivities = emptyActivities;
   export import Events = events;
   export import Kpi = kpi;
   export import Logging = logging;
