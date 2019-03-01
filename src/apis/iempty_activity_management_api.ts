@@ -5,7 +5,7 @@ import {EmptyActivityList} from '../data_models/empty_activity/index';
 import {Messages} from '../messages/index';
 
 /**
- * The IEmptyActivityManagementApi is used to retreive and manage EmptyActivities.
+ * The IEmptyActivityManagementApi is used to retrieve and manage EmptyActivities.
  */
 export interface IEmptyActivityManagementApi {
 
@@ -82,7 +82,7 @@ export interface IEmptyActivityManagementApi {
   getWaitingEmptyActivitiesByIdentity(identity: IIdentity): Promise<EmptyActivityList>;
 
   /**
-   * Finishes a EmptyActivity belonging to an instance of a specific ProcessModel
+   * Finishes an EmptyActivity belonging to an instance of a specific ProcessModel
    * within a Correlation.
    *
    * @async
@@ -108,7 +108,7 @@ export interface IEmptyActivityManagementApi {
   ): Promise<void>;
 
   /**
-   * Executes a callback when a EmptyActivity is reached.
+   * Executes a callback when an EmptyActivity is reached.
    *
    * @async
    * @param   identity      The requesting users identity.
@@ -128,7 +128,7 @@ export interface IEmptyActivityManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a EmptyActivity is finished.
+   * Executes a callback when an EmptyActivity is finished.
    *
    * @async
    * @param   identity      The requesting users identity.
@@ -148,7 +148,7 @@ export interface IEmptyActivityManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a EmptyActivity for the given identity is reached.
+   * Executes a callback when an EmptyActivity for the given identity is reached.
    *
    * @async
    * @param identity        The requesting users identity.
