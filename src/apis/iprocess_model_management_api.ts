@@ -196,4 +196,19 @@ export interface IProcessModelManagementApi {
     callback: Messages.CallbackTypes.OnProcessEndedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
+
+  /**
+   * Terminates a process.
+   *
+   * @async
+   * @param identity The requesting users identity.
+   * @param processInstanceId The ID of the process that shall be terminated.
+   *
+   * @returns A Promise, which resolves without content,
+   *         or rejects an error, in case the termiantion failed.
+   */
+  terminateProcess(
+    identity: IIdentity,
+    processInstanceId: string,
+  ): Promise<void>;
 }
