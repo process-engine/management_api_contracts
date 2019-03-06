@@ -72,7 +72,7 @@ const paths = {
   getTokensForCorrelationAndProcessModel: `/correlation/${params.correlationId}/process_model/${params.processModelId}/token_history`,
   getTokensForProcessInstance: `/process_instance/${params.processInstanceId}/token_history`,
 
-  terminateProcess: `/process_instance/${params.processInstanceId}/terminate`,
+  terminateProcessInstance: `/process_instance/${params.processInstanceId}/terminate`,
 };
 
 /**

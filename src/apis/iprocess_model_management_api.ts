@@ -198,16 +198,16 @@ export interface IProcessModelManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Terminates a process.
+   * Terminates a ProcessInstance.
    *
    * @async
-   * @param identity The requesting users identity.
-   * @param processInstanceId The ID of the process that shall be terminated.
+   * @param identity          The requesting users identity.
+   * @param processInstanceId The ID of the ProcessInstance that shall be terminated.
    *
    * @returns A Promise, which resolves without content,
-   *         or rejects an error, in case the termiantion failed.
+   *          or rejects an error, in case the termiantion failed.
    */
-  terminateProcess(
+  terminateProcessInstance(
     identity: IIdentity,
     processInstanceId: string,
   ): Promise<void>;
