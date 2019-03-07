@@ -26,9 +26,9 @@ export const messagePaths = {
   processEnded: 'process_ended',
   // instance specific messages
   finishEmptyActivity:
-  `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finish`,
-emptyActivityWithInstanceIdFinished:
-  `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finished`,
+    `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finish`,
+  emptyActivityWithInstanceIdFinished:
+    `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finished`,
   finishUserTask:
     `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/usertask/${messageParams.flowNodeInstanceId}/finish`,
   userTaskWithInstanceIdFinished:
