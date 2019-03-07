@@ -1,5 +1,5 @@
 /**
- * Describes a MaualTask that belongs to an active Correlation.
+ * Describes a suspended ManualTask that is waiting to be finished.
  */
 export class ManualTask {
   /**
