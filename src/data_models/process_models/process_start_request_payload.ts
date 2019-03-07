@@ -3,9 +3,9 @@
  */
 export class ProcessStartRequestPayload {
   /**
-   * Optional: If set, the process engine will use this as the ID for the
+   * Optional: If set, the ProcessEngine will use this as the ID for the
    * Correlation in which the ProcessModel will be executed.
-   * If not provided, the process engine will generated a Correlation ID by
+   * If not provided, the ProcessEngine will generated a Correlation ID by
    * itself.
    */
   public correlationId?: string;

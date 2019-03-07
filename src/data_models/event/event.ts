@@ -3,7 +3,6 @@ import {EventType} from './event_type';
 /**
  * Describes a triggerable event.
  */
-
 export class Event {
   /**
    * The model ID of the event, as it is declared in the ProcessModel.
@@ -25,16 +24,7 @@ export class Event {
    * The instance ID of the event.
    */
   public flowNodeInstanceId?: string;
-  /**
-   * The ID of the Correlation that the event belongs to.
-   */
   public correlationId: string;
-  /**
-   * The ID of the ProcessModel that the event belongs to.
-   */
   public processModelId: string;
-  /**
-   * The ID of the ProcessInstance that the event belongs to.
-   */
   public processInstanceId?: string;
 }

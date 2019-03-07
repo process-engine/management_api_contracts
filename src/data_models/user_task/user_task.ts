@@ -1,7 +1,7 @@
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a waiting UserTask.
+ * Describes a suspended UserTask that is waiting to be finished.
  */
 export class UserTask {
   /**
@@ -16,17 +16,8 @@ export class UserTask {
    * The instance ID of the UserTask.
    */
   public flowNodeInstanceId?: string;
-  /**
-   * The ID of the Correlation that the UserTask belongs to.
-   */
   public correlationId: string;
-  /**
-   * The ID of the ProcessModel that the UserTask belongs to.
-   */
   public processModelId: string;
-  /**
-   * The ID of the ProcessInstance that the UserTask belongs to.
-   */
   public processInstanceId?: string;
   /**
    * Contains information about the UserTasks configuration,
