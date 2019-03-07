@@ -3,7 +3,7 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 import {TokenEventType} from './token_event_type';
 
 /**
- * Describes a Process Token of a specific Flow Node Instance.
+ * Describes a ProcessToken of a specific FlowNodeInstance.
  */
 export class TokenHistoryEntry {
   public flowNodeId: string;
@@ -15,6 +15,6 @@ export class TokenHistoryEntry {
   public tokenEventType: TokenEventType;
   public identity: IIdentity;
   public createdAt: Date;
-  public caller: string; // Only set, if the token belongs to the FNI of a subprocess.
+  public caller: string; // Only set, if the token belongs to the FNI of a SubProcess.
   public payload: any;
 }

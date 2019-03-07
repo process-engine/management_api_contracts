@@ -1,6 +1,6 @@
 import {TokenHistoryEntry} from './token_history_entry';
 
 /**
- * Describes a group of process token of a specific process instance.
+ * Describes a group of ProcessTokens for a specific ProcessInstance.
  */
 export type TokenHistoryGroup = {[processInstanceId: string]: Array<TokenHistoryEntry>};
