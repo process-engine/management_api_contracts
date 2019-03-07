@@ -1,21 +1,21 @@
 /**
- * Describes the payload that a process model can be started with.
+ * Describes the payload that a ProcessModel can be started with.
  */
 export class ProcessStartRequestPayload {
   /**
-   * Optional: If set, the process engine will use this as the id for the
-   * correlation in which the process model will be executed.
-   * If not provided, the process engine will generated a correlation id by
+   * Optional: If set, the process engine will use this as the ID for the
+   * Correlation in which the ProcessModel will be executed.
+   * If not provided, the process engine will generated a Correlation ID by
    * itself.
    */
   public correlationId?: string;
    /**
-    * Optional: Contains a process instance id and must only ever be set,
-    * when a subprocess is to be started.
+    * Optional: Contains a ProcessInstance ID and must only ever be set,
+    * when a SubProcess is to be started.
     */
   public callerId?: string;
   /**
-   * Contains the arguments with which to start the process model.
+   * Contains the arguments with which to start the ProcessModel.
    */
   public inputValues: any;
 }

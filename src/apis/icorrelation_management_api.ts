@@ -8,37 +8,43 @@ import {Correlation} from '../data_models/correlation/index';
 export interface ICorrelationManagementApi {
 
   /**
-   * Retrieves a list of all Correlations.
+   * Retrieves a list of all Correlations that the given identity is allowed
+   * to see.
    *
    * @async
-   * @param identity The requesting users identity.
-   * @returns        A Promise, which resolves with the correlation list,
-   *                 or rejects an error, in case the request failed.
+   * @param identity             The requesting users identity.
+   * @returns                    A list of Correlations.
+   *                             Will be empty, if none are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
    */
   getAllCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
 
   /**
-   * Retrieves a list of all active Correlations.
+   * Retrieves a list of all active Correlations that the given identity is
+   * allowed to see.
    *
    * @async
-   * @param identity The requesting users identity.
-   * @returns        A Promise, which resolves with the correlation list,
-   *                 or rejects an error, in case the request failed.
+   * @param identity             The requesting users identity.
+   * @returns                    A list of active Correlations.
+   *                             Will be empty, if none are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
    */
   getActiveCorrelations(identity: IIdentity): Promise<Array<Correlation>>;
 
   /**
-   * Retrieves the ProcessModels that were executed with the given Correlation.
+   * Retrieves the Correlation with the given ID.
    *
    * @async
-   * @param identity      The requesting users identity.
-   * @param correlationId The ID of the Correlation for which to get the
-   *                      ProcessModels.
-   * @returns             A Promise, which resolves with the ProcessModels,
-   *                      or rejects an error, in case the request failed.
-   * @throws              403, if the requesting User is forbidden to see the
-   *                      ProcessModel.
-   * @throws              404, if the ProcessModel was not found.
+   * @param identity             The requesting users identity.
+   * @param correlationId        The ID of the Correlation to get.
+   * @returns                    The requested Correlation.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             Correlation.
+   * @throws {NotFoundError}     If the Correlation was not found.
    */
   getCorrelationById(identity: IIdentity, correlationId: string): Promise<Correlation>;
 
@@ -47,12 +53,16 @@ export interface ICorrelationManagementApi {
    * executed.
    *
    * @async
-   * @param identity       The requesting users identity.
-   * @param processModelId The ID of the ProcessModel for which to get the
-   *                       Correlations.
-   * @returns              A Promise, which resolves with the Correlations,
-   *                       or rejects an error, in case the request failed.
-   * @throws               404, if no Correlation was found.
+   * @param identity             The requesting users identity.
+   * @param processModelId       The ID of the ProcessModel for which to get the
+   *                             Correlations.
+   * @returns                    The requested Correlations.
+   *                             Will be empty, if none are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessModel.
+   * @throws {NotFoundError}     If the ProcessModel does not exist.
    */
   getCorrelationsByProcessModelId(identity: IIdentity, processModelId: string): Promise<Array<Correlation>>;
 
@@ -60,12 +70,15 @@ export interface ICorrelationManagementApi {
    * Retrieves the Correlation in which the given ProcessInstance was executed.
    *
    * @async
-   * @param identity          The requesting users identity.
-   * @param processInstanceId The ID of the ProcessModel for which to get the
-   *                          Correlations.
-   * @returns                 A Promise, which resolves with the Correlations,
-   *                          or rejects an error, in case the request failed.
-   * @throws                  404, if no Correlation was found.
+   * @param identity             The requesting users identity.
+   * @param processInstanceId    The ID of the ProcessInstance for which to get the
+   *                             Correlations.
+   * @returns                    The requested Correlation.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessInstance.
+   * @throws {NotFoundError}     If the ProcessInstance does not exist.
    */
   getCorrelationByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Correlation>;
 }

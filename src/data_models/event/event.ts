@@ -1,17 +1,20 @@
 import {EventType} from './event_type';
 
 /**
- * Describes an event that can be triggered through the ManagementAPI.
+ * Describes a triggerable event.
  */
 
 export class Event {
-  public id: string;
-  public flowNodeInstanceId?: string;
-  public correlationId: string;
-  public processModelId: string;
-  public processInstanceId?: string;
   /**
-   * The BPMN type of the event (StartEvent, EndEvent, etc.).
+   * The model ID of the event, as it is declared in the ProcessModel.
+   */
+  public id: string;
+  /**
+   * The name of the event, as it is declared in the ProcessModel.
+   */
+  public eventName: string;
+  /**
+   * The BPMN type of the event (StartEvent, EndEvent, etc).
    */
   public bpmnType: string;
   /**
@@ -19,7 +22,19 @@ export class Event {
    */
   public eventType: EventType;
   /**
-   * The name of the event.
+   * The instance ID of the event.
    */
-  public eventName: string;
+  public flowNodeInstanceId?: string;
+  /**
+   * The ID of the Correlation that the event belongs to.
+   */
+  public correlationId: string;
+  /**
+   * The ID of the ProcessModel that the event belongs to.
+   */
+  public processModelId: string;
+  /**
+   * The ID of the ProcessInstance that the event belongs to.
+   */
+  public processInstanceId?: string;
 }

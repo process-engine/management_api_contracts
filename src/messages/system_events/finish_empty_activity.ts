@@ -6,7 +6,7 @@ import {BaseEventMessage} from '../base_event_message';
 export class FinishEmptyActivityMessage extends BaseEventMessage {
 
   /**
-   * The flow node id of the EmptyActivity being finished.
+   * The flow node ID of the EmptyActivity being finished.
    */
   public manualTaskId: string;
 
