@@ -1,20 +1,27 @@
-import {IIdentity} from '@essential-projects/iam_contracts';
-
 import {UserTaskConfig} from './user_task_config';
 
 /**
- * Describes a user task that belongs to an active ProcessInstance.
+ * Describes a suspended UserTask that is waiting to be finished.
  */
 export class UserTask {
+  /**
+   * The model ID of the UserTask, as it is declared in the ProcessModel.
+   */
   public id: string;
-  public flowNodeInstanceId?: string;
+  /**
+   * The name of the UserTask, as it is declared in the ProcessModel.
+   */
   public name: string;
+  /**
+   * The instance ID of the UserTask.
+   */
+  public flowNodeInstanceId?: string;
   public correlationId: string;
   public processModelId: string;
   public processInstanceId?: string;
   /**
-   * Contains information about the user tasks configuration,
-   * such as the form fields that can be addressed.
+   * Contains information about the UserTasks configuration,
+   * such as the FormFields that can be accessed.
    */
   public data: UserTaskConfig;
   /**

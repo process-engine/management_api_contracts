@@ -6,7 +6,7 @@ import {BaseEventMessage} from '../base_event_message';
 export class FinishManualTaskMessage extends BaseEventMessage {
 
   /**
-   * The flow node id of the ManualTask being finished.
+   * The flow node ID of the ManualTask being finished.
    */
   public manualTaskId: string;
 

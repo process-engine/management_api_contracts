@@ -1,16 +1,9 @@
-import {UserTaskResult} from '../../data_models/user_task/user_task_result';
-
 import {BaseEventMessage} from '../base_event_message';
 
 /**
- * The message sent when a UserTask has been finished.
+ * The message sent when a UserTask has been reached.
  */
 export class UserTaskReachedMessage extends BaseEventMessage {
-
-  /**
-   * The result the UserTask was finished with.
-   */
-  public userTaskResult: UserTaskResult;
 
   constructor(correlationId: string,
               processModelId: string,
