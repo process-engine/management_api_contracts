@@ -38,7 +38,7 @@ export interface IEventManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
+  getWaitingEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to a Correlation.
@@ -55,7 +55,7 @@ export interface IEventManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
+  getWaitingEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a
@@ -75,7 +75,7 @@ export interface IEventManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
+  getWaitingEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
 
   /**
    * Triggers a message event.
