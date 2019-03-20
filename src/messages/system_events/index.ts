@@ -1,3 +1,5 @@
+export * from './call_activity_finished';
+export * from './call_activity_reached';
 export * from './empty_activity_finished';
 export * from './empty_activity_reached';
 export * from './finish_empty_activity';
