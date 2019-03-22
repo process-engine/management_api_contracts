@@ -28,6 +28,24 @@ export interface ITokenHistoryManagementApi {
   ): Promise<Array<TokenHistoryEntry>>;
 
   /**
+   * Gets the token history for a specific FlowNodeInstance of a
+   * ProcessInstance.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   processInstanceId  The ID of the ProcessInstance.
+   * @param   flowNodeId         The ID of the specific FlowNode.
+   * @returns                    A list of tokens that belong to the given FlowNode.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   */
+  getTokensForFlowNodeByProcessInstanceId(
+    identity: IIdentity,
+    processInstanceId: string,
+    flowNodeId: string,
+  ): Promise<Array<TokenHistoryEntry>>;
+
+  /**
    * Gets the token history for a given CorrelationId and ProcessModelId.
    *
    * @async
