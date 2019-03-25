@@ -17,4 +17,5 @@ export class LogEntry {
   public flowNodeId?: string;
   public logLevel: LogLevel;
   public message: string;
+  public processInstanceId: string;
 }
