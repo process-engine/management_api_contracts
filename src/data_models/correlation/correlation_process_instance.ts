@@ -1,9 +1,11 @@
+import {IIdentity} from '@essential-projects/iam_contracts';
+
 import {CorrelationState} from './correlation_state';
 
 /**
- * Describes a ProcessModel within a Correlation.
+ * Describes a ProcessInstance within a Correlation.
  */
-export class CorrelationProcessModel {
+export class CorrelationProcessInstance {
   public processDefinitionName: string;
   public hash: string;
   public xml: string;
@@ -12,5 +14,6 @@ export class CorrelationProcessModel {
   public parentProcessInstanceId?: string;
   public state: CorrelationState;
   public error: Error;
+  public identity: IIdentity;
   public createdAt?: Date;
 }
