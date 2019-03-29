@@ -9,8 +9,7 @@ import {TokenHistoryEntry, TokenHistoryGroup} from '../data_models/token_history
 export interface ITokenHistoryManagementApi {
 
   /**
-   * Gets the token history for a specific FlowNodeInstance of a
-   * ProcessModel.
+   * Gets the token history for a specific FlowNode of a ProcessModel.
    *
    * @async
    * @param   identity           The requesting users identity.
@@ -21,7 +20,7 @@ export interface ITokenHistoryManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getTokensForFlowNodeInstance(
+  getTokensForFlowNode(
     identity: IIdentity,
     correlationId: string,
     processModelId: string,
