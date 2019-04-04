@@ -68,6 +68,7 @@ const paths = {
   getRuntimeInformationForFlowNode: `/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/runtime_information`,
   getActiveTokensForFlowNode: `/token/flow_node/${params.flowNodeId}/active_tokens`,
   getProcessModelLog: `/process_model/${params.processModelId}/logs`,
+  getProcessInstanceLog: `/process_model/${params.processModelId}/process_instance/${params.processInstanceId}/logs`,
   getTokensForFlowNode: `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/token_history`,
   getTokensForCorrelationAndProcessModel: `/correlation/${params.correlationId}/process_model/${params.processModelId}/token_history`,
   getTokensForProcessInstance: `/process_instance/${params.processInstanceId}/token_history`,
