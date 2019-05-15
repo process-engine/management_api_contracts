@@ -43,7 +43,7 @@ export interface ITokenHistoryManagementApi {
     identity: IIdentity,
     processInstanceId: string,
     flowNodeId: string,
-  ): Promise<Array<TokenHistoryEntry>>;
+  ): Promise<TokenHistoryGroup>;
 
   /**
    * Gets the token history for a given CorrelationId and ProcessModelId.
