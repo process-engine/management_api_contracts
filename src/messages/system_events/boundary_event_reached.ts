@@ -1,7 +1,7 @@
 import {BaseEventMessage} from '../base_event_message';
 
 /**
- * Represents the message which is send, when a BoundaryEvent has been finished.
+ * Represents the message which is send, when a BoundaryEvent has been reached.
  */
 export class BoundaryEventReachedMessage extends BaseEventMessage {
 
