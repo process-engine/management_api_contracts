@@ -11,6 +11,7 @@ export interface IManagementApi
           APIs.ICorrelationManagementApi,
           APIs.IEmptyActivityManagementApi,
           APIs.IEventManagementApi,
+          APIs.IIntermediateEventManagementApi,
           APIs.IKpiManagementApi,
           APIs.ILoggingManagementApi,
           APIs.IManualTaskManagementApi,
