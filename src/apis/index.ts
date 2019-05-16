@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import * as callActivityApi from './icall_activity_management_api';
 import * as correlationApi from './icorrelation_management_api';
 import * as emptyActivityApi from './iempty_activity_management_api';
 import * as eventApi from './ievent_management_api';
@@ -21,4 +22,5 @@ export namespace APIs {
   export import IProcessModelManagementApi = processModelApi.IProcessModelManagementApi;
   export import ITokenHistoryManagementApi = tokenHistoryApi.ITokenHistoryManagementApi;
   export import IUserTaskManagementApi = userTaskApi.IUserTaskManagementApi;
+  export import ICallActivityManagementApi = callActivityApi.ICallActivityManagementApi;
 }
