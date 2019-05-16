@@ -21,7 +21,7 @@ export interface IBoundaryEventManagementApi {
    *                        received once.
    * @returns               The Subscription created by the EventAggregator.
    */
-  OnBoundaryEventWaiting(
+  onBoundaryEventWaiting(
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnBoundaryEventWaitingCallback,
     subscribeOnce?: boolean,
