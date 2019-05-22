@@ -7,7 +7,7 @@ import {EventList, EventTriggerPayload} from '../data_models/event/index';
  */
 export interface IEventManagementApi {
 
-   /**
+  /**
    * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
    *
    * @async

@@ -2,6 +2,7 @@
  * Describes a suspended ManualTask that is waiting to be finished.
  */
 export class ManualTask {
+
   /**
    * The model ID of the ManualTask, as it is declared in the ProcessModel.
    */
@@ -21,4 +22,5 @@ export class ManualTask {
    * The token payload the ManualTask got suspended with.
    */
   public tokenPayload: any;
+
 }

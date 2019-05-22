@@ -12,15 +12,18 @@ export class UserTaskFinishedMessage extends BaseEventMessage {
    */
   public userTaskResult: UserTaskResult;
 
-  constructor(userTaskResult: UserTaskResult,
-              correlationId: string,
-              processModelId: string,
-              processInstanceId: string,
-              flowNodeId: string,
-              flowNodeInstanceId: string,
-              currentToken: any) {
+  constructor(
+    userTaskResult: UserTaskResult,
+    correlationId: string,
+    processModelId: string,
+    processInstanceId: string,
+    flowNodeId: string,
+    flowNodeInstanceId: string,
+    currentToken: any,
+  ) {
     super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
     this.userTaskResult = userTaskResult;
   }
+
 }

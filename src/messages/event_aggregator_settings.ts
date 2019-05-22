@@ -1,5 +1,4 @@
-// tslint:disable:typedef
-// tslint:disable:max-line-length
+/* eslint-disable max-len */
 export const messageParams = {
   correlationId: ':correlation_id',
   endEventId: ':end_event_id',

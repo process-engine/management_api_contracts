@@ -2,6 +2,7 @@
  * Contains the payload that has to be provided with an updateProcessModel request.
  */
 export class UpdateProcessDefinitionsRequestPayload {
+
   /**
    * The xml code with which to update the ProcessModel.
    */
@@ -12,4 +13,5 @@ export class UpdateProcessDefinitionsRequestPayload {
    * If not set, 'false' is used as a default value.
    */
   public overwriteExisting?: boolean;
+
 }

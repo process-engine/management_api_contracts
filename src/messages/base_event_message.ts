@@ -2,6 +2,7 @@
  * The base class for definining event messages.
  */
 export class BaseEventMessage {
+
   public readonly correlationId: string;
   public readonly processModelId: string;
   public readonly processInstanceId: string;
@@ -9,12 +10,14 @@ export class BaseEventMessage {
   public readonly flowNodeInstanceId: string;
   public readonly currentToken: any;
 
-  constructor(correlationId: string,
-              processModelId: string,
-              processInstanceId: string,
-              flowNodeId: string,
-              flowNodeInstanceId: string,
-              currentToken: any) {
+  constructor(
+    correlationId: string,
+    processModelId: string,
+    processInstanceId: string,
+    flowNodeId: string,
+    flowNodeInstanceId: string,
+    currentToken: any,
+  ) {
     this.correlationId = correlationId;
     this.processModelId = processModelId;
     this.processInstanceId = processInstanceId;
@@ -22,4 +25,5 @@ export class BaseEventMessage {
     this.flowNodeInstanceId = flowNodeInstanceId;
     this.currentToken = currentToken;
   }
+
 }

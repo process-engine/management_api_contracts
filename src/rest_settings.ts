@@ -1,4 +1,3 @@
-// tslint:disable:typedef
 const params = {
   correlationId: ':correlation_id',
   emptyActivityInstanceId: ':empty_activity_instance_id',
@@ -21,13 +20,13 @@ const queryParams = {
 
 const paths = {
   // Correlations
-  getActiveCorrelations: `/correlations/active`,
-  getAllCorrelations: `/correlations/all`,
+  getActiveCorrelations: '/correlations/active',
+  getAllCorrelations: '/correlations/all',
   getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
   getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}`,
   getCorrelationById: `/correlations/${params.correlationId}`,
   // Process Models
-  processModels: `/process_models`,
+  processModels: '/process_models',
   processModelById: `/process_models/${params.processModelId}`,
   processModelByProcessInstanceId: `/process_instance/${params.processInstanceId}/process_model/`,
   updateProcessDefinitionsByName: `/process_models/${params.processDefinitionsName}/update`,
@@ -45,7 +44,7 @@ const paths = {
   processInstanceEmptyActivities: `/process_instances/${params.processInstanceId}/empty_activities`,
   correlationEmptyActivities: `/correlations/${params.correlationId}/empty_activities`,
   processModelCorrelationEmptyActivities: `/process_models/${params.processModelId}/correlations/${params.correlationId}/empty_activities`,
-  getOwnEmptyActivities: `/empty_activities/own`,
+  getOwnEmptyActivities: '/empty_activities/own',
   finishEmptyActivity:
     `/processes/${params.processInstanceId}/correlations/${params.correlationId}/empty_activities/${params.emptyActivityInstanceId}/finish`,
   // UserTasks
@@ -77,21 +76,8 @@ const paths = {
   terminateProcessInstance: `/process_instance/${params.processInstanceId}/terminate`,
 };
 
-/**
- * Contains the endpoints and various rest parameters used by the
- * ManagementAPI.
- */
 export const restSettings = {
-  /**
-   * A collection of all URL parameters employed by the ManagementAPI.
-   */
   params: params,
-  /**
-   * A collection of all query parameters employed by the ManagementAPI.
-   */
   queryParams: queryParams,
-  /**
-   * A collection of all URLs employed by the ManagementAPI.
-   */
   paths: paths,
 };
