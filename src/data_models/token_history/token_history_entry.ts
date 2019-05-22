@@ -6,6 +6,7 @@ import {TokenEventType} from './token_event_type';
  * Describes a ProcessToken of a specific FlowNodeInstance.
  */
 export class TokenHistoryEntry {
+
   public flowNodeId: string;
   public flowNodeInstanceId: string;
   public previousFlowNodeInstanceId: string;
@@ -17,4 +18,5 @@ export class TokenHistoryEntry {
   public createdAt: Date;
   public caller: string; // Only set, if the token belongs to the FNI of a SubProcess.
   public payload: any;
+
 }

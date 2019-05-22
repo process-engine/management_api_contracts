@@ -8,6 +8,7 @@
  * its execution.
  */
 export class EmptyActivity {
+
   public id: string;
   public flowNodeInstanceId?: string;
   public name: string;
@@ -15,4 +16,5 @@ export class EmptyActivity {
   public processModelId: string;
   public processInstanceId?: string;
   public tokenPayload: any;
+
 }

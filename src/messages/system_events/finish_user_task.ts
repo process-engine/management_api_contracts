@@ -14,15 +14,18 @@ export class FinishUserTaskMessage extends BaseEventMessage {
    */
   public result: any;
 
-  constructor(result: any,
-              correlationId: string,
-              processModelId: string,
-              processInstanceId: string,
-              flowNodeId: string,
-              flowNodeInstanceId: string,
-              currentToken: any) {
+  constructor(
+    result: any,
+    correlationId: string,
+    processModelId: string,
+    processInstanceId: string,
+    flowNodeId: string,
+    flowNodeInstanceId: string,
+    currentToken: any,
+  ) {
     super(correlationId, processModelId, processInstanceId, flowNodeId, flowNodeInstanceId, currentToken);
 
     this.result = result;
   }
+
 }

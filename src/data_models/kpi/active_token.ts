@@ -1,6 +1,7 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 export class ActiveToken {
+
   // header
   public processInstanceId: string;
   public processModelId: string;
@@ -11,4 +12,5 @@ export class ActiveToken {
   public createdAt: Date;
   // payload
   public payload: any;
+
 }

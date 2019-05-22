@@ -21,7 +21,7 @@ export interface IKpiManagementApi {
    */
   getRuntimeInformationForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<FlowNodeRuntimeInformation>>;
 
- /**
+  /**
    * Gets the FlowNodeRuntimeInformation for a specific FlowNode inside a
    * ProcessModel.
    *

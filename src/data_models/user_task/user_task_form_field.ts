@@ -5,6 +5,7 @@ import {UserTaskFormFieldType} from './user_task_form_field_type';
  * Contains information about a UserTasks FormField.
  */
 export class UserTaskFormField {
+
   public id: string;
   public type: UserTaskFormFieldType;
   public label: string;
@@ -15,4 +16,5 @@ export class UserTaskFormField {
    * this will contain the values for that enumeration.
    */
   public enumValues?: Array<UserTaskEnumValue>;
+
 }

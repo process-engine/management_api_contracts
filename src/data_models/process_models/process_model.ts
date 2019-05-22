@@ -6,8 +6,10 @@ import {Event} from '../event/index';
  * that a requesting user is not authorized to see.
  */
 export class ProcessModel {
+
   public id: string;
   public xml: string;
   public startEvents: Array<Event> = [];
   public endEvents: Array<Event> = [];
+
 }
