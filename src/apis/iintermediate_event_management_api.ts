@@ -16,10 +16,10 @@ export interface IIntermediateEventManagementApi {
    *                        is reached.
    *                        The message passed to the callback contains further
    *                        information about the Intermediate Event.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   * @param   subscribeOnce Optional: If set to true, the subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @returns               The subscription created by the EventAggregator.
    */
   onIntermediateEventWaiting(
     identity: IIdentity,
@@ -36,10 +36,10 @@ export interface IIntermediateEventManagementApi {
    *                        is finished.
    *                        The message passed to the callback contains further
    *                        information about the Intermediate Event.
-   * @param   subscribeOnce Optional: If set to true, the Subscription will be
+   * @param   subscribeOnce Optional: If set to true, the subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
-   * @returns               The Subscription created by the EventAggregator.
+   * @returns               The subscription created by the EventAggregator.
    */
   onIntermediateEventFinished(
     identity: IIdentity,

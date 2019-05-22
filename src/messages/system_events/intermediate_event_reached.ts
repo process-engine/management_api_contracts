@@ -1,7 +1,7 @@
 import {BaseEventMessage} from '../base_event_message';
 
 /**
- * Represents the message which is send, when a IntermediateEvent has been finished.
+ * Represents the message which is send, when an IntermediateEvent has been finished.
  */
 export class IntermediateEventReachedMessage extends BaseEventMessage {
 
