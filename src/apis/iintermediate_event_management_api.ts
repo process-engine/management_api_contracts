@@ -8,7 +8,7 @@ import {Messages} from '../messages/index';
  */
 export interface IIntermediateEventManagementApi {
   /**
-   * Executes a callback when a Intermediate Event is reached.
+   * Executes a callback when a IntermediateEvent is reached.
    *
    * @async
    * @param   identity      The requesting users identity.
@@ -21,29 +21,29 @@ export interface IIntermediateEventManagementApi {
    *                        received once.
    * @returns               The subscription created by the EventAggregator.
    */
-  onIntermediateEventWaiting(
+  onIntermediateEventTriggered(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnIntermediateEventWaitingCallback,
+    callback: Messages.CallbackTypes.OnIntermediateEventTriggeredCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a Intermediate Event is finished.
+   * Executes a callback when a IntermediateCatchEvent is finished.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a Intermediate Event
+   * @param   callback      The callback that will be executed when a IntermediateCatchEvent
    *                        is finished.
    *                        The message passed to the callback contains further
-   *                        information about the Intermediate Event.
+   *                        information about the IntermediateCatchEvent.
    * @param   subscribeOnce Optional: If set to true, the subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
    * @returns               The subscription created by the EventAggregator.
    */
-  onIntermediateEventFinished(
+  onIntermediateCatchEventFinished(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnIntermediateEventFinishedCallback,
+    callback: Messages.CallbackTypes.OnIntermediateCatchEventFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 }

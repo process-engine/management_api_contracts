@@ -1,9 +1,9 @@
 import {BaseEventMessage} from '../base_event_message';
 
 /**
- * Represents the message which is send, when an IntermediateEvent has been finished.
+ * Represents the message which is send, when an IntermediateCatchEvent has been finished.
  */
-export class IntermediateEventFinishedMessage extends BaseEventMessage {
+export class IntermediateCatchEventFinishedMessage extends BaseEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,

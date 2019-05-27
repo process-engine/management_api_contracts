@@ -5,8 +5,8 @@ import {
   CallActivityReachedMessage,
   EmptyActivityFinishedMessage,
   EmptyActivityReachedMessage,
-  IntermediateEventFinishedMessage,
-  IntermediateEventReachedMessage,
+  IntermediateCatchEventFinishedMessage,
+  IntermediateEventTriggeredMessage,
   ManualTaskFinishedMessage,
   ManualTaskReachedMessage,
   ProcessStartedMessage,
@@ -25,8 +25,8 @@ export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivity
 
 export type OnBoundaryEventTriggeredCallback = (boundaryEventTriggered: BoundaryEventTriggeredMessage) => void | Promise<void>;
 
-export type OnIntermediateEventWaitingCallback = (intermediateEventWaiting: IntermediateEventReachedMessage) => void | Promise<void>;
-export type OnIntermediateEventFinishedCallback = (intermediateEventFinished: IntermediateEventFinishedMessage) => void | Promise<void>;
+export type OnIntermediateEventTriggeredCallback = (intermediateEventTriggered: IntermediateEventTriggeredMessage) => void | Promise<void>;
+export type OnIntermediateCatchEventFinishedCallback = (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
 
 export type OnManualTaskWaitingCallback = (manualTaskWaiting: ManualTaskReachedMessage) => void | Promise<void>;
 export type OnManualTaskFinishedCallback = (manualTaskFinished: ManualTaskFinishedMessage) => void | Promise<void>;

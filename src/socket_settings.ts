@@ -5,8 +5,8 @@ const pathParams = {
 
 const paths = {
   boundaryEventTriggered: `boundary_event_triggered`,
-  intermediateEventWaiting: `intermediate_event_waiting`,
-  intermediateEventFinished: `intermediate_event_finished`,
+  intermediateEventTriggered: `intermediate_event_triggered`,
+  intermediateCatchEventFinished: `intermediate_catch_event_finished`,
   callActivityWaiting: `call_activity_waiting`,
   callActivityFinished: `call_activity_finished`,
   emptyActivityWaiting: 'empty_activity_waiting',
