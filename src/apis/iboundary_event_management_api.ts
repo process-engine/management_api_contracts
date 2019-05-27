@@ -8,12 +8,12 @@ import {Messages} from '../messages/index';
  */
 export interface IBoundaryEventManagementApi {
   /**
-   * Executes a callback when a Boundary Event is reached.
+   * Executes a callback when a Boundary Event is triggered.
    *
    * @async
    * @param   identity      The requesting users identity.
    * @param   callback      The callback that will be executed when a Boundary Event
-   *                        is reached.
+   *                        is triggered.
    *                        The message passed to the callback contains further
    *                        information about the Boundary Event.
    * @param   subscribeOnce Optional: If set to true, the subscription will be
@@ -21,29 +21,9 @@ export interface IBoundaryEventManagementApi {
    *                        received once.
    * @returns               The subscription created by the EventAggregator.
    */
-  onBoundaryEventWaiting(
+  onBoundaryEvenTriggered(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnBoundaryEventWaitingCallback,
-    subscribeOnce?: boolean,
-  ): Promise<Subscription>;
-
-  /**
-   * Executes a callback when a Boundary Event is finished.
-   *
-   * @async
-   * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a Boundary Event
-   *                        is finished.
-   *                        The message passed to the callback contains further
-   *                        information about the Boundary Event.
-   * @param   subscribeOnce Optional: If set to true, the subscription will be
-   *                        automatically disposed, after the notification was
-   *                        received once.
-   * @returns               The subscription created by the EventAggregator.
-   */
-  onBoundaryEventFinished(
-    identity: IIdentity,
-    callback: Messages.CallbackTypes.OnBoundaryEventFinishedCallback,
+    callback: Messages.CallbackTypes.OnBoundaryEventTriggeredCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 }

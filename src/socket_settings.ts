@@ -4,8 +4,7 @@ const pathParams = {
 };
 
 const paths = {
-  boundaryEventWaiting: `boundary_event_waiting`,
-  boundaryEventFinished: `boundary_event_finished`,
+  boundaryEventTriggered: `boundary_event_triggered`,
   intermediateEventWaiting: `intermediate_event_waiting`,
   intermediateEventFinished: `intermediate_event_finished`,
   callActivityWaiting: `call_activity_waiting`,

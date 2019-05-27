@@ -1,9 +1,9 @@
 import {BaseEventMessage} from '../base_event_message';
 
 /**
- * Represents the message which is send, when a BoundaryEvent has been finished.
+ * Represents the message which is send, when a BoundaryEvent has been triggered.
  */
-export class BoundaryEventFinishedMessage extends BaseEventMessage {
+export class BoundaryEventTriggeredMessage extends BaseEventMessage {
 
   constructor(correlationId: string,
               processModelId: string,
