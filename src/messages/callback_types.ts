@@ -26,7 +26,8 @@ export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivity
 export type OnBoundaryEventTriggeredCallback = (boundaryEventTriggered: BoundaryEventTriggeredMessage) => void | Promise<void>;
 
 export type OnIntermediateEventTriggeredCallback = (intermediateEventTriggered: IntermediateEventTriggeredMessage) => void | Promise<void>;
-export type OnIntermediateCatchEventFinishedCallback = (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
+export type OnIntermediateCatchEventFinishedCallback =
+  (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
 
 export type OnManualTaskWaitingCallback = (manualTaskWaiting: ManualTaskReachedMessage) => void | Promise<void>;
 export type OnManualTaskFinishedCallback = (manualTaskFinished: ManualTaskFinishedMessage) => void | Promise<void>;

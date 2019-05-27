@@ -4,11 +4,11 @@ const pathParams = {
 };
 
 const paths = {
-  boundaryEventTriggered: `boundary_event_triggered`,
-  intermediateEventTriggered: `intermediate_event_triggered`,
-  intermediateCatchEventFinished: `intermediate_catch_event_finished`,
-  callActivityWaiting: `call_activity_waiting`,
-  callActivityFinished: `call_activity_finished`,
+  boundaryEventTriggered: 'boundary_event_triggered',
+  intermediateEventTriggered: 'intermediate_event_triggered',
+  intermediateCatchEventFinished: 'intermediate_catch_event_finished',
+  callActivityWaiting: 'call_activity_waiting',
+  callActivityFinished: 'call_activity_finished',
   emptyActivityWaiting: 'empty_activity_waiting',
   emptyActivityForIdentityWaiting: `empty_activity_waiting/user_id/${pathParams.userId}`,
   emptyActivityFinished: 'empty_activity_finished',
