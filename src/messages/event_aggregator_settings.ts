@@ -15,7 +15,8 @@ export const messageParams = {
 export const messagePaths = {
   // Generic messages
   boundaryEventTriggered: 'boundary_event_triggered',
-  intermediateEventTriggered: 'intermediate_event_triggered',
+  intermediateThrowEventTriggered: 'intermediate_throw_event_triggered',
+  intermediateCatchEventReached: 'intermediate_catch_event_reached',
   intermediateCatchEventFinished: 'intermediate_catch_event_finished',
   callActivityReached: 'call_activity_reached',
   callActivityFinished: 'call_activity_finished',
