@@ -6,12 +6,9 @@ import {APIs} from './apis/index';
  * communicate with the ProcessEngine.
  */
 export interface IManagementApi
-  extends APIs.IBoundaryEventManagementApi,
-  APIs.ICallActivityManagementApi,
-  APIs.ICorrelationManagementApi,
+  extends APIs.ICorrelationManagementApi,
   APIs.IEmptyActivityManagementApi,
   APIs.IEventManagementApi,
-  APIs.IIntermediateEventManagementApi,
   APIs.IKpiManagementApi,
   APIs.ILoggingManagementApi,
   APIs.IManualTaskManagementApi,
