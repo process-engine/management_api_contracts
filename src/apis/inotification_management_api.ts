@@ -96,7 +96,6 @@ export interface INotificationManagementApi {
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
-
   /**
    * Executes a callback when a IntermediateCatchEvent is reached.
    *
