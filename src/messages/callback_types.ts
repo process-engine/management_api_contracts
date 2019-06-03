@@ -1,7 +1,13 @@
 import {EndEventReachedMessage, TerminateEndEventReachedMessage} from './bpmn_events';
 import {
+  BoundaryEventTriggeredMessage,
+  CallActivityFinishedMessage,
+  CallActivityReachedMessage,
   EmptyActivityFinishedMessage,
   EmptyActivityReachedMessage,
+  IntermediateCatchEventFinishedMessage,
+  IntermediateCatchEventReachedMessage,
+  IntermediateThrowEventTriggeredMessage,
   ManualTaskFinishedMessage,
   ManualTaskReachedMessage,
   ProcessStartedMessage,
@@ -14,6 +20,19 @@ export type OnEmptyActivityFinishedCallback = (userTaskFinished: EmptyActivityFi
 
 export type OnUserTaskWaitingCallback = (userTaskWaiting: UserTaskReachedMessage) => void | Promise<void>;
 export type OnUserTaskFinishedCallback = (userTaskFinished: UserTaskFinishedMessage) => void | Promise<void>;
+
+export type OnCallActivityWaitingCallback = (callActivityWaiting: CallActivityReachedMessage) => void | Promise<void>;
+export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivityFinishedMessage) => void | Promise<void>;
+
+export type OnBoundaryEventTriggeredCallback = (boundaryEventTriggered: BoundaryEventTriggeredMessage) => void | Promise<void>;
+
+export type OnIntermediateThrowEventTriggeredCallback =
+  (intermediateThrowEventTriggered: IntermediateThrowEventTriggeredMessage) => void | Promise<void>;
+
+export type OnIntermediateCatchEventReachedCallback =
+  (intermediateCatchEventReached: IntermediateCatchEventReachedMessage) => void | Promise<void>;
+export type OnIntermediateCatchEventFinishedCallback =
+  (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
 
 export type OnManualTaskWaitingCallback = (manualTaskWaiting: ManualTaskReachedMessage) => void | Promise<void>;
 export type OnManualTaskFinishedCallback = (manualTaskFinished: ManualTaskFinishedMessage) => void | Promise<void>;
