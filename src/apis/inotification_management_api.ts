@@ -92,7 +92,7 @@ export interface INotificationManagementApi {
    */
   onIntermediateThrowEventTriggered(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnIntermediateEventTriggeredCallback,
+    callback: Messages.CallbackTypes.OnIntermediateThrowEventTriggeredCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
