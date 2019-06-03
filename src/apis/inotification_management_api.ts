@@ -17,7 +17,7 @@ export interface INotificationManagementApi {
   removeSubscription(identity: IIdentity, subscription: Subscription): Promise<void>;
 
   /**
-   * Executes a callback when a Boundary Event is triggered.
+   * Executes a callback when a BoundaryEvent is triggered.
    *
    * @async
    * @param   identity      The requesting users identity.
@@ -77,14 +77,14 @@ export interface INotificationManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a IntermediateThrowEvent is triggered.
+   * Executes a callback when an IntermediateThrowEvent is triggered.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a Intermediate Event
+   * @param   callback      The callback that will be executed when an IntermediateThrowEvent
    *                        is reached.
    *                        The message passed to the callback contains further
-   *                        information about the Intermediate Event.
+   *                        information about the IntermediateThrowEvent.
    * @param   subscribeOnce Optional: If set to true, the subscription will be
    *                        automatically disposed, after the notification was
    *                        received once.
@@ -97,11 +97,11 @@ export interface INotificationManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a IntermediateCatchEvent is reached.
+   * Executes a callback when an IntermediateCatchEvent is reached.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a IntermediateCatchEvent
+   * @param   callback      The callback that will be executed when an IntermediateCatchEvent
    *                        is finished.
    *                        The message passed to the callback contains further
    *                        information about the IntermediateCatchEvent.
@@ -117,11 +117,11 @@ export interface INotificationManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes a callback when a IntermediateCatchEvent is finished.
+   * Executes a callback when an IntermediateCatchEvent is finished.
    *
    * @async
    * @param   identity      The requesting users identity.
-   * @param   callback      The callback that will be executed when a IntermediateCatchEvent
+   * @param   callback      The callback that will be executed when an IntermediateCatchEvent
    *                        is finished.
    *                        The message passed to the callback contains further
    *                        information about the IntermediateCatchEvent.
