@@ -2,6 +2,7 @@
 import * as correlationApi from './icorrelation_management_api';
 import * as emptyActivityApi from './iempty_activity_management_api';
 import * as eventApi from './ievent_management_api';
+import * as flowNodeApi from './iflow_node_management_api';
 import * as kpiApi from './ikpi_management_api';
 import * as loggingApi from './ilogging_management_api';
 import * as manualTaskApi from './imanual_task_management_api';
@@ -14,6 +15,7 @@ export namespace APIs {
   export import ICorrelationManagementApi = correlationApi.ICorrelationManagementApi;
   export import IEmptyActivityManagementApi = emptyActivityApi.IEmptyActivityManagementApi;
   export import IEventManagementApi = eventApi.IEventManagementApi;
+  export import IFlowNodeManagementApi = flowNodeApi.IFlowNodeManagementApi;
   export import IKpiManagementApi = kpiApi.IKpiManagementApi;
   export import ILoggingManagementApi = loggingApi.ILoggingManagementApi;
   export import IManualTaskManagementApi = manualTaskApi.IManualTaskManagementApi;
