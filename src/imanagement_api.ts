@@ -9,7 +9,7 @@ export interface IManagementApi
   extends APIs.ICorrelationManagementApi,
   APIs.IEmptyActivityManagementApi,
   APIs.IEventManagementApi,
-  APIs.IFlowNodeManagementApi,
+  APIs.IFlowNodeInstanceManagementApi,
   APIs.IKpiManagementApi,
   APIs.ILoggingManagementApi,
   APIs.IManualTaskManagementApi,

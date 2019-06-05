@@ -2,7 +2,7 @@
 import * as correlations from './correlation/index';
 import * as emptyActivities from './empty_activity/index';
 import * as events from './event/index';
-import * as flowNodes from './flow_node/index';
+import * as flowNodes from './flow_node_instance/index';
 import * as kpi from './kpi/index';
 import * as logging from './logging/index';
 import * as manualTasks from './manual_task/index';
