@@ -1,9 +1,9 @@
-import { IIdentity } from "@essential-projects/iam_contracts";
+import {IIdentity} from '@essential-projects/iam_contracts';
 
-import { BpmnType } from "./types";
-import { EventType } from "../event";
-import { FlowNodeInstanceState } from "./flow_node_instance_state";
-import { ProcessToken } from "./process_token";
+import {BpmnType} from './types';
+import {EventType} from '../event';
+import {FlowNodeInstanceState} from './flow_node_instance_state';
+import {ProcessToken} from './process_token';
 
 export class FlowNodeInstance {
 
