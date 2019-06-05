@@ -1,6 +1,3 @@
-/**
- * Contains a list of all known BPMN types and maps them to their corresponding XML tag.
- */
 export enum BpmnType {
   emptyActivity = 'bpmn:Task',
   userTask = 'bpmn:UserTask',
@@ -21,16 +18,4 @@ export enum BpmnType {
   eventBasedGateway = 'bpmn:EventBasedGateway',
   sendTask = 'bpmn:SendTask',
   receiveTask = 'bpmn:ReceiveTask',
-}
-
-/**
- * Contains a list of all supported event types.
- */
-export enum EventType {
-  linkEvent = 'linkEvent',
-  messageEvent = 'messageEvent',
-  signalEvent = 'signalEvent',
-  terminateEvent = 'terminateEvent',
-  timerEvent = 'timerEvent',
-  errorEvent = 'errorEvent',
 }

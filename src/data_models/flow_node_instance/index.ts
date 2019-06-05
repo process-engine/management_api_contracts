@@ -1,1 +1,1 @@
-export * from './flow_node_instance_list';
+export * from './flow_node_instance';
