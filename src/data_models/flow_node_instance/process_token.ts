@@ -11,7 +11,6 @@ export class ProcessToken {
   public createdAt: Date;
   public caller: string;
   public type: ProcessTokenType;
-
   public payload: any;
 
 }
