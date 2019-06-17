@@ -10,7 +10,6 @@ export class ProcessToken {
   public identity: IIdentity;
   public createdAt: Date;
   public caller: string;
-
   public type: ProcessTokenType;
 
   public payload: any;
