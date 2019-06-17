@@ -14,7 +14,7 @@ export namespace DataModels {
   export import Correlations = correlations;
   export import EmptyActivities = emptyActivities;
   export import Events = events;
-  export import FlowNodes = flowNodes;
+  export import FlowNodeInstances = flowNodeInstances;
   export import Kpi = kpi;
   export import Logging = logging;
   export import ManualTasks = manualTasks;
