@@ -47,6 +47,8 @@ const paths = {
   getOwnEmptyActivities: '/empty_activities/own',
   finishEmptyActivity:
     `/processes/${params.processInstanceId}/correlations/${params.correlationId}/empty_activities/${params.emptyActivityInstanceId}/finish`,
+  // Flow Node Instances
+  getFlowNodeInstancesForProcessInstance: `/process_instances/${params.processInstanceId}/flow_node_instances`,
   // UserTasks
   processModelUserTasks: `/process_models/${params.processModelId}/user_tasks`,
   processInstanceUserTasks: `/process_instances/${params.processInstanceId}/user_tasks`,
