@@ -11,6 +11,7 @@ export * from './intermediate_catch_event_finished';
 export * from './intermediate_throw_event_triggered';
 export * from './manual_task_finished';
 export * from './manual_task_reached';
+export * from './process_error';
 export * from './process_started';
 export * from './user_task_finished';
 export * from './user_task_reached';

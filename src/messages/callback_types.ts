@@ -10,6 +10,7 @@ import {
   IntermediateThrowEventTriggeredMessage,
   ManualTaskFinishedMessage,
   ManualTaskReachedMessage,
+  ProcessErrorMessage,
   ProcessStartedMessage,
   UserTaskFinishedMessage,
   UserTaskReachedMessage,
@@ -38,6 +39,6 @@ export type OnManualTaskWaitingCallback = (manualTaskWaiting: ManualTaskReachedM
 export type OnManualTaskFinishedCallback = (manualTaskFinished: ManualTaskFinishedMessage) => void | Promise<void>;
 
 export type OnProcessStartedCallback = (processStarted: ProcessStartedMessage) => void | Promise<void>;
-
+export type OnProcessErrorCallback = (processError: ProcessErrorMessage) => void | Promise<void>;
 export type OnProcessEndedCallback = (processEnded: EndEventReachedMessage) => void | Promise<void>;
 export type OnProcessTerminatedCallback = (processTerminated: TerminateEndEventReachedMessage) => void | Promise<void>;
