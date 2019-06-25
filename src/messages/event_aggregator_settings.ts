@@ -28,8 +28,8 @@ export const messagePaths = {
   userTaskFinished: 'user_task_finished',
   manualTaskReached: 'manual_task_reached',
   manualTaskFinished: 'manual_task_finished',
-  processEnded: 'process_ended',
   processStarted: 'process_started',
+  processEnded: 'process_ended',
   processError: 'process_error',
   processTerminated: 'process_terminated',
   // instance specific messages
