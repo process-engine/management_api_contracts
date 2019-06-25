@@ -48,7 +48,7 @@ export const messagePaths = {
   endEventReached: `/processengine/correlation/${messageParams.correlationId}/processmodel/${messageParams.processModelId}/ended`,
   messageEventReached: `/processengine/process/message/${messageParams.messageReference}`,
   signalEventReached: `/processengine/process/signal/${messageParams.signalReference}`,
-  terminateEndEventReached: `/processengine/process/${messageParams.processInstanceId}/terminated`,
+  terminateProcessInstance: `/processengine/process/${messageParams.processInstanceId}/terminated`,
   processInstanceStarted: `/processengine/process_started/${messageParams.processModelId}`,
   processInstanceEnded: `/processengine/process/${messageParams.processInstanceId}/ended`,
 };
