@@ -20,14 +20,16 @@ export const messagePaths = {
   intermediateCatchEventFinished: 'intermediate_catch_event_finished',
   activityReached: 'activity_reached',
   activityFinished: 'activity_finished',
+  callActivityReached: 'call_activity_reached', // Deprecated, will be removed in future versions - Use activityReached instead
+  callActivityFinished: 'call_activity_finished', // Deprecated, will be removed in future versions - Use activityFinished instead
   emptyActivityReached: 'empty_activity_reached',
   emptyActivityFinished: 'empty_activity_finished',
   userTaskReached: 'user_task_reached',
   userTaskFinished: 'user_task_finished',
   manualTaskReached: 'manual_task_reached',
   manualTaskFinished: 'manual_task_finished',
-  processStarted: 'process_started',
   processEnded: 'process_ended',
+  processStarted: 'process_started',
   processError: 'process_error',
   processTerminated: 'process_terminated',
   // instance specific messages
@@ -46,7 +48,7 @@ export const messagePaths = {
   endEventReached: `/processengine/correlation/${messageParams.correlationId}/processmodel/${messageParams.processModelId}/ended`,
   messageEventReached: `/processengine/process/message/${messageParams.messageReference}`,
   signalEventReached: `/processengine/process/signal/${messageParams.signalReference}`,
-  terminateProcessInstance: `/processengine/process/${messageParams.processInstanceId}/terminated`,
+  terminateEndEventReached: `/processengine/process/${messageParams.processInstanceId}/terminated`,
   processInstanceStarted: `/processengine/process_started/${messageParams.processModelId}`,
   processInstanceEnded: `/processengine/process/${messageParams.processInstanceId}/ended`,
 };

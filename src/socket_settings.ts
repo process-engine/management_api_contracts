@@ -10,6 +10,8 @@ const paths = {
   intermediateCatchEventFinished: 'intermediate_catch_event_finished',
   activityReached: 'activity_reached',
   activityFinished: 'activity_finished',
+  callActivityWaiting: 'call_activity_waiting', // Deprecated, will be removed in future versions. Use activityReached instead.
+  callActivityFinished: 'call_activity_finished', // Deprecated, will be removed in future versions. Use activityFinishbed instead.
   emptyActivityWaiting: 'empty_activity_waiting',
   emptyActivityForIdentityWaiting: `empty_activity_waiting/user_id/${pathParams.userId}`,
   emptyActivityFinished: 'empty_activity_finished',
