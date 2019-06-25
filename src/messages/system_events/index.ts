@@ -1,3 +1,5 @@
+export * from './activity_finished';
+export * from './activity_reached';
 export * from './boundary_event_triggered';
 export * from './call_activity_finished';
 export * from './call_activity_reached';
