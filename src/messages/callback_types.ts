@@ -28,8 +28,8 @@ export type OnIntermediateCatchEventReachedCallback =
 export type OnIntermediateCatchEventFinishedCallback =
   (intermediateCatchEventFinished: IntermediateCatchEventFinishedMessage) => void | Promise<void>;
 
-export type OnActivityReachedCallback = (callActivityWaiting: ActivityReachedMessage) => void | Promise<void>;
-export type OnActivityFinishedCallback = (callActivityFinished: ActivityFinishedMessage) => void | Promise<void>;
+export type OnActivityReachedCallback = (activityWaiting: ActivityReachedMessage) => void | Promise<void>;
+export type OnActivityFinishedCallback = (activityFinished: ActivityFinishedMessage) => void | Promise<void>;
 // ------ DEPRECATED - Will be removed in future versions, Use onActivity callbacks instead
 export type OnCallActivityWaitingCallback = (callActivityWaiting: CallActivityReachedMessage) => void | Promise<void>;
 export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivityFinishedMessage) => void | Promise<void>;
