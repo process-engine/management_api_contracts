@@ -18,17 +18,20 @@ export const messagePaths = {
   intermediateThrowEventTriggered: 'intermediate_throw_event_triggered',
   intermediateCatchEventReached: 'intermediate_catch_event_reached',
   intermediateCatchEventFinished: 'intermediate_catch_event_finished',
-  callActivityReached: 'call_activity_reached',
-  callActivityFinished: 'call_activity_finished',
+  activityReached: 'activity_reached',
+  activityFinished: 'activity_finished',
+  callActivityReached: 'call_activity_reached', // Deprecated, will be removed in future versions - Use activityReached instead
+  callActivityFinished: 'call_activity_finished', // Deprecated, will be removed in future versions - Use activityFinished instead
   emptyActivityReached: 'empty_activity_reached',
   emptyActivityFinished: 'empty_activity_finished',
   userTaskReached: 'user_task_reached',
   userTaskFinished: 'user_task_finished',
   manualTaskReached: 'manual_task_reached',
   manualTaskFinished: 'manual_task_finished',
-  processTerminated: 'process_terminated',
   processStarted: 'process_started',
   processEnded: 'process_ended',
+  processError: 'process_error',
+  processTerminated: 'process_terminated',
   // instance specific messages
   finishEmptyActivity:
     `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finish`,

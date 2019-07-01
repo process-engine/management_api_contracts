@@ -224,6 +224,31 @@ export interface IProcessModelManagementApi {
   ): Promise<Subscription>;
 
   /**
+   * Executes the provided callback when a ProcessInstance runs into an error.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             ProcessInstance was aborted by an error.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onProcessError(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessErrorCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
    * Executes the provided callback when a ProcessInstance ends.
    *
    * @async
