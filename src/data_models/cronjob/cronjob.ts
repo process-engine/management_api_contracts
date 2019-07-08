@@ -14,4 +14,8 @@ export type CronjobConfiguration = {
    * The crontab that describs the cronjob.
    */
   crontab: string;
+  /**
+   * The next time the cronjob will be triggered.
+   */
+  nextExecution: Date;
 }
