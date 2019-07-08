@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as correlationApi from './icorrelation_management_api';
+import * as cronjobApi from './icronjob_management_api';
 import * as emptyActivityApi from './iempty_activity_management_api';
 import * as eventApi from './ievent_management_api';
 import * as flowNodeInstanceApi from './iflow_node_instance_management_api';
@@ -13,6 +14,7 @@ import * as userTaskApi from './iuser_task_management_api';
 
 export namespace APIs {
   export import ICorrelationManagementApi = correlationApi.ICorrelationManagementApi;
+  export import ICronjobManagementApi = cronjobApi.ICronjobManagementApi;
   export import IEmptyActivityManagementApi = emptyActivityApi.IEmptyActivityManagementApi;
   export import IEventManagementApi = eventApi.IEventManagementApi;
   export import IFlowNodeInstanceManagementApi = flowNodeInstanceApi.IFlowNodeInstanceManagementApi;

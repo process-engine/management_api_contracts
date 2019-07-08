@@ -25,6 +25,8 @@ const paths = {
   getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
   getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}`,
   getCorrelationById: `/correlations/${params.correlationId}`,
+  // Cronjobs
+  getActiveCronjobs: '/cronjobs/active',
   // Process Models
   processModels: '/process_models',
   processModelById: `/process_models/${params.processModelId}`,
