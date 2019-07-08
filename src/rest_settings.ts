@@ -1,5 +1,6 @@
 const params = {
   correlationId: ':correlation_id',
+  crontab: ':crontab',
   emptyActivityInstanceId: ':empty_activity_instance_id',
   eventName: ':event_name',
   flowNodeId: ':flow_node_id',
