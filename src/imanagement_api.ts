@@ -7,6 +7,7 @@ import {APIs} from './apis/index';
  */
 export interface IManagementApi
   extends APIs.ICorrelationManagementApi,
+  APIs.ICronjobManagementApi,
   APIs.IEmptyActivityManagementApi,
   APIs.IEventManagementApi,
   APIs.IFlowNodeInstanceManagementApi,

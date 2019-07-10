@@ -1,5 +1,6 @@
 const params = {
   correlationId: ':correlation_id',
+  crontab: ':crontab',
   emptyActivityInstanceId: ':empty_activity_instance_id',
   eventName: ':event_name',
   flowNodeId: ':flow_node_id',
@@ -25,6 +26,10 @@ const paths = {
   getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
   getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}`,
   getCorrelationById: `/correlations/${params.correlationId}`,
+  // Cronjobs
+  getActiveCronjobs: '/cronjobs/active',
+  getCronjobExecutionHistoryForProcessModel: '/cronjobs/history/process_model/:process_model_id',
+  getCronjobExecutionHistoryForCrontab: '/cronjobs/history/crontab/:crontab',
   // Process Models
   processModels: '/process_models',
   processModelById: `/process_models/${params.processModelId}`,
