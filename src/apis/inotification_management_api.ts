@@ -17,6 +17,134 @@ export interface INotificationManagementApi {
   removeSubscription(identity: IIdentity, subscription: Subscription): Promise<void>;
 
   /**
+   * Executes the provided callback when a ProcessInstance is started.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             ProcessInstance was started.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onProcessStarted(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessStartedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a new ProcessInstance for a given ProcessModelId
+   * was started.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             ProcessInstance was started.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   processModelId     The ID of the ProcessModel to listen for.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onProcessWithProcessModelIdStarted(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessStartedCallback,
+    processModelId: string,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ProcessInstance ends.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             ProcessInstance was finished.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onProcessEnded(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessEndedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ProcessInstance is terminated.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             ProcessInstance was terminated.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onProcessTerminated(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessTerminatedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ProcessInstance runs into an error.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             ProcessInstance was aborted by an error.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onProcessError(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnProcessErrorCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
    * Executes a callback when an Activity is reached.
    *
    * @async
@@ -57,16 +185,14 @@ export interface INotificationManagementApi {
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when a CallActivity is reached.
-   *
-   * @deprecated This function will be removed with the next major Release! Use onActivityReached instead!
+   * Executes the provided callback when an EmptyActivity is reached.
    *
    * @async
    * @param   identity           The requesting users identity.
    * @param   callback           The callback that will be executed when a
-   *                             new CallActivity is waiting.
+   *                             new EmptyActivity is waiting.
    *                             The message passed to the callback contains
-   *                             further information about the CallActivity.
+   *                             further information about the EmptyActivity.
    * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
@@ -77,23 +203,21 @@ export interface INotificationManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
-  onCallActivityWaiting(
+  onEmptyActivityWaiting(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnCallActivityWaitingCallback,
+    callback: Messages.CallbackTypes.OnEmptyActivityWaitingCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
   /**
-   * Executes the provided callback when a CallActivity is finished.
-   *
-   * @deprecated This function will be removed with the next major Release! Use onActivityFinished instead!
+   * Executes the provided callback when an EmptyActivity is finished.
    *
    * @async
    * @param   identity           The requesting users identity.
-   * @param   callback           The callback that will be executed when a
-   *                             CallActivity is finished.
+   * @param   callback           The callback that will be executed when an
+   *                             EmptyActivity is finished.
    *                             The message passed to the callback contains
-   *                             further information about the CallActivity.
+   *                             further information about the EmptyActivity.
    * @param   subscribeOnce      Optional: If set to true, the subscription will
    *                             be automatically disposed, after the notification
    *                             was received once.
@@ -104,9 +228,259 @@ export interface INotificationManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
-  onCallActivityFinished(
+  onEmptyActivityFinished(
     identity: IIdentity,
-    callback: Messages.CallbackTypes.OnCallActivityFinishedCallback,
+    callback: Messages.CallbackTypes.OnEmptyActivityFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when an EmptyActivity for the given identity is reached.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             EmptyActivity for the identity is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the EmptyActivity.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onEmptyActivityForIdentityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnEmptyActivityWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when an EmptyActivity for the given identity is finished.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             EmptyActivity for the identity is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the EmptyActivity.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onEmptyActivityForIdentityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnEmptyActivityFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ManualTask is reached.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             new ManualTask is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the ManualTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onManualTaskWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ManualTask is finished.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             ManualTask is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the ManualTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onManualTaskFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ManualTask for the given identity is reached.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             ManualTask for the identity is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the ManualTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onManualTaskForIdentityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a ManualTask for the given identity is finished.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             ManualTask for the identity is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the ManualTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onManualTaskForIdentityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnManualTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a UserTask is reached.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             new UserTask is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the UserTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onUserTaskWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a UserTask is finished.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             UserTask is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the UserTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onUserTaskFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a UserTask for the given identity is reached.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             UserTask for the identity is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the UserTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onUserTaskForIdentityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a UserTask for the given identity is finished.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             UserTask for the identity is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the UserTask.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onUserTaskForIdentityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnUserTaskFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
@@ -189,4 +563,60 @@ export interface INotificationManagementApi {
     callback: Messages.CallbackTypes.OnIntermediateCatchEventFinishedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
+
+  // ------------ For backwards compatibility only
+  /**
+   * Executes the provided callback when a CallActivity is reached.
+   *
+   * @deprecated This function will be removed with the next major Release! Use onActivityReached instead!
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             new CallActivity is waiting.
+   *                             The message passed to the callback contains
+   *                             further information about the CallActivity.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCallActivityWaiting(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCallActivityWaitingCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a CallActivity is finished.
+   *
+   * @deprecated This function will be removed with the next major Release! Use onActivityFinished instead!
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             CallActivity is finished.
+   *                             The message passed to the callback contains
+   *                             further information about the CallActivity.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCallActivityFinished(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCallActivityFinishedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+  // ------------
 }
