@@ -1,11 +1,9 @@
 import {APIs} from './apis/index';
 
 /**
- * The primary access point for the ManagementApi.
- * This service contains all functions that the ManagementApi employs to
- * communicate with the ProcessEngine.
+ * The client provides endpoints for all UseCases the ManagementAPI employs.
  */
-export interface IManagementApi
+export interface IManagementApiClient
   extends APIs.ICorrelationManagementApi,
   APIs.ICronjobManagementApi,
   APIs.IEmptyActivityManagementApi,
