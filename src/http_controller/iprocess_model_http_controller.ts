@@ -36,6 +36,15 @@ export interface IProcessModelHttpController {
   getProcessModelByProcessInstanceId(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
+   * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getStartEventsForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
    * Updates a ProcessDefinition by its name.
    * If it doesn't exist yet, it will be created.
    *

@@ -8,15 +8,6 @@ import {Response} from 'express';
 export interface IEventHttpController {
 
   /**
-   * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
-   *
-   * @async
-   * @param request  The HttpRequest object containing all request infos.
-   * @param response The HttpResponse object to use for sending a Http response.
-   */
-  getStartEventsForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
-
-  /**
    * Retrieves a list of all triggerable events belonging to an instance of a
    * specific ProcessModel.
    *
