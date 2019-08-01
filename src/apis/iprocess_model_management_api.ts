@@ -1,6 +1,7 @@
 import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {IIdentity} from '@essential-projects/iam_contracts';
 
+import {EventList} from '../data_models/event/index';
 import {
   ProcessModel,
   ProcessModelList,
@@ -58,6 +59,21 @@ export interface IProcessModelManagementApi {
    *                             ProcessModel.
    */
   getProcessModelByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<ProcessModel>;
+
+  /**
+   * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
+   *
+   * @async
+   * @param identity             The requesting users identity.
+   * @param processModelId       The ID of the ProcessModel for which to
+   *                             retrieve the StartEvents.
+   * @returns                    The ProcessModels StartEvents.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessModel.
+   */
+  getStartEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
 
   /**
    * Updates a ProcessDefinition by its name.
