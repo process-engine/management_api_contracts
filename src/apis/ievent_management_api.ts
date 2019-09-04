@@ -8,21 +8,6 @@ import {EventList, EventTriggerPayload} from '../data_models/event/index';
 export interface IEventManagementApi {
 
   /**
-   * Retrieves a list of all StartEvents belonging to a specific ProcessModel.
-   *
-   * @async
-   * @param identity             The requesting users identity.
-   * @param processModelId       The ID of the ProcessModel for which to
-   *                             retrieve the StartEvents.
-   * @returns                    The ProcessModels StartEvents.
-   * @throws {UnauthorizedError} If the given identity does not contain a
-   *                             valid auth token.
-   * @throws {ForbiddenError}    If the user is not allowed to access the
-   *                             ProcessModel.
-   */
-  getStartEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
-
-  /**
    * Retrieves a list of all triggerable events belonging to an instance of a
    * specific ProcessModel.
    *
