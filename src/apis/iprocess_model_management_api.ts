@@ -138,8 +138,8 @@ export interface IProcessModelManagementApi {
   startProcessInstance(
     identity: IIdentity,
     processModelId: string,
-    payload: ProcessStartRequestPayload,
-    startCallbackType: StartCallbackType,
+    payload?: ProcessStartRequestPayload,
+    startCallbackType?: StartCallbackType,
     startEventId?: string,
     endEventId?: string,
     processEndedCallback?: Messages.CallbackTypes.OnProcessEndedCallback,
