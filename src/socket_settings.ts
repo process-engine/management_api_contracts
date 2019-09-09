@@ -29,6 +29,10 @@ const paths = {
   processError: 'process_error',
   processTerminated: 'process_terminated',
   processInstanceStarted: `/process_instance_started/${pathParams.processModelId}`,
+  cronjobExecuted: 'cronjob_executed',
+  cronjobStopped: 'cronjob_stopped',
+  cronjobUpdated: 'cronjob_updated',
+  cronjobCreated: 'cronjob_created',
 };
 
 const namespace = 'management_api';

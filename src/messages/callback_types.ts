@@ -48,3 +48,8 @@ export type OnProcessStartedCallback = (processStarted: ProcessStartedMessage) =
 export type OnProcessErrorCallback = (processError: ProcessErrorMessage) => void | Promise<void>;
 export type OnProcessEndedCallback = (processEnded: EndEventReachedMessage) => void | Promise<void>;
 export type OnProcessTerminatedCallback = (processTerminated: TerminateEndEventReachedMessage) => void | Promise<void>;
+
+export type OnCronjobExecutedCallback = (cronjobExecuted: any) => void | Promise<void>;
+export type OnCronjobStoppedCallback = (cronjobStopped: any) => void | Promise<void>;
+export type OnCronjobUpdatedCallback = (cronjobUpdated: any) => void | Promise<void>;
+export type OnCronjobCreatedCallback = (cronjobCreated: any) => void | Promise<void>;

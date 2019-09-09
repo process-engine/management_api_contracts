@@ -619,4 +619,104 @@ export interface INotificationManagementApi {
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
   // ------------
+
+  /**
+   * Executes the provided callback when a Cronjob is executed.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             Cronjob is executed.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobExecuted(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobExecutedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob is updated.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             Cronjob is updated.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobUpdated(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobUpdatedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob is stopped.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             Cronjob is stopped.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobStopped(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobStoppedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob is created.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             Cronjob is created.
+   *                             The message passed to the callback contains
+   *                             further information about the ProcessInstance.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobCreated(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobCreatedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 }
