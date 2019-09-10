@@ -18,6 +18,6 @@ export class ProcessStartRequestPayload {
   /**
    * Contains the arguments with which to start the ProcessModel.
    */
-  public inputValues: any;
+  public inputValues?: any;
 
 }
