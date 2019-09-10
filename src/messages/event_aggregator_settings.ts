@@ -36,6 +36,7 @@ export const messagePaths = {
   cronjobUpdated: 'cronjob_updated',
   cronjobStopped: 'cronjob_stopped',
   cronjobCreated: 'cronjob_created',
+  cronjobRemoved: 'cronjob_removed',
   // instance specific messages
   finishEmptyActivity:
     `/processengine/correlation/${messageParams.correlationId}/processinstance/${messageParams.processInstanceId}/emptyactivity/${messageParams.flowNodeInstanceId}/finish`,

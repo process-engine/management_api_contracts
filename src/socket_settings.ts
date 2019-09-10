@@ -33,6 +33,7 @@ const paths = {
   cronjobStopped: 'cronjob_stopped',
   cronjobUpdated: 'cronjob_updated',
   cronjobCreated: 'cronjob_created',
+  cronjobRemoved: 'cronjob_removed',
 };
 
 const namespace = 'management_api';

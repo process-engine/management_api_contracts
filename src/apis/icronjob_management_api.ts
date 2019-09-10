@@ -157,4 +157,29 @@ export interface ICronjobManagementApi {
     callback: Messages.CallbackTypes.OnCronjobExecutedCallback,
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob for the given identity is removed.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             Cronjob for the identity is removed.
+   *                             The message passed to the callback contains
+   *                             further information about the Cronjob.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobRemoved(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobRemovedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 }

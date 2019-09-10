@@ -53,3 +53,4 @@ export type OnCronjobExecutedCallback = (cronjobExecuted: any) => void | Promise
 export type OnCronjobStoppedCallback = (cronjobStopped: any) => void | Promise<void>;
 export type OnCronjobUpdatedCallback = (cronjobUpdated: any) => void | Promise<void>;
 export type OnCronjobCreatedCallback = (cronjobCreated: any) => void | Promise<void>;
+export type OnCronjobRemovedCallback = (cronjobRemoved: any) => void | Promise<void>;
