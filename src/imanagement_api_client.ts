@@ -15,4 +15,5 @@ export interface IManagementApiClient
   APIs.INotificationManagementApi,
   APIs.IProcessModelManagementApi,
   APIs.ITokenHistoryManagementApi,
-  APIs.IUserTaskManagementApi {}
+  APIs.IUserTaskManagementApi,
+  APIs.ITaskManagementApi {}

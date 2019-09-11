@@ -10,6 +10,7 @@ import * as manualTaskHttpController from './imanual_task_http_controller';
 import * as processModelHttpController from './iprocess_model_http_controller';
 import * as tokenHistoryHttpController from './itoken_history_http_controller';
 import * as userTaskHttpController from './iuser_task_http_controller';
+import * as taskHttpController from './itask_http_controller';
 
 export namespace HttpController {
   export import ICorrelationHttpController = correlationHttpController.ICorrelationHttpController;
@@ -23,4 +24,5 @@ export namespace HttpController {
   export import IProcessModelHttpController = processModelHttpController.IProcessModelHttpController;
   export import ITokenHistoryHttpController = tokenHistoryHttpController.ITokenHistoryHttpController;
   export import IUserTaskHttpController = userTaskHttpController.IUserTaskHttpController;
+  export import ITaskHttpController = taskHttpController.ITaskHttpController;
 }
