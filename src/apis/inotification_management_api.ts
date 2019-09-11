@@ -739,7 +739,7 @@ export interface INotificationManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to create
    *                             event subscriptions.
    */
-  onCronjobCreated(
+  onCronjobRemoved(
     identity: IIdentity,
     callback: Messages.CallbackTypes.OnCronjobRemovedCallback,
     subscribeOnce?: boolean,
