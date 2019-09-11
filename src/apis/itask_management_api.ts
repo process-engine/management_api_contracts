@@ -8,6 +8,20 @@ import {TaskList} from '../data_models/tasks/index';
 export interface ITaskManagementApi {
 
   /**
+   * Retrieves a list of all suspended Tasks.
+   *
+   * @async
+   * @param  identity            The requesting users identity.
+   * @returns                    A list of all waiting Tasks.
+   *                             Will be empty, if none are available.
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to access the
+   *                             ProcessModel.
+   */
+  getAllSuspendedTasks(identity: IIdentity): Promise<TaskList>;
+
+  /**
    * Retrieves a list of all suspended Tasks belonging to an instance of a
    * specific ProcessModel.
    *

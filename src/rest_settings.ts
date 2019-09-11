@@ -67,6 +67,7 @@ const paths = {
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
   finishManualTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/manual_tasks/${params.manualTaskInstanceId}/finish`,
   // Task
+  allSuspendedTasks: '/suspended_tasks',
   processModelTasks: `/process_models/${params.processModelId}/tasks`,
   processInstanceTasks: `/process_instances/${params.processInstanceId}/tasks`,
   correlationTasks: `/correlations/${params.correlationId}/tasks`,
