@@ -17,6 +17,8 @@ export interface IEmptyActivityManagementApi {
    * @param   identity           The requesting users identity.
    * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the EmptyActivities.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting EmptActivities for the given
    *                             ProcessModel.
    *                             Will be empty, if none are available.
@@ -25,7 +27,7 @@ export interface IEmptyActivityManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getEmptyActivitiesForProcessModel(identity: IIdentity, processModelId: string): Promise<EmptyActivityList>;
+  getEmptyActivitiesForProcessModel(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<EmptyActivityList>;
 
   /**
    * Retrieves a list of all suspended EmptyActivities belonging to a specific
@@ -35,6 +37,8 @@ export interface IEmptyActivityManagementApi {
    * @param  identity            The requesting users identity.
    * @param  processInstanceId   The ID of the ProcessInstance for which to
    *                             retrieve the EmptyActivities.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting EmptActivities for the given
    *                             ProcessInstance.
    *                             Will be empty, if none are available.
@@ -43,7 +47,7 @@ export interface IEmptyActivityManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
-  getEmptyActivitiesForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<EmptyActivityList>;
+  getEmptyActivitiesForProcessInstance(identity: IIdentity, processInstanceId: string, offset?: number, limit?: number): Promise<EmptyActivityList>;
 
   /**
    * Retrieves a list of all suspended EmptyActivities belonging to a specific
@@ -53,6 +57,8 @@ export interface IEmptyActivityManagementApi {
    * @param   identity           The requesting users identity.
    * @param   correlationId      The ID of the Correlation for which to
    *                             retrieve the EmptyActivities.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting EmptActivities for the given
    *                             Correlation.
    *                             Will be empty, if none are available.
@@ -61,7 +67,7 @@ export interface IEmptyActivityManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getEmptyActivitiesForCorrelation(identity: IIdentity, correlationId: string): Promise<EmptyActivityList>;
+  getEmptyActivitiesForCorrelation(identity: IIdentity, correlationId: string, offset?: number, limit?: number): Promise<EmptyActivityList>;
 
   /**
    * Retrieves a list of all suspended EmptyActivities belonging to an instance of a
@@ -73,6 +79,8 @@ export interface IEmptyActivityManagementApi {
    *                             retrieve the EmptyActivities.
    * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the EmptyActivities.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting EmptActivities for the given
    *                             ProcessModel and Correlation.
    *                             Will be empty, if none are available.
@@ -81,7 +89,13 @@ export interface IEmptyActivityManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getEmptyActivitiesForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EmptyActivityList>;
+  getEmptyActivitiesForProcessModelInCorrelation(
+    identity: IIdentity,
+    processModelId: string,
+    correlationId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<EmptyActivityList>;
 
   /**
    * Finishes an EmptyActivity belonging to an instance of a specific ProcessModel

@@ -14,9 +14,11 @@ export interface IManualTaskManagementApi {
    * specific ProcessModel.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  processModelId      The ID of the ProcessModel for which to
+   * @param   identity           The requesting users identity.
+   * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the ManualTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting ManualTasks for the given
    *                             ProcessModel.
    *                             Will be empty, if none are available.
@@ -25,16 +27,23 @@ export interface IManualTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getManualTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<ManualTaskList>;
+  getManualTasksForProcessModel(
+    identity: IIdentity,
+    processModelId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<ManualTaskList>;
 
   /**
    * Retrieves a list of all suspended ManualTasks belonging to an specific
    * ProcessInstance.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  processInstanceId   The ID of the ProcessInstance for which to
+   * @param   identity           The requesting users identity.
+   * @param   processInstanceId  The ID of the ProcessInstance for which to
    *                             retrieve the ManualTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting ManualTasks for the given
    *                             ProcessInstance.
    *                             Will be empty, if none are available.
@@ -43,16 +52,23 @@ export interface IManualTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
-  getManualTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<ManualTaskList>;
+  getManualTasksForProcessInstance(
+    identity: IIdentity,
+    processInstanceId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<ManualTaskList>;
 
   /**
    * Retrieves a list of all suspended ManualTasks belonging to a specific
    * Correlation.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  correlationId       The ID of the Correlation for which to
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to
    *                             retrieve the ManualTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting Manualtasks for the given
    *                             Correlation.
    *                             Will be empty, if none are available.
@@ -61,18 +77,25 @@ export interface IManualTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getManualTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<ManualTaskList>;
+  getManualTasksForCorrelation(
+    identity: IIdentity,
+    correlationId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<ManualTaskList>;
 
   /**
    * Retrieves a list of all suspended ManualTasks belonging to an instance of a
    * specific ProcessModel within a Correlation.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  correlationId       The ID of the Correlation for which to retrieve the
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to retrieve the
    *                             ManualTasks.
-   * @param  processModelId      The ID of the ProcessModel for which to retrieve the
+   * @param   processModelId     The ID of the ProcessModel for which to retrieve the
    *                             ManualTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting ManualTasks for the given
    *                             ProcessModel and Correlation.
    *                             Will be empty, if none are available.
@@ -81,7 +104,13 @@ export interface IManualTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getManualTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<ManualTaskList>;
+  getManualTasksForProcessModelInCorrelation(
+    identity: IIdentity,
+    processModelId: string,
+    correlationId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<ManualTaskList>;
 
   /**
    * Finishes a ManualTask belonging to an instance of a specific ProcessModel

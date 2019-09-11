@@ -13,10 +13,17 @@ export interface IFlowNodeInstanceManagementApi {
    * @async
    * @param   identity           The requesting users identity.
    * @param   processInstanceId  The ID of the ProcessInstance for which to get the FlowNodeInstances.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of retrieved FlowNodeInstances.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    * @throws {NotFoundError}     If the ProcessInstance was not found.
    */
-  getFlowNodeInstancesForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<Array<FlowNodeInstance>>;
+  getFlowNodeInstancesForProcessInstance(
+    identity: IIdentity,
+    processInstanceId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<Array<FlowNodeInstance>>;
 }

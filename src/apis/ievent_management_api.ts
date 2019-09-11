@@ -12,9 +12,11 @@ export interface IEventManagementApi {
    * specific ProcessModel.
    *
    * @async
-   * @param identity             The requesting users identity.
-   * @param processModelId       The ID of the ProcessModel for which to
+   * @param   identity           The requesting users identity.
+   * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the events.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of triggerable events for the given
    *                             ProcessModel.
    *                             Will be empty, if none are available.
@@ -23,15 +25,17 @@ export interface IEventManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getWaitingEventsForProcessModel(identity: IIdentity, processModelId: string): Promise<EventList>;
+  getWaitingEventsForProcessModel(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to a Correlation.
    *
    * @async
-   * @param identity             The requesting users identity.
-   * @param correlationId        The ID of the Correlation for which to retrieve
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to retrieve
    *                             the events.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of triggerable events for the given
    *                             Correlation.
    *                             Will be empty, if none are available.
@@ -40,18 +44,20 @@ export interface IEventManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getWaitingEventsForCorrelation(identity: IIdentity, correlationId: string): Promise<EventList>;
+  getWaitingEventsForCorrelation(identity: IIdentity, correlationId: string, offset?: number, limit?: number): Promise<EventList>;
 
   /**
    * Retrieves a list of all triggerable events belonging to an instance of a
    * specific ProcessModel within a Correlation.
    *
    * @async
-   * @param identity             The requesting users identity.
-   * @param correlationId        The ID of the Correlation for which to retrieve
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to retrieve
    *                             the events.
-   * @param processModelId       The ID of the ProcessModel for which to retrieve
+   * @param   processModelId     The ID of the ProcessModel for which to retrieve
    *                             the events.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of triggerable events for the given
    *                             ProcessModel and Correlation.
    *                             Will be empty, if none are available.
@@ -60,7 +66,13 @@ export interface IEventManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getWaitingEventsForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<EventList>;
+  getWaitingEventsForProcessModelInCorrelation(
+    identity: IIdentity,
+    processModelId: string,
+    correlationId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<EventList>;
 
   /**
    * Triggers a message event.

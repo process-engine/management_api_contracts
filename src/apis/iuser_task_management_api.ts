@@ -14,9 +14,11 @@ export interface IUserTaskManagementApi {
    * specific ProcessModel.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  processModelId      The ID of the ProcessModel for which to
+   * @param   identity           The requesting users identity.
+   * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the UserTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting UserTasks for the given
    *                             ProcessModel.
    *                             Will be empty, if none are available.
@@ -25,16 +27,23 @@ export interface IUserTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getUserTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModel(
+    identity: IIdentity,
+    processModelId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to specific
    * ProcessInstance.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  processInstanceId   The ID of the ProcessInstance for which to retrieve the
+   * @param   identity           The requesting users identity.
+   * @param   processInstanceId  The ID of the ProcessInstance for which to retrieve the
    *                             UserTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting UserTasks for the given
    *                             ProcessInstance.
    *                             Will be empty, if none are available.
@@ -43,16 +52,23 @@ export interface IUserTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
-  getUserTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<UserTaskList>;
+  getUserTasksForProcessInstance(
+    identity: IIdentity,
+    processInstanceId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to a specific
    * Correlation.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  correlationId       The ID of the Correlation for which to
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to
    *                             retrieve the UserTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting UserTasks for the given
    *                             Correlation.
    *                             Will be empty, if none are available.
@@ -61,18 +77,25 @@ export interface IUserTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getUserTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForCorrelation(
+    identity: IIdentity,
+    correlationId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<UserTaskList>;
 
   /**
    * Retrieves a list of all suspended UserTasks belonging to an instance of a
    * specific ProcessModel within a Correlation.
    *
    * @async
-   * @param  identity            The requesting users identity.
-   * @param  correlationId       The ID of the Correlation for which to
+   * @param   identity           The requesting users identity.
+   * @param   correlationId      The ID of the Correlation for which to
    *                             retrieve the UserTasks.
-   * @param  processModelId      The ID of the ProcessModel for which to
+   * @param   processModelId     The ID of the ProcessModel for which to
    *                             retrieve the UserTasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting UserTasks for the given
    *                             ProcessModel and Correlation.
    *                             Will be empty, if none are available.
@@ -81,7 +104,13 @@ export interface IUserTaskManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getUserTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<UserTaskList>;
+  getUserTasksForProcessModelInCorrelation(
+    identity: IIdentity,
+    processModelId: string,
+    correlationId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<UserTaskList>;
 
   /**
    * Finishes a UserTask belonging to an instance of a specific ProcessModel
