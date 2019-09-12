@@ -7,6 +7,8 @@ import {EmptyActivity} from '../empty_activity/index';
  */
 export class TaskList {
 
-  public tasks: Array<UserTask | ManualTask | EmptyActivity> = [];
+  public emptyActivities: Array<EmptyActivity> = [];
+  public manualTasks: Array<ManualTask> = [];
+  public userTasks: Array<UserTask> = [];
 
 }
