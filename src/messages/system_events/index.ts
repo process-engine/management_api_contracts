@@ -17,3 +17,8 @@ export * from './process_error';
 export * from './process_started';
 export * from './user_task_finished';
 export * from './user_task_reached';
+export * from './cronjob_executed';
+export * from './cronjob_created';
+export * from './cronjob_stopped';
+export * from './cronjob_updated';
+export * from './cronjob_removed';
