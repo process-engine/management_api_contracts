@@ -3,7 +3,7 @@ import {Subscription} from '@essential-projects/event_aggregator_contracts';
 /**
  * The base class for definining cronjob messages.
  */
-export class CronjobBaseEventMessage {
+export class CronjobBaseEvent {
 
   public readonly subscription: Subscription;
   public readonly startEventId: string;
@@ -18,6 +18,18 @@ export class CronjobBaseEventMessage {
     this.startEventId = startEventId;
     this.cronjob = cronjob;
 
+  }
+
+}
+
+export class CronjobBaseEventMessage {
+
+  public readonly processModelId: string;
+  public readonly cronjobs: Array<CronjobBaseEvent>;
+
+  constructor(processModelId: string, cronjobs: Array<CronjobBaseEvent>) {
+    this.processModelId = processModelId;
+    this.cronjobs = cronjobs;
   }
 
 }

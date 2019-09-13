@@ -11,6 +11,7 @@ import * as eventAggregatorSettings from './event_aggregator_settings';
 export namespace Messages {
   export import BaseEventMessage = baseEventMessage.BaseEventMessage;
   export import CronjobBaseEventMessage = cronjobBaseEventMessage.CronjobBaseEventMessage;
+  export import CronjobBaseEvent = cronjobBaseEventMessage.CronjobBaseEvent;
   export import BpmnEvents = bpmnEvents;
   export import CallbackTypes = callbackTypes;
   export import EventAggregatorSettings = eventAggregatorSettings;
