@@ -16,6 +16,8 @@ export interface ITokenHistoryManagementApi {
    * @param   correlationId      The ID of the Correlation.
    * @param   processModelId     The ID of the ProcessModel.
    * @param   flowNodeId         The ID of the specific FlowNode.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of tokens that belong to the given FlowNode.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
@@ -25,6 +27,8 @@ export interface ITokenHistoryManagementApi {
     correlationId: string,
     processModelId: string,
     flowNodeId: string,
+    offset?: number,
+    limit?: number,
   ): Promise<Array<TokenHistoryEntry>>;
 
   /**

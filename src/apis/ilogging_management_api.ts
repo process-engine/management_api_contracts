@@ -16,11 +16,19 @@ export interface ILoggingManagementApi {
    *                             logs.
    * @param   correlationId      Optional: If provided, only the logs for the given
    *                             Correlation are returned.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of log entries.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getProcessModelLog(identity: IIdentity, processModelId: string, correlationId?: string): Promise<Array<LogEntry>>;
+  getProcessModelLog(
+    identity: IIdentity,
+    processModelId: string,
+    correlationId?: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<Array<LogEntry>>;
 
   /**
    * Retrieves the logs for a specific ProcessInstance.
@@ -31,9 +39,17 @@ export interface ILoggingManagementApi {
    *                             logs.
    * @param   processInstance    The ID of the ProcessInstance for which to retrieve the
    *                             logs.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of log entries.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getProcessInstanceLog(identity: IIdentity, processModelId: string, processInstanceId: string): Promise<Array<LogEntry>>;
+  getProcessInstanceLog(
+    identity: IIdentity,
+    processModelId: string,
+    processInstanceId: string,
+    offset?: number,
+    limit?: number,
+  ): Promise<Array<LogEntry>>;
 }
