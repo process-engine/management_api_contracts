@@ -2,7 +2,7 @@ import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {CronjobConfiguration, CronjobHistoryEntry} from '../data_models/cronjob/index';
-import {Messages} from '..';
+import {Messages} from '../messages/index';
 
 /**
  * The ICronjobManagementApi is used to query cronjobs from the ProcessEngine.
