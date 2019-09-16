@@ -11,7 +11,6 @@ import * as notificationApi from './inotification_management_api';
 import * as processModelApi from './iprocess_model_management_api';
 import * as tokenHistoryApi from './itoken_history_management_api';
 import * as userTaskApi from './iuser_task_management_api';
-import * as taskApi from './itask_management_api';
 
 export namespace APIs {
   export import ICorrelationManagementApi = correlationApi.ICorrelationManagementApi;
@@ -26,5 +25,4 @@ export namespace APIs {
   export import IProcessModelManagementApi = processModelApi.IProcessModelManagementApi;
   export import ITokenHistoryManagementApi = tokenHistoryApi.ITokenHistoryManagementApi;
   export import IUserTaskManagementApi = userTaskApi.IUserTaskManagementApi;
-  export import ITaskManagementApi = taskApi.ITaskManagementApi;
 }

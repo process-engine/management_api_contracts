@@ -10,7 +10,6 @@ import * as manualTasks from './manual_task/index';
 import * as processModels from './process_models/index';
 import * as tokenHistory from './token_history/index';
 import * as userTasks from './user_task/index';
-import * as tasks from './tasks/index';
 
 export namespace DataModels {
   export import Correlations = correlations;
@@ -24,5 +23,4 @@ export namespace DataModels {
   export import ProcessModels = processModels;
   export import TokenHistory = tokenHistory;
   export import UserTasks = userTasks;
-  export import Tasks = tasks;
 }
