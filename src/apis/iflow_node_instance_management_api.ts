@@ -33,6 +33,8 @@ export interface IFlowNodeInstanceManagementApi {
    *
    * @async
    * @param  identity            The requesting users identity.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of all waiting Tasks.
    *                             Will be empty, if none are available.
    * @throws {UnauthorizedError} If the given identity does not contain a
@@ -40,7 +42,11 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getAllSuspendedTasks(identity: IIdentity): Promise<TaskList>;
+  getAllSuspendedTasks(
+    identity: IIdentity,
+    offset?: number,
+    limit?: number,
+  ): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to an instance of a
@@ -50,6 +56,8 @@ export interface IFlowNodeInstanceManagementApi {
    * @param  identity            The requesting users identity.
    * @param  processModelId      The ID of the ProcessModel for which to
    *                             retrieve the Tasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting Tasks for the given
    *                             ProcessModel.
    *                             Will be empty, if none are available.
@@ -58,7 +66,12 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getTasksForProcessModel(identity: IIdentity, processModelId: string): Promise<TaskList>;
+  getTasksForProcessModel(
+    identity: IIdentity,
+    processModelId: string,
+    offset?: number,
+    limit?: number
+  ): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to an specific
@@ -68,6 +81,8 @@ export interface IFlowNodeInstanceManagementApi {
    * @param  identity            The requesting users identity.
    * @param  processInstanceId   The ID of the ProcessInstance for which to
    *                             retrieve the Tasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting Tasks for the given
    *                             ProcessInstance.
    *                             Will be empty, if none are available.
@@ -76,7 +91,12 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
-  getTasksForProcessInstance(identity: IIdentity, processInstanceId: string): Promise<TaskList>;
+  getTasksForProcessInstance(
+    identity: IIdentity,
+    processInstanceId: string,
+    offset?: number,
+    limit?: number
+  ): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to a specific
@@ -86,6 +106,8 @@ export interface IFlowNodeInstanceManagementApi {
    * @param  identity            The requesting users identity.
    * @param  correlationId       The ID of the Correlation for which to
    *                             retrieve the Tasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting Tasks for the given
    *                             Correlation.
    *                             Will be empty, if none are available.
@@ -94,7 +116,12 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation.
    */
-  getSuspendedTasksForCorrelation(identity: IIdentity, correlationId: string): Promise<TaskList>;
+  getSuspendedTasksForCorrelation(
+    identity: IIdentity,
+    correlationId: string,
+    offset?: number,
+    limit?: number
+  ): Promise<TaskList>;
 
   /**
    * Retrieves a list of all suspended Tasks belonging to an instance of a
@@ -106,6 +133,8 @@ export interface IFlowNodeInstanceManagementApi {
    *                             Tasks.
    * @param  processModelId      The ID of the ProcessModel for which to retrieve the
    *                             Tasks.
+   * @param   offset             Optional: The number of records to skip.
+   * @param   limit              Optional: The max. number of records to get.
    * @returns                    A list of waiting Tasks for the given
    *                             ProcessModel and Correlation.
    *                             Will be empty, if none are available.
@@ -114,5 +143,11 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             Correlation or the ProcessModel.
    */
-  getSuspendedTasksForProcessModelInCorrelation(identity: IIdentity, processModelId: string, correlationId: string): Promise<TaskList>;
+  getSuspendedTasksForProcessModelInCorrelation(
+    identity: IIdentity,
+    processModelId: string,
+    correlationId: string,
+    offset?: number,
+    limit?: number
+  ): Promise<TaskList>;
 }
