@@ -66,7 +66,7 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessModel.
    */
-  getTasksForProcessModel(
+  getSuspendedTasksForProcessModel(
     identity: IIdentity,
     processModelId: string,
     offset?: number,
@@ -91,7 +91,7 @@ export interface IFlowNodeInstanceManagementApi {
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    */
-  getTasksForProcessInstance(
+  getSuspendedTasksForProcessInstance(
     identity: IIdentity,
     processInstanceId: string,
     offset?: number,
