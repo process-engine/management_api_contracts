@@ -1,6 +1,8 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
+import {Subscription} from '@essential-projects/event_aggregator_contracts';
 import {CronjobConfiguration, CronjobHistoryEntry} from '../data_models/cronjob/index';
+import {Messages} from '../messages/index';
 
 /**
  * The ICronjobManagementApi is used to query cronjobs from the ProcessEngine.
@@ -55,4 +57,129 @@ export interface ICronjobManagementApi {
    * @returns        A list of matching cronjobs.
    */
   getCronjobExecutionHistoryForCrontab(identity: IIdentity, crontab: string, offset?: number, limit?: number): Promise<Array<CronjobHistoryEntry>>;
+
+  /**
+   * Executes the provided callback when a Cronjob is created.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a
+   *                             new Cronjob is created.
+   *                             The message passed to the callback contains
+   *                             further information about the Cronjob.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobCreated(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobCreatedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob is stopped.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             Cronjob is stopped.
+   *                             The message passed to the callback contains
+   *                             further information about the Cronjob.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobStopped(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobStoppedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob for the given identity is updated.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when a new
+   *                             Cronjob for the identity is updated.
+   *                             The message passed to the callback contains
+   *                             further information about the Cronjob.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobUpdated(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobUpdatedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob for the given identity is executed.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             Cronjob for the identity is executed.
+   *                             The message passed to the callback contains
+   *                             further information about the Cronjob.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobExecuted(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobExecutedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
+
+  /**
+   * Executes the provided callback when a Cronjob for the given identity is removed.
+   *
+   * @async
+   * @param   identity           The requesting users identity.
+   * @param   callback           The callback that will be executed when an
+   *                             Cronjob for the identity is removed.
+   *                             The message passed to the callback contains
+   *                             further information about the Cronjob.
+   * @param   subscribeOnce      Optional: If set to true, the subscription will
+   *                             be automatically disposed, after the notification
+   *                             was received once.
+   * @returns                    The subscription created by the EventAggregator.
+   *
+   * @throws {UnauthorizedError} If the given identity does not contain a
+   *                             valid auth token.
+   * @throws {ForbiddenError}    If the user is not allowed to create
+   *                             event subscriptions.
+   */
+  onCronjobRemoved(
+    identity: IIdentity,
+    callback: Messages.CallbackTypes.OnCronjobRemovedCallback,
+    subscribeOnce?: boolean,
+  ): Promise<Subscription>;
 }
