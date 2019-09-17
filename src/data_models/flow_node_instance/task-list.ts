@@ -10,5 +10,6 @@ export class TaskList {
   public emptyActivities: Array<EmptyActivity> = [];
   public manualTasks: Array<ManualTask> = [];
   public userTasks: Array<UserTask> = [];
+  public totalCount: number;
 
 }
