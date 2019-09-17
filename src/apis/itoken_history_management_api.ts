@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {TokenHistoryEntry, TokenHistoryGroup} from '../data_models/token_history/index';
+import {TokenHistoryEntryList, TokenHistoryGroup} from '../data_models/token_history/index';
 
 /**
  * The ITokenHistoryManagementApi is used to read the TokenHistory for
@@ -29,7 +29,7 @@ export interface ITokenHistoryManagementApi {
     flowNodeId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<TokenHistoryEntry>>;
+  ): Promise<TokenHistoryEntryList>;
 
   /**
    * Gets the token history for a specific FlowNodeInstance of a

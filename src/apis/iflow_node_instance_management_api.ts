@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {FlowNodeInstance} from '../data_models/flow_node_instance';
+import {FlowNodeInstanceList} from '../data_models/flow_node_instance';
 
 /**
  * The IFlowNodeInstanceManagementApi is used to retrieve and manage FlowNodeInstances.
@@ -25,5 +25,5 @@ export interface IFlowNodeInstanceManagementApi {
     processInstanceId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<FlowNodeInstance>>;
+  ): Promise<FlowNodeInstanceList>;
 }

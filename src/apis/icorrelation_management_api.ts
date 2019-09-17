@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {Correlation} from '../data_models/correlation/index';
+import {Correlation, CorrelationList} from '../data_models/correlation/index';
 
 /**
  * The ICorrelationManagementApi is used to query correlations.
@@ -20,7 +20,7 @@ export interface ICorrelationManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getAllCorrelations(identity: IIdentity, offset?: number, limit?: number): Promise<Array<Correlation>>;
+  getAllCorrelations(identity: IIdentity, offset?: number, limit?: number): Promise<CorrelationList>;
 
   /**
    * Retrieves a list of all active Correlations that the given identity is
@@ -35,7 +35,7 @@ export interface ICorrelationManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getActiveCorrelations(identity: IIdentity, offset?: number, limit?: number): Promise<Array<Correlation>>;
+  getActiveCorrelations(identity: IIdentity, offset?: number, limit?: number): Promise<CorrelationList>;
 
   /**
    * Retrieves the Correlation with the given ID.
@@ -70,7 +70,7 @@ export interface ICorrelationManagementApi {
    *                             ProcessModel.
    * @throws {NotFoundError}     If the ProcessModel does not exist.
    */
-  getCorrelationsByProcessModelId(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<Array<Correlation>>;
+  getCorrelationsByProcessModelId(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<CorrelationList>;
 
   /**
    * Retrieves the Correlation in which the given ProcessInstance was executed.

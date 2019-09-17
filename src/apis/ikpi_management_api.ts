@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {ActiveToken, FlowNodeRuntimeInformation} from '../data_models/kpi/index';
+import {ActiveTokenList, FlowNodeRuntimeInformation, FlowNodeRuntimeInformationList} from '../data_models/kpi/index';
 
 /**
  * The IKpiManagementApi is used to get KPI data for ProcessModels.
@@ -26,7 +26,7 @@ export interface IKpiManagementApi {
     processModelId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<FlowNodeRuntimeInformation>>;
+  ): Promise<FlowNodeRuntimeInformationList>;
 
   /**
    * Gets the FlowNodeRuntimeInformation for a specific FlowNode inside a
@@ -57,7 +57,7 @@ export interface IKpiManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getActiveTokensForProcessModel(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<Array<ActiveToken>>;
+  getActiveTokensForProcessModel(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<ActiveTokenList>;
 
   /**
    * Gets all active ProcessTokens for a given CorrelationId and ProcessModelId.
@@ -79,7 +79,7 @@ export interface IKpiManagementApi {
     processModelId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<ActiveToken>>;
+  ): Promise<ActiveTokenList>;
 
   /**
    * Gets all active ProcessTokens for a given ProcessInstanceId.
@@ -94,7 +94,7 @@ export interface IKpiManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getActiveTokensForProcessInstance(identity: IIdentity, processInstanceId: string, offset?: number, limit?: number): Promise<Array<ActiveToken>>;
+  getActiveTokensForProcessInstance(identity: IIdentity, processInstanceId: string, offset?: number, limit?: number): Promise<ActiveTokenList>;
 
   /**
    * Gets all active Tokens for a specific FlowNode inside a ProcessModel.
@@ -110,5 +110,5 @@ export interface IKpiManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getActiveTokensForFlowNode(identity: IIdentity, flowNodeId: string, offset?: number, limit?: number): Promise<Array<ActiveToken>>;
+  getActiveTokensForFlowNode(identity: IIdentity, flowNodeId: string, offset?: number, limit?: number): Promise<ActiveTokenList>;
 }
