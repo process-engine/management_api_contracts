@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {LogEntry} from '../data_models/logging/index';
+import {LogEntryList} from '../data_models/logging/index';
 
 /**
  * The ILoggingManagementApi is used to read logs for ProcessModels.
@@ -28,7 +28,7 @@ export interface ILoggingManagementApi {
     correlationId?: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<LogEntry>>;
+  ): Promise<LogEntryList>;
 
   /**
    * Retrieves the logs for a specific ProcessInstance.
@@ -51,5 +51,5 @@ export interface ILoggingManagementApi {
     processInstanceId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<LogEntry>>;
+  ): Promise<LogEntryList>;
 }

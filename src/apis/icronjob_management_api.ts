@@ -1,7 +1,7 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
 import {Subscription} from '@essential-projects/event_aggregator_contracts';
-import {CronjobConfiguration, CronjobHistoryEntry} from '../data_models/cronjob/index';
+import {CronjobHistoryList, CronjobList} from '../data_models/cronjob/index';
 import {Messages} from '../messages/index';
 
 /**
@@ -22,7 +22,7 @@ export interface ICronjobManagementApi {
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    */
-  getAllActiveCronjobs(identity: IIdentity, offset?: number, limit?: number): Promise<Array<CronjobConfiguration>>;
+  getAllActiveCronjobs(identity: IIdentity, offset?: number, limit?: number): Promise<CronjobList>;
 
   /**
    * Returns the Cronjob execution history for the given ProcessModel.
@@ -44,7 +44,7 @@ export interface ICronjobManagementApi {
     startEventId?: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<CronjobHistoryEntry>>;
+  ): Promise<CronjobHistoryList>;
 
   /**
    * Returns the Cronjob execution history for the given crontab.
@@ -56,7 +56,7 @@ export interface ICronjobManagementApi {
    * @param   limit    Optional: The max. number of records to get.
    * @returns        A list of matching cronjobs.
    */
-  getCronjobExecutionHistoryForCrontab(identity: IIdentity, crontab: string, offset?: number, limit?: number): Promise<Array<CronjobHistoryEntry>>;
+  getCronjobExecutionHistoryForCrontab(identity: IIdentity, crontab: string, offset?: number, limit?: number): Promise<CronjobHistoryList>;
 
   /**
    * Executes the provided callback when a Cronjob is created.

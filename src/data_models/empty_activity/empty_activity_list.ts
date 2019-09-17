@@ -6,5 +6,6 @@ import {EmptyActivity} from './empty_activity';
 export class EmptyActivityList {
 
   public emptyActivities: Array<EmptyActivity> = [];
+  public totalCount: number;
 
 }
