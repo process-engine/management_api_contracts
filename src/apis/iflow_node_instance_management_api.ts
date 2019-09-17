@@ -1,7 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {FlowNodeInstanceList} from '../data_models/flow_node_instance';
-import {TaskList} from '../data_models/flow_node_instance/task-list';
+import {FlowNodeInstanceList, TaskList} from '../data_models/flow_node_instance';
 
 /**
  * The IFlowNodeInstanceManagementApi is used to retrieve and manage FlowNodeInstances.
