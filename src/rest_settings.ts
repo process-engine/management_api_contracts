@@ -66,6 +66,12 @@ const paths = {
   correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
   finishManualTask: `/processes/${params.processInstanceId}/correlations/${params.correlationId}/manual_tasks/${params.manualTaskInstanceId}/finish`,
+  // Task
+  allSuspendedTasks: '/suspended_tasks',
+  suspendedProcessModelTasks: `/process_models/${params.processModelId}/tasks`,
+  suspendedProcessInstanceTasks: `/process_instances/${params.processInstanceId}/tasks`,
+  suspendedCorrelationTasks: `/correlations/${params.correlationId}/tasks`,
+  suspendedProcessModelCorrelationTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/tasks`,
   // Heatmap
   getRuntimeInformationForProcessModel: `/process_model/${params.processModelId}/runtime_information`,
   getActiveTokensForProcessModel: `/process_model/${params.processModelId}/active_tokens`,
