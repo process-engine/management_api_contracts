@@ -1,3 +1,5 @@
+import {BpmnType} from '../flow_node_instance/bpmn_type';
+
 /**
  * Describes an EmptyActivity.
  *
@@ -9,6 +11,7 @@
  */
 export class EmptyActivity {
 
+  public readonly flowNodeType: BpmnType = BpmnType.emptyActivity;
   public id: string;
   public flowNodeInstanceId?: string;
   public name: string;

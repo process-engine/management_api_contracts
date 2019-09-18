@@ -1,9 +1,12 @@
 import {UserTaskConfig} from './user_task_config';
+import {BpmnType} from '../flow_node_instance/bpmn_type';
 
 /**
  * Describes a suspended UserTask that is waiting to be finished.
  */
 export class UserTask {
+
+  public readonly flowNodeType: BpmnType = BpmnType.userTask;
 
   /**
    * The model ID of the UserTask, as it is declared in the ProcessModel.

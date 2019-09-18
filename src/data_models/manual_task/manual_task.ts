@@ -1,7 +1,11 @@
+import {BpmnType} from '../flow_node_instance/bpmn_type';
+
 /**
  * Describes a suspended ManualTask that is waiting to be finished.
  */
 export class ManualTask {
+
+  public readonly flowNodeType: BpmnType = BpmnType.manualTask;
 
   /**
    * The model ID of the ManualTask, as it is declared in the ProcessModel.
