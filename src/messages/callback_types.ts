@@ -3,8 +3,6 @@ import {
   ActivityFinishedMessage,
   ActivityReachedMessage,
   BoundaryEventTriggeredMessage,
-  CallActivityFinishedMessage,
-  CallActivityReachedMessage,
   CronjobCreatedMessage,
   CronjobExecutedMessage,
   CronjobRemovedMessage,
@@ -35,10 +33,6 @@ export type OnIntermediateCatchEventFinishedCallback =
 
 export type OnActivityReachedCallback = (activityWaiting: ActivityReachedMessage) => void | Promise<void>;
 export type OnActivityFinishedCallback = (activityFinished: ActivityFinishedMessage) => void | Promise<void>;
-// ------ DEPRECATED - Will be removed in future versions, Use onActivity callbacks instead
-export type OnCallActivityWaitingCallback = (callActivityWaiting: CallActivityReachedMessage) => void | Promise<void>;
-export type OnCallActivityFinishedCallback = (callActivityFinished: CallActivityFinishedMessage) => void | Promise<void>;
-// ------
 
 export type OnEmptyActivityWaitingCallback = (userTaskWaiting: EmptyActivityReachedMessage) => void | Promise<void>;
 export type OnEmptyActivityFinishedCallback = (userTaskFinished: EmptyActivityFinishedMessage) => void | Promise<void>;

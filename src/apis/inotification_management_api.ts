@@ -564,62 +564,6 @@ export interface INotificationManagementApi {
     subscribeOnce?: boolean,
   ): Promise<Subscription>;
 
-  // ------------ For backwards compatibility only
-  /**
-   * Executes the provided callback when a CallActivity is reached.
-   *
-   * @deprecated This function will be removed with the next major Release! Use onActivityReached instead!
-   *
-   * @async
-   * @param   identity           The requesting users identity.
-   * @param   callback           The callback that will be executed when a
-   *                             new CallActivity is waiting.
-   *                             The message passed to the callback contains
-   *                             further information about the CallActivity.
-   * @param   subscribeOnce      Optional: If set to true, the subscription will
-   *                             be automatically disposed, after the notification
-   *                             was received once.
-   * @returns                    The subscription created by the EventAggregator.
-   *
-   * @throws {UnauthorizedError} If the given identity does not contain a
-   *                             valid auth token.
-   * @throws {ForbiddenError}    If the user is not allowed to create
-   *                             event subscriptions.
-   */
-  onCallActivityWaiting(
-    identity: IIdentity,
-    callback: Messages.CallbackTypes.OnCallActivityWaitingCallback,
-    subscribeOnce?: boolean,
-  ): Promise<Subscription>;
-
-  /**
-   * Executes the provided callback when a CallActivity is finished.
-   *
-   * @deprecated This function will be removed with the next major Release! Use onActivityFinished instead!
-   *
-   * @async
-   * @param   identity           The requesting users identity.
-   * @param   callback           The callback that will be executed when a
-   *                             CallActivity is finished.
-   *                             The message passed to the callback contains
-   *                             further information about the CallActivity.
-   * @param   subscribeOnce      Optional: If set to true, the subscription will
-   *                             be automatically disposed, after the notification
-   *                             was received once.
-   * @returns                    The subscription created by the EventAggregator.
-   *
-   * @throws {UnauthorizedError} If the given identity does not contain a
-   *                             valid auth token.
-   * @throws {ForbiddenError}    If the user is not allowed to create
-   *                             event subscriptions.
-   */
-  onCallActivityFinished(
-    identity: IIdentity,
-    callback: Messages.CallbackTypes.OnCallActivityFinishedCallback,
-    subscribeOnce?: boolean,
-  ): Promise<Subscription>;
-  // ------------
-
   /**
    * Executes the provided callback when a Cronjob is executed.
    *
