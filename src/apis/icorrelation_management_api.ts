@@ -1,6 +1,6 @@
 import {IIdentity} from '@essential-projects/iam_contracts';
 
-import {Correlation, CorrelationList} from '../data_models/correlation/index';
+import {Correlation, CorrelationList, ProcessInstance} from '../data_models/correlation/index';
 
 /**
  * The ICorrelationManagementApi is used to query correlations.
@@ -73,18 +73,17 @@ export interface ICorrelationManagementApi {
   getCorrelationsByProcessModelId(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<CorrelationList>;
 
   /**
-   * Retrieves the Correlation in which the given ProcessInstance was executed.
+   * Retrieves a ProcessInstance by its iD.
    *
    * @async
    * @param   identity           The requesting users identity.
-   * @param   processInstanceId  The ID of the ProcessInstance for which to get the
-   *                             Correlations.
-   * @returns                    The requested Correlation.
+   * @param   processInstanceId  The ID of the ProcessInstance to get.
+   * @returns                    The requested ProcessInstance.
    * @throws {UnauthorizedError} If the given identity does not contain a
    *                             valid auth token.
    * @throws {ForbiddenError}    If the user is not allowed to access the
    *                             ProcessInstance.
    * @throws {NotFoundError}     If the ProcessInstance does not exist.
    */
-  getCorrelationByProcessInstanceId(identity: IIdentity, processInstanceId: string): Promise<Correlation>;
+  getProcessInstanceById(identity: IIdentity, processInstanceId: string): Promise<ProcessInstance>;
 }
