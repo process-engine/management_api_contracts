@@ -5,6 +5,7 @@ import {
   CorrelationList,
   CorrelationState,
   ProcessInstance,
+  ProcessInstanceList,
 } from '../data_models/correlation/index';
 
 /**
@@ -102,7 +103,7 @@ export interface ICorrelationManagementApi {
    * @param   limit          Optional: The max. number of entries to return.
    * @returns                A list with matching ProcessInstances; or an empty Array, if non were found.
    */
-  getProcessInstancesForCorrelation(identity: IIdentity, correlationId: string, offset?: number, limit?: number): Promise<Array<ProcessInstance>>;
+  getProcessInstancesForCorrelation(identity: IIdentity, correlationId: string, offset?: number, limit?: number): Promise<ProcessInstanceList>;
 
   /**
    * Gets a list of all ProcessInstances for the given ProcessModel.
@@ -114,7 +115,7 @@ export interface ICorrelationManagementApi {
    * @param   limit           Optional: The max. number of entries to return.
    * @returns                 A list with matching ProcessInstances; or an empty Array, if non were found.
    */
-  getProcessInstancesForProcessModel(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<Array<ProcessInstance>>;
+  getProcessInstancesForProcessModel(identity: IIdentity, processModelId: string, offset?: number, limit?: number): Promise<ProcessInstanceList>;
 
   /**
    * Gets a list of all ProcessInstances that are in a matching state.
@@ -126,5 +127,5 @@ export interface ICorrelationManagementApi {
    * @param   limit    Optional: The max. number of entries to return.
    * @returns          A list with matching ProcessInstances; or an empty Array, if non were found.
    */
-  getProcessInstancesByState(identity: IIdentity, state: CorrelationState, offset?: number, limit?: number): Promise<Array<ProcessInstance>>;
+  getProcessInstancesByState(identity: IIdentity, state: CorrelationState, offset?: number, limit?: number): Promise<ProcessInstanceList>;
 }
