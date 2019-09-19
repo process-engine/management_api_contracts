@@ -7,7 +7,7 @@ const params = {
   processDefinitionsName: ':process_definitions_name',
   processModelId: ':process_model_id',
   processInstanceId: ':process_instance_id',
-  processInstanceState: ':processInstanceState',
+  processInstanceState: ':process_instance_state',
   startEventId: ':start_event_id',
   userTaskInstanceId: ':user_task_instance_id',
   manualTaskInstanceId: ':manual_task_instance_id',
