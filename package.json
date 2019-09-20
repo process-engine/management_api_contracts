@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@essential-projects/eslint-config": "^1.0.0",
+    "@process-engine/ci_tools": "^2.0.0",
     "@types/socket.io": "^2.1.0",
     "@types/socket.io-client": "^1.4.32",
     "eslint": "^5.16.0",
