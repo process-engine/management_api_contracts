@@ -47,11 +47,38 @@ export interface ICorrelationHttpController {
   getCorrelationsByProcessModelId(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 
   /**
-   * Retrieves the Correlation in which the given ProcessInstance was executed.
+   * Retrieves a ProcessInstance by its ID.
    *
    * @async
    * @param request  The HttpRequest object containing all request infos.
    * @param response The HttpResponse object to use for sending a Http response.
    */
-  getCorrelationByProcessInstanceId(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+  getProcessInstanceById(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
+   * Gets a list of all ProcessInstances that run in the given Correlation.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getProcessInstancesForCorrelation(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
+   * Gets a list of all ProcessInstances for the given ProcessModel.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getProcessInstancesForProcessModel(request: HttpRequestWithIdentity, response: Response): Promise<void>;
+
+  /**
+   * Gets a list of all ProcessInstances that are in a matching state.
+   *
+   * @async
+   * @param request  The HttpRequest object containing all request infos.
+   * @param response The HttpResponse object to use for sending a Http response.
+   */
+  getProcessInstancesByState(request: HttpRequestWithIdentity, response: Response): Promise<void>;
 }

@@ -7,6 +7,7 @@ const params = {
   processDefinitionsName: ':process_definitions_name',
   processModelId: ':process_model_id',
   processInstanceId: ':process_instance_id',
+  processInstanceState: ':process_instance_state',
   startEventId: ':start_event_id',
   userTaskInstanceId: ':user_task_instance_id',
   manualTaskInstanceId: ':manual_task_instance_id',
@@ -21,11 +22,14 @@ const queryParams = {
 
 const paths = {
   // Correlations
-  getActiveCorrelations: '/correlations/active',
   getAllCorrelations: '/correlations/all',
-  getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
-  getCorrelationByProcessInstanceId: `/correlations/process_instance/${params.processInstanceId}`,
+  getActiveCorrelations: '/correlations/active',
   getCorrelationById: `/correlations/${params.correlationId}`,
+  getCorrelationsByProcessModelId: `/correlations/process_model/${params.processModelId}`,
+  getProcessInstanceById: `/process_instances/${params.processInstanceId}`,
+  getProcessInstancesForCorrelation: `/process_instances/by_correlation/${params.correlationId}`,
+  getProcessInstancesForProcessModel: `/process_instances/by_process_model/${params.processModelId}`,
+  getProcessInstancesByState: `/process_instances/by_state/${params.processInstanceState}`,
   // Cronjobs
   getActiveCronjobs: '/cronjobs/active',
   getCronjobExecutionHistoryForProcessModel: '/cronjobs/history/process_model/:process_model_id',
