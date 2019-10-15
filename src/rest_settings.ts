@@ -1,16 +1,29 @@
 const params = {
+  // Id of a correlation.
   correlationId: ':correlation_id',
+  // A crontab.
   crontab: ':crontab',
+  // Instance Id of an EmptyActivity.
   emptyActivityInstanceId: ':empty_activity_instance_id',
+  // Name of an Event.
   eventName: ':event_name',
+  // Id of a FlowNode.
   flowNodeId: ':flow_node_id',
+  // Name of a ProcessDefinition.
   processDefinitionsName: ':process_definitions_name',
+  // Id of a ProcessModel.
   processModelId: ':process_model_id',
+  // Instance Id of a Process.
   processInstanceId: ':process_instance_id',
+  // State of a ProcessInstance.
   processInstanceState: ':process_instance_state',
+  // Id of a StartEvent.
   startEventId: ':start_event_id',
+  // Id of an UserTaskInstance.
   userTaskInstanceId: ':user_task_instance_id',
+  // InstanceId of a ManualTaskInstance.
   manualTaskInstanceId: ':manual_task_instance_id',
+  // Id of a ManualTask.
   manualTaskId: ':manual_task_id',
 };
 
