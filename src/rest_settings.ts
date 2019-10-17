@@ -1,5 +1,5 @@
 const params = {
-  // Id of a correlation.
+  // Id of a Correlation.
   correlationId: ':correlation_id',
   // A crontab.
   crontab: ':crontab',
