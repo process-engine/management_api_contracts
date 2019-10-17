@@ -13,13 +13,13 @@ const params = {
   processDefinitionsName: ':process_definitions_name',
   // Id of a ProcessModel.
   processModelId: ':process_model_id',
-  // Instance Id of a Process.
+  // ID of a ProcessInstance.
   processInstanceId: ':process_instance_id',
   // State of a ProcessInstance.
   processInstanceState: ':process_instance_state',
   // Id of a StartEvent.
   startEventId: ':start_event_id',
-  // Id of an UserTaskInstance.
+  // Id of a UserTaskInstance.
   userTaskInstanceId: ':user_task_instance_id',
   // InstanceId of a ManualTaskInstance.
   manualTaskInstanceId: ':manual_task_instance_id',
@@ -37,13 +37,13 @@ const paths = {
   // Correlations
 
   /*
-   * Gets all Correlations.
+   * Gets all Correlations the requesting user is allowed to see.
    * @tag Correlation
    * @method get
    */
   getAllCorrelations: '/correlations/all',
   /*
-   * Gets all active Correlations.
+   * Gets all active Correlations the requesting user is allowed to see.
    * @tag Correlation
    * @method get
    */
@@ -70,19 +70,19 @@ const paths = {
    */
   getProcessInstanceById: `/process_instances/${params.processInstanceId}`,
   /*
-   * Gets all ProcessInstance by a specific Correlation.
+   * Gets all ProcessInstances running in a specific Correlation.
    * @tag ProcessInstance
    * @method get
    */
   getProcessInstancesForCorrelation: `/process_instances/by_correlation/${params.correlationId}`,
   /*
-   * Gets all ProcessInstance by a specific ProcessModel.
+   * Gets all ProcessInstances for a specific ProcessModel.
    * @tag ProcessInstance
    * @method get
    */
   getProcessInstancesForProcessModel: `/process_instances/by_process_model/${params.processModelId}`,
   /*
-   * Gets all ProcessInstance by a specific State.
+   * Gets all ProcessInstances with a specific state.
    * @tag ProcessInstance
    * @method get
    */
@@ -118,7 +118,7 @@ const paths = {
   // Process Models
 
   /*
-   * Gets all ProcessModels.
+   * Gets all ProcessModels the requesting user is allowed to see.
    * @tag ProcessModel
    * @method get
    */
@@ -130,7 +130,7 @@ const paths = {
    */
   processModelById: `/process_models/${params.processModelId}`,
   /*
-   * Gets a ProcessModel by a ProcessInstance.
+   * Gets the ProcessModel for a specific ProcessInstance.
    * @tag ProcessModel
    * @method get
    */
@@ -148,13 +148,13 @@ const paths = {
    */
   deleteProcessDefinitionsByProcessModelId: `/process_models/${params.processModelId}/delete`,
   /*
-   * Starts a ProcessDefinition by its name.
+   * Starts a ProcessInstance for a specific ProcessModel.
    * @tag ProcessModel
    * @method post
    */
   startProcessInstance: `/process_models/${params.processModelId}/start`,
   /*
-   * Gets all StartEvents for a specific ProcessModel.
+   * Gets all StartEvents of a specific ProcessModel.
    * @tag ProcessModel
    * @method get
    */
@@ -226,7 +226,7 @@ const paths = {
    */
   getOwnEmptyActivities: '/empty_activities/own',
   /*
-   * Finishs a specific EmptyActivity by its ProcessInstanceId, CorrelationId and its EmptyActivityInstanceId.
+   * Finishes a specific EmptyActivity by its ProcessInstanceId, CorrelationId and its EmptyActivityInstanceId.
    * @tag EmptyActivity
    * @method get
    */
@@ -269,7 +269,7 @@ const paths = {
    */
   processModelCorrelationUserTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/user_tasks`,
   /*
-   * Finishs a specific UserTask by its ProcessInstanceId, CorrelationId and its UserTaskInstanceId.
+   * Finishes a specific UserTask by its ProcessInstanceId, CorrelationId and its UserTaskInstanceId.
    * @tag UserTask
    * @method post
    */
@@ -278,31 +278,31 @@ const paths = {
   // ManualTask
 
   /*
-   * Gets all ManualTask for a specific ProcessModel.
+   * Gets all ManualTasks for a specific ProcessModel.
    * @tag ManualTask
    * @method get
    */
   processModelManualTasks: `/process_models/${params.processModelId}/manual_tasks`,
   /*
-   * Gets all ManualTask for a specific ProcessInstance.
+   * Gets all ManualTasks for a specific ProcessInstance.
    * @tag ManualTask
    * @method get
    */
   processInstanceManualTasks: `/process_instances/${params.processInstanceId}/manual_tasks`,
   /*
-   * Gets all ManualTask for a specific Correlation.
+   * Gets all ManualTasks for a specific Correlation.
    * @tag ManualTask
    * @method get
    */
   correlationManualTasks: `/correlations/${params.correlationId}/manual_tasks`,
   /*
-   * Gets all ManualTask for a specific ProcessModel and Correlation.
+   * Gets all ManualTasks for a specific ProcessModel and Correlation.
    * @tag ManualTask
    * @method get
    */
   processModelCorrelationManualTasks: `/process_models/${params.processModelId}/correlations/${params.correlationId}/manual_tasks`,
   /*
-   * Finishs a specific ManualTask by its ProcessInstanceId, CorrelationId and its ManualTaskInstanceId.
+   * Finishes a specific ManualTask by its ProcessInstanceId, CorrelationId and its ManualTaskInstanceId.
    * @tag ManualTask
    * @method post
    */
@@ -323,7 +323,7 @@ const paths = {
    */
   suspendedProcessModelTasks: `/process_models/${params.processModelId}/tasks`,
   /*
-   * Gets all suspended Tasks for a specific PRocessInstance.
+   * Gets all suspended Tasks for a specific ProcessInstance.
    * @tag Task
    * @method get
    */
@@ -344,7 +344,7 @@ const paths = {
   // Heatmap
 
   /*
-   * Gets all RuntimeInformation for a specific ProcessModel.
+   * Gets the RuntimeInformation for a specific ProcessModel.
    * @tag RuntimeInformation
    * @method get
    */
@@ -386,7 +386,7 @@ const paths = {
    */
   getProcessModelLog: `/process_model/${params.processModelId}/logs`,
   /*
-   * Gets the log specific ProcessInstance.
+   * Gets the log of a specific ProcessInstance.
    * @tag Log
    * @method get
    */
