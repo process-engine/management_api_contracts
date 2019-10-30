@@ -1,4 +1,5 @@
 import {LogLevel} from './log_level';
+import {MetricMeasurementPoint} from './metric_measurement_point';
 
 /**
  * Describes a single log entry.
@@ -19,5 +20,9 @@ export class LogEntry {
   public logLevel: LogLevel;
   public message: string;
   public processInstanceId: string;
+  public measuredAt?: MetricMeasurementPoint;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public tokenPayload: any;
+  public error?: Error;
 
 }
